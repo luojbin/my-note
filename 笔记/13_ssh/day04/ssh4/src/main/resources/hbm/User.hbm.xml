@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.tedu.note.entity.User"
+			table="cn_user">
+		<id name="id" column="cn_user_id"></id>
+		<property name="name" column="cn_user_name"
+			type="string"/>
+		<property name="password" column="cn_user_password" />
+		<property name="token" column="cn_user_token" />
+		<property name="nick" column="cn_user_nick" />
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+

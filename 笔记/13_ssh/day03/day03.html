@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day03</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>Struts 简单应用</h2>
+<p>实现一个简单的列表功能</p>
+<p><img src="1.png" /></p>
+<ol>
+<li>
+<p>创建项目导入相关的包:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;
+    &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-spring-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;jstl&lt;/groupId&gt;
+  &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+  &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<blockquote>
+<p>导入目标服务器运行环境 Tomcat Runtime</p>
+</blockquote>
+</li>
+<li>
+<p>配置Struts2 和 Spring: web.xml</p>
+<pre><code>  &lt;filter&gt;
+    &lt;display-name&gt;StrutsPrepareAndExecuteFilter&lt;/display-name&gt;
+    &lt;filter-name&gt;StrutsPrepareAndExecuteFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;StrutsPrepareAndExecuteFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+  &lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;context-param&gt;
+     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+     &lt;param-value&gt;classpath:spring-*.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;  
+</code></pre>
+
+</li>
+<li>
+<p>添加 Spring 和 Struts2 的配置文件</p>
+<blockquote>
+<p>spring-web.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd&quot;&gt;
+
+    &lt;context:component-scan 
+        base-package=&quot;cn.tedu.controller&quot;/&gt;
+
+    &lt;context:component-scan 
+        base-package=&quot;cn.tedu.service&quot;/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+<blockquote>
+<p>struts.xml:</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;
+&lt;struts&gt;
+
+&lt;/struts&gt;
+</code></pre>
+
+</li>
+<li>
+<p>创建业务层:</p>
+<pre><code>@Service
+public class ProductService {
+
+    List&lt;Product&gt; products;
+
+    @PostConstruct
+    private void init(){
+        products = new ArrayList&lt;Product&gt;();
+        products.add(new Product(
+            1,&quot;大黄蜂&quot;,24.5,&quot;变形金刚经典系列&quot;));
+        products.add(new Product(
+            2,&quot;擎天柱&quot;,88.5,&quot;变形金刚经典系列&quot;));
+        products.add(new Product(
+            3,&quot;光头强&quot;,12.5,&quot;大笨熊你粗来!&quot;));
+        products.add(new Product(
+            4,&quot;李老师&quot;,22.5,&quot;胡说派诗人!&quot;));
+        products.add(new Product(
+            5,&quot;范传奇&quot;,23.5,&quot;变形金刚消费者!&quot;));
+    }
+
+    public List&lt;Product&gt; getProducts(){
+        return products;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>创建控制器</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class ProductAction {
+
+    @Resource
+    private ProductService productService;
+
+    private List&lt;Product&gt; products;
+    public List&lt;Product&gt; getProducts() {
+        return products;
+    }
+    public void setProducts(List&lt;Product&gt; products) {
+        this.products = products;
+    }
+
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    //控制器方法
+    public String list(){
+        name = &quot;list&quot;;
+        products = productService.getProducts();
+
+        ActionContext context = 
+                ActionContext.getContext();
+        context.getSession().put(
+            &quot;loginUser&quot;, &quot;老王&quot;);
+
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>创建 list.jsp</p>
+<pre><code>&lt;%@ page contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; 
+    uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;产品管理&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+table {
+    border-collapse: collapse;
+}
+td, th{
+    padding: 5px 10px; 
+}
+th{
+    border-bottom: 2px solid #ddd;
+}
+td{
+    border-top: 1px solid #ccc;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;产品管理&lt;/h1&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;编号&lt;/th&gt;
+                &lt;th&gt;名称&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+                &lt;th&gt;描述&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;c:forEach items=&quot;${products}&quot; var=&quot;p&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;${p.id}&lt;/td&gt;
+                    &lt;td&gt;${p.name}&lt;/td&gt;
+                    &lt;td&gt;${p.price}&lt;/td&gt;
+                    &lt;td&gt;${p.description}&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/c:forEach&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置struts.xml</p>
+<pre><code>&lt;package name=&quot;product&quot;
+    namespace=&quot;/product&quot;
+    extends=&quot;struts-default&quot;&gt;
+
+    &lt;action name=&quot;list&quot; class=&quot;productAction&quot;
+        method=&quot;list&quot;&gt;
+        &lt;result&gt;
+            /WEB-INF/jsp/list.jsp
+        &lt;/result&gt;
+    &lt;/action&gt;   
+&lt;/package&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh3/product/list.action
+</code></pre>
+
+</li>
+</ol>
+<h2>ValueStack</h2>
+<p><img src="4.png" /></p>
+<p>Struts 中共享数据的一个机制, 利用ValueStack可以在Struts组件之间共享数据:</p>
+<p><img src="3.png" /></p>
+<p>Struts组件包括:</p>
+<ul>
+<li>构造器 Action</li>
+<li>结果 Result</li>
+<li>视图 JSP</li>
+<li>配置文件 struts.xml</li>
+</ul>
+<blockquote>
+<p>JSP 中使用 s:debug 标签可以显示 ValueStack 对象</p>
+</blockquote>
+<p>案例:</p>
+<ol>
+<li>
+<p>创建vs.jsp</p>
+<pre><code>&lt;%@ page contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@ taglib prefix=&quot;s&quot; uri=&quot;/struts-tags&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;产品管理&lt;/title&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+table {
+    border-collapse: collapse;
+}
+td, th{
+    padding: 5px 10px; 
+}
+th{
+    border-bottom: 2px solid #ddd;
+}
+td{
+    border-top: 1px solid #ccc;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;ValueStack&lt;/h2&gt;
+    &lt;s:debug&gt;&lt;/s:debug&gt;
+    &lt;h2&gt;利用OGNL表的式读取ValueStack中的数据&lt;/h2&gt;
+    &lt;p&gt;读取ValueStack中的Action对象的数据&lt;/p&gt;
+    &lt;s:property value=&quot;products[0].name&quot;/&gt; 
+    &lt;h3&gt;利用ValueStack 和 OGNL 显示商品列表&lt;/h3&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;ID&lt;/th&gt;
+                &lt;th&gt;名称&lt;/th&gt;
+                &lt;th&gt;价格&lt;/th&gt;
+                &lt;th&gt;描述&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;s:iterator value=&quot;products&quot; var=&quot;p&quot;&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;&lt;s:property value=&quot;id&quot;/&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;s:property value=&quot;name&quot;/&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;s:property value=&quot;price&quot;/&gt;&lt;/td&gt;
+                    &lt;td&gt;&lt;s:property value=&quot;description&quot;/&gt;&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/s:iterator&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置struts.xml</p>
+<pre><code>&lt;action name=&quot;vs&quot; class=&quot;productAction&quot;
+    method=&quot;list&quot;&gt;
+    &lt;result&gt;
+        /WEB-INF/jsp/vs.jsp
+    &lt;/result&gt;
+&lt;/action&gt;   
+</code></pre>
+
+<blockquote>
+<p>重用控制器 productAction </p>
+</blockquote>
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh3/product/vs.action
+</code></pre>
+
+<blockquote>
+<p>说明使用 ValueStack 和 OGNL 也可以显示产品列表.</p>
+</blockquote>
+</li>
+</ol>
+<h3>使用OGNL表达式可以读取 ValueStack 中的数据</h3>
+<p>JSP 中 可以使用 Struts 标签配合 OGNL 表达式读取 ValueStack中的数据, 由于Action对象被放到了 ValueStack中这样就可以, Action 到 JSP共享数据了. </p>
+<p>关于 ValueStack 和 OGNL</p>
+<ol>
+<li>
+Struts2 中利用ValueStack 在所有组件之间共享数据
+<ul>
+<li>其中 控制器也被放到 ValueStack 中</li>
+</ul>
+</li>
+<li>在任何组件中可以使用 ONGL 表达式读取ValueStack中的数据, 包含读取控制器 Action 中的数据</li>
+<li>
+在使用OGNL读取ValueStack数据时候是按照从顶到下顺序查找!
+<ul>
+<li>建议不要将数据的名字重复,避免遮挡!</li>
+</ul>
+</li>
+<li>
+Struts2 底层接管了 EL和JSTL, 将EL数据读取转到了ValueStack上! EL的读取结果与 ONGL 一样!
+<ul>
+<li>Struts 标签和ONGL配合 与 EL和JSTL配合的结果是一样的!</li>
+</ul>
+</li>
+<li>
+如果需要读取ValueStack的Context区域,就必须使用OGNL
+<ul>
+<li>如: <code>&lt;s:property value=&quot;#session.loginUser&quot;/&gt;</code></li>
+</ul>
+</li>
+</ol>
+<p>案例:</p>
+<ol>
+<li>
+<p>编写控制器</p>
+<pre><code>/**
+ * 利用 ValueStack 共享数据 
+ */
+@Controller
+@Scope(&quot;prototype&quot;)
+public class DataAction extends AbstractAction{
+
+    //在内容区域共享数据, 利用控制器的Bean属性
+    private String name;
+    private int age;
+    //@Value(&quot;#{cfg.data}&quot;)
+    private String target; //目标网页名
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String getTarget() {
+        return target;
+    }
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
+    public String execute(){
+
+        //上下文区域(环境) Context 区域, 共享数据
+        request.put(&quot;message&quot;, &quot;Struts 测试&quot;);
+        session.put(&quot;loginState&quot;, &quot;已经登录&quot;);
+        application.put(&quot;count&quot;, 55);
+
+        name=&quot;老王&quot;;
+        age = 123;
+        target = &quot;show.jsp&quot;;//目标视图页面
+
+        return SUCCESS;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写 show.jsp </p>
+<pre><code>&lt;%@ page contentType=&quot;text/html; charset=utf-8&quot;
+    pageEncoding=&quot;utf-8&quot;%&gt;
+&lt;%@ taglib prefix=&quot;c&quot; 
+    uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;%@ taglib prefix=&quot;s&quot; uri=&quot;/struts-tags&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;ValueStack&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;ValueStack&lt;/h1&gt;
+    &lt;h2&gt;读取内容区域的值&lt;/h2&gt;
+    &lt;s:property value=&quot;name&quot;/&gt;
+    &lt;s:property value=&quot;age&quot;/&gt;
+    &lt;s:property value=&quot;target&quot;/&gt;
+
+    &lt;h2&gt;读取上下文区域的值&lt;/h2&gt;
+    &lt;p&gt;读取上下文区域使用#为开头的表达式&lt;/p&gt;
+    &lt;s:property value=&quot;#request.message&quot;/&gt;
+    &lt;s:property value=&quot;#session.loginState&quot;/&gt;
+    &lt;s:property value=&quot;#application.count&quot;/&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 利用 OGNL 读取ValueStack中的数据 --&gt;
+&lt;action name=&quot;data&quot; class=&quot;dataAction&quot;&gt;
+    &lt;result&gt;
+        /WEB-INF/jsp/${target}
+    &lt;/result&gt;
+&lt;/action&gt;   
+</code></pre>
+
+<blockquote>
+<p>表达式${target} 就是利用ValueStack从控制器读取了属性值. </p>
+</blockquote>
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh3/product/data.action
+</code></pre>
+
+</li>
+</ol>
+<h1>Hibernate</h1>
+<p>Struts : 架子
+Spring : 春天</p>
+<p>Hibernate 冬眠: 把对象冬眠一样持久的保存到数据库中.</p>
+<p>核心想法: java程序员按照面向对象的方式操作数据库, 不再需要使用SQL.</p>
+<p>Hibernate 的问题</p>
+<ol>
+<li>不用写SQL, 但是要重新学习 HQL</li>
+<li>会生成不理想的SQL, 影响数据库性能</li>
+<li>特殊操作, 无法实现!</li>
+</ol>
+<p>解决了 ORM 问题: 对象关系映射问题</p>
+<h2>Hibernate 结构</h2>
+<p><img src="6.png" /></p>
+<h2>使用Hibernate</h2>
+<ol>
+<li>
+<p>导入包:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+  &lt;version&gt;3.6.9.Final&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;5.1.6&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置Hibernate主配置文件 hibernate.cfg.xml:</p>
+<pre><code>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;!DOCTYPE hibernate-configuration PUBLIC
+    &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
+    &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;&gt;
+&lt;hibernate-configuration&gt;
+    &lt;session-factory&gt;
+        &lt;property name=&quot;dialect&quot;&gt;
+            org.hibernate.dialect.MySQLDialect
+        &lt;/property&gt;
+        &lt;property name=&quot;connection.username&quot;&gt;root&lt;/property&gt;
+        &lt;property name=&quot;connection.password&quot;&gt;root&lt;/property&gt;
+        &lt;property name=&quot;connection.url&quot;&gt;
+            jdbc:mysql://localhost:3306/cloud_note
+        &lt;/property&gt;
+        &lt;property name=&quot;connection.driver_class&quot;&gt;
+            com.mysql.jdbc.Driver
+        &lt;/property&gt;
+        &lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;
+        &lt;property name=&quot;format_sql&quot;&gt;true&lt;/property&gt;
+        &lt;mapping resource=&quot;Person.hbm.xml&quot;/&gt;
+    &lt;/session-factory&gt;
+&lt;/hibernate-configuration&gt;
+</code></pre>
+
+<blockquote>
+<p>主配置文件主要是提供 数据库 连接参数和MySQL方言</p>
+<p>注意: 面试时候经常有人问方言!!!</p>
+<p>show<em>sql 和 format</em>sql 属性用于调试阶段, 在控制台显示Hibernate生成并且执行的SQL语句.</p>
+</blockquote>
+</li>
+<li>
+<p>创建表:</p>
+<pre><code>create table p_person(
+    id int not null AUTO_INCREMENT,
+    name varchar(100),
+    primary key(id)
+);
+
+insert into p_person (name) values ('李老师');
+insert into p_person (id, name) values (null,'李老师');
+</code></pre>
+
+</li>
+<li>
+<p>创建实体类 Person</p>
+<pre><code>public class Person implements Serializable{
+
+    private Integer id;
+    private String name;
+
+    public Person() {
+    }
+
+    public Person(Integer id, String name) {
+        super();
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Person [id=&quot; + id + &quot;, name=&quot; + name + &quot;]&quot;;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Person other = (Person) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写映射文件		</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+ &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+ &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;!-- Hibernate 映射文件负责: 
+映射 实体和表的对应关系, 映射实体属性和列的对应关系
+Class Person{          p_person(
+  id                     id
+  name                   name
+}                      )
+ --&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.entity.Person&quot;
+            table=&quot;p_person&quot;&gt;
+        &lt;!-- id 属性是主键, 使用id标签映射 --&gt;
+        &lt;id name=&quot;id&quot; column=&quot;id&quot;&gt;
+            &lt;!-- class=identity 用于处理自增类型 --&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;!-- 映射普通属性 
+          Person.name -&gt; p_person.name --&gt;
+        &lt;property name=&quot;name&quot; column=&quot;name&quot;/&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+<blockquote>
+<p>Hibernate 映射文件负责:  映射 实体和表的对应关系, 映射实体属性和列的对应关系</p>
+</blockquote>
+</li>
+<li>
+<p>编写测试案例: </p>
+<pre><code>public class HibernateTest {
+
+    @Test
+    public void testSavePerson(){
+        //参考: Hibernate 官方手册!
+
+        //读取配置文件
+        Configuration cfg=new Configuration();
+        cfg.configure(&quot;hibernate.cfg.xml&quot;);
+        //创建Session工厂
+        SessionFactory factory = 
+                cfg.buildSessionFactory();
+        //利用Session工厂创建Session 
+        Session session=factory.openSession();
+        //session 自动提供了对象的 CRUD 操作方法
+
+        //从数据库中查询id为1的person对象
+        Person p = 
+            (Person)session.get(Person.class,1);
+        System.out.println(p);
+
+        //最后务必关闭 session
+        session.close();
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试...</p>
+</li>
+</ol>
+<h2>Hibernate 可以自动的完成CRUD方法:</h2>
+<p>重构测试案例:</p>
+<pre><code>public class HibernateTest {
+
+    SessionFactory factory;
+    Session session;
+    @Before
+    public void init(){
+        Configuration cfg=new Configuration();
+        cfg.configure(&quot;hibernate.cfg.xml&quot;);
+        factory = cfg.buildSessionFactory();
+        session = factory.openSession();
+    }
+
+    @After
+    public void destory(){
+        session.close();
+        factory.close();
+    }
+
+    @Test
+    public void testGet(){
+        Person p = (Person)session.get(
+                Person.class, 7);
+        System.out.println(p);
+    }
+    @Test
+    public void testAdd(){
+        //将新对象保存到数据库中, 需要开启事务
+        Transaction tx=session.beginTransaction();
+        Person one = new Person(null, &quot;熊大&quot;);
+        session.save(one);
+        tx.commit();//提交事务
+        System.out.println(one);
+    }
+
+    @Test
+    public void testUpdate(){
+        //更新数据 
+        Transaction tx = session.beginTransaction();
+        Person p = (Person)session.get(
+                Person.class, 7);
+        p.setName(&quot;范传奇&quot;); 
+        session.update(p);
+        tx.commit();
+    }
+
+    @Test
+    public void testDelete(){
+        //更新数据 
+        Transaction tx = session.beginTransaction();
+        Person p = (Person)session.get(
+                Person.class, 7);
+        session.delete(p);
+        tx.commit();
+    }
+
+
+    @Test
+    public void testSavePerson(){
+        //参考: Hibernate 官方手册!
+
+        //读取配置文件
+        Configuration cfg=new Configuration();
+        cfg.configure(&quot;hibernate.cfg.xml&quot;);
+        //创建Session工厂
+        SessionFactory factory = 
+                cfg.buildSessionFactory();
+        //利用Session工厂创建Session 
+        Session session=factory.openSession();
+        //session 自动提供了对象的 CRUD 操作方法
+
+        //从数据库中查询id为1的person对象
+        Person p = 
+            (Person)session.get(Person.class,1);
+        System.out.println(p);
+
+        //最后务必关闭 session
+        session.close();
+    }
+}
+</code></pre>
+
+<p>测试</p>
+<h2>整合 Spring 和 Hibernate</h2>
+<p>Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:</p>
+<ol>
+<li>提供了 LocalSessionFactoryBean 简化 Configuration 和 SessionFactory </li>
+<li>提供了 HibernateTempalte 简化 session 的使用.</li>
+</ol>
+<p>配置使用:</p>
+<ol>
+<li>
+<p>导入包:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+  &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
+  &lt;version&gt;1.4&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Spring配置文件 spring-orm.xml</p>
+</li>
+<li>
+<p>配置数据源, 用于连接数据库:</p>
+<pre><code>&lt;!-- 1. 配置数据库连接池 --&gt;
+&lt;bean id=&quot;dataSource&quot; 
+    class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;&gt;
+    &lt;property name=&quot;driverClassName&quot;
+        value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+    &lt;property name=&quot;url&quot;
+        value=&quot;jdbc:mysql://localhost:3306/cloud_note&quot;/&gt;
+    &lt;property name=&quot;username&quot;
+        value=&quot;root&quot;/&gt;
+    &lt;property name=&quot;password&quot;
+        value=&quot;root&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置SessionFactory</p>
+<pre><code>&lt;!-- 2. 配置Session工厂--&gt;
+&lt;!-- Spring orm提供了一个工厂Bean, 用于管理Hibernate
+的 Session 工厂 --&gt;
+&lt;bean id=&quot;sessionFactory&quot; 
+    class=&quot;org.springframework.orm.hibernate3.LocalSessionFactoryBean&quot;&gt;
+    &lt;property name=&quot;dataSource&quot;
+        ref=&quot;dataSource&quot;/&gt;
+    &lt;property name=&quot;hibernateProperties&quot;&gt;
+        &lt;props&gt;
+            &lt;prop key=&quot;hibernate.dialect&quot;&gt;
+                org.hibernate.dialect.MySQLDialect
+            &lt;/prop&gt;         
+            &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;
+            &lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;
+        &lt;/props&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;mappingLocations&quot;&gt;
+        &lt;list&gt;
+            &lt;value&gt;classpath:Person.hbm.xml&lt;/value&gt;
+        &lt;/list&gt;
+    &lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置 HibernateTemplate</p>
+<pre><code>&lt;!-- 3. 配置HibernateTemplate --&gt;
+&lt;bean id=&quot;hibernateTemplate&quot;
+    class=&quot;org.springframework.orm.hibernate3.HibernateTemplate&quot;&gt;
+    &lt;property name=&quot;sessionFactory&quot;
+        ref=&quot;sessionFactory&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>public class SpringHibernateTest {
+
+    ClassPathXmlApplicationContext ctx;
+    HibernateTemplate temp;
+    @Before
+    public void init(){
+        ctx = new ClassPathXmlApplicationContext(
+            &quot;spring-orm.xml&quot;);
+        temp = ctx.getBean(
+                &quot;hibernateTemplate&quot;,
+                HibernateTemplate.class);
+    }
+    @After
+    public void destroy(){
+        ctx.close();
+    }
+
+    @Test
+    public void testGet(){
+        //HibernateTemplate 可以替代 session
+        //并且使用更加简便(可以不用管理事务,等)
+        Person p = temp.get(Person.class, 1);
+        System.out.println(p); 
+    }
+}
+</code></pre>
+
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>测试 Hibernate的 CRUD 功能</li>
+<li>实现 Spring  Hibernate  整合, 测试整合后的 CRUD 功能</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

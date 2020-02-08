@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 修改请求扩展名 action改为do -->
+	<constant name="struts.action.extension" 
+		value="do"></constant>
+	
+	<package name="basepkg" 
+		extends="json-default">
+		<interceptors>
+			<interceptor name="demo" 
+				class="myInterceptor"/>
+			
+			<interceptor name="execInte" 
+				class="exceptionInterceptor"/>
+			
+			<interceptor-stack name="noteStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="execInte"></interceptor-ref>
+			</interceptor-stack>
+			
+			<interceptor-stack name="demoStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="demo"></interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		
+		<default-interceptor-ref name="noteStack"/>
+		
+		<global-results>
+			<result name="json" type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</global-results>
+	
+	</package>
+		
+	<package name="user" namespace="/user"
+		extends="basepkg">
+		<action name="login" class="userAction"
+			method="login"/>
+		<action name="regist" class="userAction"
+			method="regist"/>
+		<action name="heartbeat" class="userAction"
+			method="heartbeat"/>
+	</package>
+	
+	<package name="notebook" extends="basepkg"
+		namespace="/notebook">
+		<action name="page" 
+			class="notebookAction"
+			method="page"/>
+		
+		<action name="list" 
+			class="notebookAction"
+			method="list"/>
+		
+	</package>
+	
+	<package name="note" namespace="/note"
+		extends="basepkg">
+		<action name="list" class="noteAction"
+			method="list"/>	
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

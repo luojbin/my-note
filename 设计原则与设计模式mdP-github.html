@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>设计原则与设计模式</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,code, big, cite, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Microsoft YaHei, Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0 5px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+  margin-top: 5px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 14px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 10px 0 ;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 10px 0 15px 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  margin: 0 0 15px 0;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid green;
+  padding: 0 15px;
+  margin:5px 0 10px 0;
+  color: red;
+}
+
+blockquote>:first-child {
+  margin-top: 5px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 10px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+	width:100%;
+  max-width: 650px;
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h1>设计原则及常见设计模式</h1>
+<p>参考书: &lt;&lt; Java与模式 &gt;&gt;</p>
+<h1>一. 设计原则</h1>
+<h2>1. 面向对象的设计原则</h2>
+<p>在实际的开发中, 我们要想更深入地了解面向对象思想,<br>
+就必须熟悉前任总结过的面向对象的思想的设计原则</p>
+<ul>
+<li>单一职责原则</li>
+<li>开闭原则</li>
+<li>里氏替换原则</li>
+<li>依赖注入原则</li>
+<li>接口分离原则</li>
+<li>迪米特原则</li>
+</ul>
+<h2>1. 单一职责原则</h2>
+<ul>
+<li>核心思想: 高内聚, 低耦合</li>
+<li>每个类都应该只有一个职责, 对外只能提供一种功能,</li>
+<li>而引起类变化的原因应该只有一个</li>
+<li>在设计模式中, 所有的设计模式都遵循这一原则</li>
+</ul>
+<p>单一职责的类, 功能简单, 更利于重用<br>
+若一个类设计得过于复杂, 功能复杂, 那么就很难适应别的地方, 重用性差</p>
+<h2>2. 开闭原则</h2>
+<ul>
+<li>核心思想: 一个对象, 对扩展开放, 对修改关闭.</li>
+<li>即对类的修改, 是通过增加代码进行得, 而不是修改现有得代码</li>
+<li>也即是说软件开发人员一旦写出了可以运行的代码, 就不应该去改动它, 而是要保证他能一直运行下去.</li>
+<li>通常需要借助于抽象和多态, 即把可能变化的内容抽象处理啊, 从而是抽象的部分是相对稳定的, 而具体的实现则是可以改变和扩展的</li>
+</ul>
+<h2>3. 里氏替换原则 ( -&gt;开闭原则 )</h2>
+<p>核心思想: 在任何父类出现的地方, 都可以用它的子类来替代<br>
+也就是说, 同一个继承体系中的对象, 应该有共同的行为特征<br>
+其目的是为了满足开闭原则</p>
+<p>两同两小一大原则</p>
+<h2>4. 依赖注入原则 (-&gt;开闭原则 )</h2>
+<ul>
+<li>核心思想: 要依赖于抽象, 不要依赖于具体实现</li>
+<li>内涵: 如果一个类需要使用或者依赖其他的类, 则应该依赖与这些类的抽象类, 而不是这些类的具体实现类.</li>
+<li>方法: 在编程的时候, 针对抽象类或接口编程, 而不是针对具体实现编程</li>
+</ul>
+<h2>5. 接口分离原则 ( -&gt;单一职责原则 )</h2>
+<ul>
+<li>核心思想: 不应该强迫程序依赖他们不需要使用的方法</li>
+<li>内涵: 一个接口不需要提供太多的行为, 一个接口应该只提供一两种密切相关的功能, 不应该把所有的操作都封装在一个接口中</li>
+</ul>
+<h2>6. 迪米特原则 ( -&gt;开闭原则 )</h2>
+<p>核心思想: 一个对象应当对其他对象尽可能少的了解<br>
+内涵: 降低各个对象之间的耦合, 提高系统的可维护性<br>
+在模块之间应该只通过接口便车个, 而不理会模块的内部工作原理.它可以使各个模块之间的耦合度降到最低</p>
+<h1>二. 常见设计模式</h1>
+<ul>
+<li>
+<p>设计模式, 是一套被反复使用, 多数人知晓的, 经过分类编目的, 代码设计经验的总结</p>
+</li>
+<li>
+<p>使用设计模式是为了可重用代码, 让代码更容易被他人理解, 保证代码可靠性</p>
+</li>
+<li>
+<p>设计模式不是一种方法和技术, 而是一种思想</p>
+</li>
+<li>
+<p>设计模式和具体的语言无关, 学习设计模式就是要建立面向对象的思想, 尽可能的面向接口编程, 高内聚低耦合, 使设计的程序可复用性更好</p>
+</li>
+<li>
+<p>学习设计模式能够促进对面向对象思想的理解, 反之亦然, 两者相辅相成</p>
+</li>
+<li>
+<p>设计模式的几个要素</p>
+<ul>
+<li>名字 一个简单, 有意义的名字</li>
+<li>问题 描述在何时使用模式</li>
+<li>解决方案 描述设计的组成部分以及如何解决问题</li>
+<li>效果 描述模式的效果以及优缺点</li>
+</ul>
+</li>
+<li>
+<p>设计模式的分类</p>
+<ul>
+<li>创建型模式 对象的创建</li>
+<li>结构型模式 对象的组成</li>
+<li>行为型模式 对象的行为</li>
+</ul>
+</li>
+</ul>
+<h2>1. 简单工厂模式</h2>
+<ul>
+<li>又叫静态工厂方法模式, 定义了一个具体的工厂类, 负责创建一些类的实例</li>
+<li>优点: 客户端不需要再负责对象的创建, 从而明确了各个类的职责</li>
+<li>缺点: 这个静态工厂类负责所有对象的创建, 如果有新的对象增加, 或者某些对象的创建方式不同, 就需要不断的修改工厂类, 不利于后期的维护</li>
+</ul>
+<h3>案例: 简单工厂</h3>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">interface</span> <span class="pl-en">Animal</span>(){}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Cat</span> <span class="pl-k">implements</span> <span class="pl-e">Animal</span>{}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Dog</span> <span class="pl-k">implements</span> <span class="pl-e">Animal</span>{}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">AnimalFactory</span>(){
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Dog</span> <span class="pl-en">createDog</span>(){
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+    }
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Cat</span> <span class="pl-en">createCat</span>(){
+      	<span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Cat</span>();
+    }
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Animal</span> <span class="pl-en">createAnimal</span>(<span class="pl-smi">String</span> <span class="pl-v">type</span>){
+        <span class="pl-k">if</span>(<span class="pl-s"><span class="pl-pds">"</span>dog<span class="pl-pds">"</span></span><span class="pl-k">.</span>equals(type)){
+          	<span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+        }<span class="pl-k">else</span> <span class="pl-k">if</span>(<span class="pl-s"><span class="pl-pds">"</span>cat<span class="pl-pds">"</span></span><span class="pl-k">.</span>euqals(type)){
+          	<span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Cat</span>();
+        }
+        <span class="pl-k">return</span> <span class="pl-c1">null</span>;
+    }
+}</pre></div>
+<h2>2. 工厂方法模式</h2>
+<h3>2.1. 原理</h3>
+<ul>
+<li>概述<br>
+工厂方法模式中, 抽象工厂类负责定义创建对象的接口, 具体对象的创建工作由集成抽象工厂的具体类实现</li>
+<li>优点<br>
+客户端不需要再负责对象的创建, 从而明确了各个类的职责, 如果又新的对象增减, 只需要增加一个具体的类和具体的工厂类即可, 不影响已有的代码<br>
+后期维护容易, 增强了系统的扩展性</li>
+<li>缺点<br>
+需要额外的编写代码, 增加了工作量</li>
+</ul>
+<h3>2.2. 案例: 工厂方法</h3>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">Animal</span>(){}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Cat</span> <span class="pl-k">implements</span> <span class="pl-e">Animal</span>{}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Dog</span> <span class="pl-k">implements</span> <span class="pl-e">Animal</span>{}
+
+<span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">Factory</span>{
+    <span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-smi">Animal</span> <span class="pl-en">createAnimal</span>();
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">DogFactory</span> <span class="pl-k">implements</span> <span class="pl-e">Factory</span>{
+    <span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-smi">Animal</span> <span class="pl-en">createAnimal</span>(){
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Dog</span>();
+    }
+}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">CatFactory</span> <span class="pl-k">implements</span> <span class="pl-e">Factory</span>{
+    <span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-smi">Animal</span> <span class="pl-en">createAnimal</span>(){
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Cat</span>();
+    }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FactoryDemo</span>{
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+        <span class="pl-smi">Factory</span> factory1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">DogFactory</span>();
+        <span class="pl-smi">Animal</span> dog <span class="pl-k">=</span> factory1<span class="pl-k">.</span>createAnimal();
+
+        <span class="pl-smi">Factory</span> factory2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">DogFactory</span>();
+        <span class="pl-smi">Animal</span> cat <span class="pl-k">=</span> factory2<span class="pl-k">.</span>createAnimal();
+    }
+}</pre></div>
+<h2>3. 模板设计模式(抽象类工厂)</h2>
+<p>模板设计模式, 抽象类工厂<br>
+可以用来生产不同系列的对象.</p>
+<h3>3.1. 原理</h3>
+<ul>
+<li>核心思想</li>
+<li>内涵</li>
+<li>具体做法<br>
+抽象工厂, 就是工厂方法的升级, 可以一个工厂, 生成若干类型的</li>
+</ul>
+<h3>3.2. 案例:</h3>
+<ul>
+<li>
+<p>引擎系列</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">Engine</span> {}
+  
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">EngineA</span> <span class="pl-k">implements</span> <span class="pl-e">Engine</span> {
+  <span class="pl-k">public</span> <span class="pl-en">EngineA</span>(){
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>制造 引擎A<span class="pl-pds">"</span></span>);
+  }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">EngineB</span> <span class="pl-k">implements</span> <span class="pl-e">Engine</span> {
+  <span class="pl-k">public</span> <span class="pl-en">EngineB</span>() {
+    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>制造 引擎B<span class="pl-pds">"</span></span>);
+  }
+}</pre></div>
+</li>
+<li>
+<p>空调系列</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">Aircondition</span>{}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">AirconditionA</span> <span class="pl-k">implements</span> <span class="pl-e">Aircondition</span> {
+    <span class="pl-k">public</span> <span class="pl-en">AirconditionA</span>() {
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>制造 空调A<span class="pl-pds">"</span></span>);
+    }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">AirconditionB</span> <span class="pl-k">implements</span> <span class="pl-e">Aircondition</span>  {
+    <span class="pl-k">public</span> <span class="pl-en">AirconditionB</span>() {
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>制造 空调B<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+</li>
+<li>
+<p>抽象工厂</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">interface</span> <span class="pl-en">AbstractFactory</span> {
+    <span class="pl-k">public</span> <span class="pl-smi">Engine</span> <span class="pl-en">createEngine</span>();
+    <span class="pl-k">public</span> <span class="pl-smi">Aircondition</span> <span class="pl-en">createAircondition</span>();
+}</pre></div>
+</li>
+<li>
+<p>实体工厂类</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FactoryBMW3</span> {
+    <span class="pl-k">public</span> <span class="pl-smi">Engine</span> <span class="pl-en">createEngine</span>() {
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">EngineA</span>();
+    }
+    <span class="pl-k">public</span> <span class="pl-smi">Aircondition</span> <span class="pl-en">createAircondition</span>() {
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">AirconditionA</span>();
+    }
+}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">FactoryBMW5</span> {
+	<span class="pl-k">public</span> <span class="pl-smi">Engine</span> <span class="pl-en">createEngine</span>() {
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">EngineB</span>();
+     }
+	<span class="pl-k">public</span> <span class="pl-smi">Aircondition</span> <span class="pl-en">createAircondition</span>() {
+        <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">AirconditionB</span>();
+	}
+}</pre></div>
+</li>
+</ul>
+<h2>4. 装饰设计模式(IO流)</h2>
+<h3>4.1. 原理</h3>
+<ul>
+<li>核心思想</li>
+<li>内涵</li>
+<li>具体做法</li>
+</ul>
+<h3>4.2. 案例</h3>
+<h2>5. 单例设计模式(多线程)</h2>
+<h3>5.1. 原理:</h3>
+<ul>
+<li>
+<p>概述<br>
+单例模式就是要确保类在内存中只有一个对象, 该实例必须自动创建, 并且对外提供</p>
+</li>
+<li>
+<p>优点<br>
+在系统内存中只存在一个对象, 因此可以节约系统资源, 对于一些需要频繁创建和销毁的对象, 单例模式无疑可以提高系统的性能</p>
+</li>
+<li>
+<p>缺点<br>
+没有抽象层, 因此扩展很难<br>
+职责过重, 在一定程度上违背了单一职责</p>
+</li>
+<li>
+<p>细分</p>
+<ul>
+<li>饿汉式:</li>
+<li>懒汉式</li>
+</ul>
+</li>
+</ul>
+<h3>5.2. 具体操作</h3>
+<h3>5.2. 案例:</h3>
+<h4>1) 饿汉式</h4>
+<p>在类加载的时候, 同时创建自身对象<br>
+即在使用之前就先创建好</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-c"><span class="pl-c">//</span>一个实体类</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Student</span>{
+    <span class="pl-c"><span class="pl-c">//</span>私有的构造方法</span>
+    <span class="pl-k">private</span> <span class="pl-en">Student</span>(){}
+
+    <span class="pl-c"><span class="pl-c">//</span>静态域存放了一个对象    </span>
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">Student</span> s1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Student</span>();
+
+    <span class="pl-c"><span class="pl-c">//</span>公共方法, 对外提供这类唯一的一个对象</span>
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Student</span> <span class="pl-en">getStudent</span>(){
+        <span class="pl-k">return</span> s1;
+    }
+}</pre></div>
+<h4>2) 懒汉式</h4>
+<p>在类加载的时候先不创建对象<br>
+在第一次使用的时候才创建对象<br>
+注意! 懒汉式的单例模式有可能存在线程安全问题</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-c"><span class="pl-c">//</span>一个实体类</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Teacher</span>{
+    <span class="pl-c"><span class="pl-c">//</span>私有的构造方法</span>
+    <span class="pl-k">private</span> <span class="pl-en">Teacher</span>(){}
+
+    <span class="pl-c"><span class="pl-c">//</span>静态域存放了一个对象, 声明但未初始化   </span>
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">Teacher</span> t;
+
+    <span class="pl-c"><span class="pl-c">//</span>公共方法, 对外提供这类唯一的一个对象</span>
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Teacher</span> <span class="pl-en">getTeacher</span>(){
+        <span class="pl-c"><span class="pl-c">//</span>判断对象是否存在, 不存在则创建新对象</span>
+        <span class="pl-k">if</span>(t<span class="pl-k">==</span><span class="pl-c1">null</span>){
+            t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Teacher</span>();
+        }
+        <span class="pl-k">return</span> t;
+    }
+}</pre></div>
+<h4>3) 演示</h4>
+<p>单线程情况</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TeacherDemo</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+        <span class="pl-smi">Teacher</span> t1 <span class="pl-k">=</span> <span class="pl-smi">Teacher</span><span class="pl-k">.</span>getTeacher();
+        <span class="pl-smi">Teacher</span> t1 <span class="pl-k">=</span> <span class="pl-smi">Teacher</span><span class="pl-k">.</span>getTeacher();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(t1 <span class="pl-k">==</span> t2); <span class="pl-c"><span class="pl-c">//</span>true</span>
+    }
+}</pre></div>
+<p>多线程情况</p>
+<ul>
+<li>
+<p>懒汉式基本写法</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-c"><span class="pl-c">//</span>一个实体类</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Teacher</span>{
+    <span class="pl-c"><span class="pl-c">//</span>私有的构造方法</span>
+    <span class="pl-k">private</span> <span class="pl-en">Teacher</span>(){}
+
+    <span class="pl-c"><span class="pl-c">//</span>静态域存放了一个对象, 声明但未初始化   </span>
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">Teacher</span> t;
+
+    <span class="pl-c"><span class="pl-c">//</span>公共方法, 对外提供这类唯一的一个对象</span>
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Teacher</span> <span class="pl-en">getTeacher</span>(){
+        <span class="pl-c"><span class="pl-c">//</span>判断对象是否存在, 不存在则创建新对象</span>
+        <span class="pl-k">if</span>(t<span class="pl-k">==</span><span class="pl-c1">null</span>){
+        <span class="pl-k">try</span>{
+            <span class="pl-c"><span class="pl-c">//</span>休眠,以演示线程安全问题</span>
+            <span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">1000</span>);
+        } <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e){
+        	e<span class="pl-k">.</span>printStackTrace();
+        }
+        	t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Teacher</span>();
+        }
+        	<span class="pl-k">return</span> t;
+    }
+}</pre></div>
+</li>
+<li>
+<p>演示类</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TeacherDemo2</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+        <span class="pl-k">new</span> <span class="pl-smi">Thread</span>() {
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>(){
+                <span class="pl-smi">Teacher</span> t1 <span class="pl-k">=</span> <span class="pl-smi">Teacher</span><span class="pl-k">.</span>getTeacher();
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(t1);
+            }
+        }<span class="pl-k">.</span>start();
+    
+        <span class="pl-k">new</span> <span class="pl-smi">Thread</span>() {
+            <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">run</span>(){
+                <span class="pl-smi">Teacher</span> t1 <span class="pl-k">=</span> <span class="pl-smi">Teacher</span><span class="pl-k">.</span>getTeacher();
+                <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(t1);
+            }
+        }<span class="pl-k">.</span>start();
+    }
+} 
+<span class="pl-c"><span class="pl-c">//</span>两个线程获取的对象不一样, 出现线程安全问题</span></pre></div>
+</li>
+<li>
+<p>饿汉式修正写法</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Teacher</span>{
+    <span class="pl-c"><span class="pl-c">//</span>私有的构造方法</span>
+    <span class="pl-k">private</span> <span class="pl-en">Teacher</span>(){}
+
+    <span class="pl-c"><span class="pl-c">//</span>静态域存放了一个对象, 声明但未初始化   </span>
+    <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-smi">Teacher</span> t;
+
+    <span class="pl-c"><span class="pl-c">//</span>公共方法, 对外提供这类唯一的一个对象</span>
+    <span class="pl-k">public</span> <span class="pl-k">synchronized</span> <span class="pl-k">static</span> <span class="pl-smi">Teacher</span> <span class="pl-en">getTeacher</span>(){
+        <span class="pl-c"><span class="pl-c">//</span>判断对象是否存在, 不存在则创建新对象</span>
+        <span class="pl-k">if</span>(t<span class="pl-k">==</span><span class="pl-c1">null</span>){
+            <span class="pl-k">try</span>{
+                <span class="pl-c"><span class="pl-c">//</span>休眠,以演示线程安全问题</span>
+                <span class="pl-smi">Thread</span><span class="pl-k">.</span>sleep(<span class="pl-c1">1000</span>);
+            } <span class="pl-k">catch</span> (<span class="pl-smi">InterruptedException</span> e){
+                e<span class="pl-k">.</span>printStackTrace();
+            }
+            t <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Teacher</span>();
+        }
+        <span class="pl-k">return</span> t;
+    }
+}</pre></div>
+</li>
+</ul>
+<h2>5. 模板设计模式</h2>
+<h3>6.1. 原理</h3>
+<h4>1) 概述</h4>
+<p>模板方法模式就是定义一个算法的骨架,<br>
+而将具体的算法延迟到子类中来实现</p>
+<h4>2) 优点</h4>
+<p>使用模板方法模式, 在定义算法骨架的同时, 可以很灵活的实现具体的算法, 满足用户灵活多i按的需求</p>
+<h4>3) 缺点</h4>
+<p>如果算法骨架有修改的话, 则需要修改抽象类</p>
+<h3>6.2. 案例</h3>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-k">class</span> <span class="pl-en">GetTime</span>{
+    <span class="pl-c"><span class="pl-c">//</span>方法骨架, 用来计算一段代码的执行时间</span>
+    <span class="pl-k">public</span> <span class="pl-k">long</span> <span class="pl-en">getTime</span>(){
+        <span class="pl-k">long</span> start <span class="pl-k">=</span> <span class="pl-smi">System</span><span class="pl-k">.</span>currentTimeMillis();
+    
+        <span class="pl-c"><span class="pl-c">//</span>此处不定义具体方法, 而是调用抽象方法</span>
+        code();
+    
+        <span class="pl-k">long</span> end <span class="pl-k">=</span> <span class="pl-smi">System</span><span class="pl-k">.</span>currentTimeMillis();
+        <span class="pl-k">return</span> end <span class="pl-k">-</span> start;
+    }
+    
+    <span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-k">void</span> <span class="pl-en">code</span>();
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ForDemo</span> <span class="pl-k">extends</span> <span class="pl-e">GetTime</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">code</span>(){
+        <span class="pl-c"><span class="pl-c">//</span>for循环具体代码</span>
+    }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IODemo</span> <span class="pl-k">extends</span> <span class="pl-e">GetTime</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">code</span>(){
+        <span class="pl-c"><span class="pl-c">//</span>IO操作具体代码</span>
+    }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">GetTimeDemo</span>{
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+        <span class="pl-smi">GetTime</span> g1 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">ForDemo</span>();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(g1<span class="pl-k">.</span>getTime());
+    
+        <span class="pl-smi">GetTime</span> g2 <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">IODemo</span>();  
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(g2<span class="pl-k">.</span>getTime());
+    }
+}</pre></div>
+<h2>7. 装饰设计模式</h2>
+<h3>7.1.</h3>
+<ul>
+<li>
+<p>概述<br>
+使用被装饰类的一个子类的实例, 在客户端将这个子类的实例交给装饰类, 是继承的替代方案</p>
+</li>
+<li>
+<p>优点<br>
+使用装饰模式, 可以提供比集成更灵活的扩展对象的功能, 它可以动态的添加对象的功能, 并且可以随意组合这些功能</p>
+</li>
+<li>
+<p>缺点<br>
+正因为可以随意组合, 所有就可能出现一些不合理的逻辑</p>
+</li>
+</ul>
+<p>典型应用场景: IO流</p>
+<h3>7.2.</h3>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">interface</span> <span class="pl-en">Phone</span>{
+    <span class="pl-k">void</span> <span class="pl-en">call</span>();
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IPhone</span> <span class="pl-k">implements</span> <span class="pl-e">Phone</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">call</span>(){
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>打电话<span class="pl-pds">"</span></span>);
+    }
+}
+
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">PhoneDemo</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+        <span class="pl-smi">Phone</span> phone <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">IPhone</span>();
+        phone<span class="pl-k">.</span>call();
+    }
+}</pre></div>
+<p>如果要增加彩铃功能, 就多写一个彩铃接口</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">interface</span> <span class="pl-en">Ring</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">ring</span>();
+}</pre></div>
+<p>则实现类还要实现 Ring 接口</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IPhone</span> <span class="pl-k">implements</span> <span class="pl-e">Phone</span>, <span class="pl-e">Ring</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Ring</span>(){
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>播放彩铃<span class="pl-pds">"</span></span>);
+    }
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">call</span>(){
+        ring();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>打电话<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+<p>但彩铃业务没必要由 Phone 类实现, 而应该是别人实现了, 为 Phone 提供服务, 将 Ring 接口改成具体类</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Ring</span> {
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">Ring</span>(){
+    	<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>播放彩铃<span class="pl-pds">"</span></span>);
+	}
+}</pre></div>
+<p>Phone 类需要彩铃了, 则可以继承自 Ring, 但不合逻辑</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">IPhone</span> <span class="pl-k">extends</span> <span class="pl-e">Ring</span> <span class="pl-k">implements</span> <span class="pl-e">Phone</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">call</span>(){
+        ring();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>打电话<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+<p>如果还想让手机增加播放音乐功能, 但是 IPhone 已经不能继承了</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Music</span> {
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">playMusic</span>(){
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>手机播放音乐<span class="pl-pds">"</span></span>);
+    }
+}</pre></div>
+<h3>装饰类</h3>
+<p>为了扩展一个类, 可以使用装饰的抽象类, 要包含一个被装饰的对象</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">abstract</span> <span class="pl-smi">PhoneDecorate</span> implements <span class="pl-smi">Phone</span> {
+    <span class="pl-c"><span class="pl-c">//</span>被装饰的对象</span>
+    <span class="pl-k">private</span> <span class="pl-smi">Phone</span> phone <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+    <span class="pl-c"><span class="pl-c">//</span>传入被装饰对象</span>
+    <span class="pl-k">public</span> PhoneDecorate(<span class="pl-smi">Phone</span> p){
+        <span class="pl-c1">this</span><span class="pl-k">.</span>p <span class="pl-k">=</span> p;
+    }
+}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">SingPhoneDecorate</span> <span class="pl-k">extends</span> <span class="pl-e">PhoneDecorate</span> {
+    pblic <span class="pl-en">SingPhoneDecorate</span>(<span class="pl-smi">Phone</span> <span class="pl-v">p</span>){
+        <span class="pl-c1">super</span>(p);
+    } 
+    pulbic <span class="pl-k">void</span> <span class="pl-en">call</span>(){
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>可以听彩铃了<span class="pl-pds">"</span></span>);
+        <span class="pl-c1">super</span><span class="pl-k">.</span>call();
+    }
+}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Demo</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>){
+        <span class="pl-smi">Phone</span> p <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">IPhone</span>();
+        <span class="pl-smi">PhoneDecorate</span> pd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">SingPhoneDecorate</span>(p);
+        pd<span class="pl-k">.</span>call();
+    }
+}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MusicPhoneDecorate</span> <span class="pl-k">extends</span> <span class="pl-e">PhoneDecorate</span> {
+    <span class="pl-k">public</span> <span class="pl-en">MusicPhoneDecorate</span>(<span class="pl-smi">Phone</span> <span class="pl-v">p</span>){
+        <span class="pl-c1">super</span>(p);
+    }
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">call</span>(){
+        <span class="pl-c1">super</span><span class="pl-k">.</span>call();
+        <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-s"><span class="pl-pds">"</span>可以听音乐<span class="pl-pds">"</span></span>);
+    }
+}
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Demo2</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> <span class="pl-en">main</span>(<span class="pl-k">String</span>[] <span class="pl-v">args</span>) {
+        <span class="pl-smi">Phone</span> p <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">IPhone</span>();
+        <span class="pl-smi">PhoneDecorate</span> spd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">SingPhoneDecorate</span>(p);
+        <span class="pl-smi">PhoneDecorate</span> mpd <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MusicPhoneDecorate</span>(spd);
+        mpd<span class="pl-k">.</span>call();
+    }
+}</pre></div>
+<h2>8. 适配器模式(GUI)</h2>
+<h3>8.1. 原理:</h3>
+<ul>
+<li>概念<br>
+在接口和具体实现类之间提供一个适配器(抽象类),<br>
+该抽象类为借口中所有抽象方法提供了默认实现(通常是空实现).<br>
+具体的实现类不直接实现接口, 而是继承这个适配器</li>
+<li>优点<br>
+只需为要用的的一个方法提供实现, 不需理会接口中其他抽象方法</li>
+<li>缺点<br>
+实现类已经继承自适配器抽象类, 无法再继承别的类</li>
+</ul>
+<h3>8.2. 案例:</h3>
+<p>如果一个接口提供了很多的抽象方法</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">interface</span> <span class="pl-en">ActionListener</span> {
+    <span class="pl-k">void</span> <span class="pl-en">method1</span>();
+    <span class="pl-k">void</span> <span class="pl-en">method2</span>();
+    <span class="pl-k">void</span> <span class="pl-en">method3</span>();
+    <span class="pl-k">void</span> <span class="pl-en">method4</span>();
+    <span class="pl-k">void</span> <span class="pl-en">method5</span>();
+}</pre></div>
+<p>实现类中只需要其中的一个方法, 但还是必须为其他方法提供空实现, 很麻烦</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">ButtonAction</span> <span class="pl-k">implements</span> <span class="pl-e">ActionListener</span> {
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">method1</span>(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">method2</span>(){<span class="pl-c1">...</span>};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">method3</span>(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">method4</span>(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">method5</span>(){};
+}</pre></div>
+<p>可以在接口和实现类之间, 提供一个抽象类, 该抽象类为所有抽象方法提供了默认实现 (通常是空实现)</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-smi">ActionAdpt</span> implements <span class="pl-smi">ActionListener</span>{
+    <span class="pl-k">public</span> <span class="pl-k">void</span> method1(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> method2(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> method3(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> method4(){};
+    <span class="pl-k">public</span> <span class="pl-k">void</span> method5(){};
+}</pre></div>
+<p>具体的实现类不用直接实现接口, 而是去继承这个抽象类, 需要哪个方法, 就重写那一个方法即可.</p>
+<h1>补充: 线程安全问题三要素</h1>
+<ol>
+<li>是一个多线程的程序</li>
+<li>有共享的数据</li>
+<li>多条语句(非原子操作)</li>
+</ol>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

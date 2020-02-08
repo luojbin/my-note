@@ -1,0 +1,4 @@
+/sbin/ifconfig
+
+按窗口键 在搜索框中输入cmd
+在弹出的控制台中输入:ipconfig

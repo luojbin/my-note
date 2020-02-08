@@ -1,0 +1,843 @@
+回顾:
+1.引用类型数组:
+    Cell[] cells = new Cell[4];
+	cells[0] = new Cell(2,5);
+
+    int[][] arr = new int[3][];
+    arr[0] = new int[2];
+
+    int[][] arr = new int[3][4];
+	
+
+2.继承:
+    代码的复用，extends
+	父类:共有
+	子类:特有
+	子继承父后，子具有:父+子
+	单一继承、传递性
+	构造子之前必须先构造父，
+	  若不写则默认super()调父类的无参构造
+	  若自己写了则不再默认提供
+3.super:指代当前对象的父类对象
+    super.成员变量名------父类的成员变量
+	super.方法名()--------调父类的方法
+	super()---------------调父类的构造方法
+4.向上造型:
+  1)父类型的引用指向子类的对象
+  2)能点出来什么，看引用的类型
+
+
+
+
+
+
+
+
+笔记:
+1.内存管理:由JVM来管理-----了解
+  1)堆:
+    1.1)存储new出来的对象(包括实例变量)
+	1.2)成员变量的生命周期:
+	      创建对象时存在堆中，对象被回收时一并消失
+	1.3)垃圾:没有任何引用指向的对象
+	    垃圾回收器不定时到内存中清扫垃圾，
+		回收过程是透明的，不一定发现垃圾就立刻回收，
+		调用System.gc()可以建议JVM尽快调度GC来回收
+	1.4)内存泄漏:不再使用的内存没有被及时的回收
+	    建议:不再使用的对象需及时将引用设置为null
+  2)栈:
+    2.1)存储正在调用中的方法中的所有局部变量(包括参数)
+	2.2)调用方法时，会在栈中为该方法分配一块对应的栈帧，
+	    栈帧中存储方法中所有局部变量(包括参数)
+		方法调用完后，栈帧被清除，局部变量一并失效
+	2.3)局部变量的生命周期:
+          调用方法时存在栈中，方法完之后与栈帧一并消失
+  3)方法区:
+    3.1)存储.class字节码文件(包括方法)
+	3.2)方法只有一份，能过this来区分具体的调用对象
+2.方法的重写(Override):
+  1)发生在父子类中，方法名称相同，参数列表相同，方法体不同
+  2)重写方法被调用时，看对象的类型
+  3)重写要遵循"两同两小一大"原则:
+	 * 1.两同:
+	 *   1)方法名相同
+	 *   2)参数列表相同
+	 * 2.两小:
+	 *   1)子类方法的返回值类型小于或等于父类的
+	 *     1.1)void时，必须相同
+	 *     1.2)基本类型时，必须相同
+	 *     1.3)引用类型时，小于或等于
+	 *   2)子类方法抛出的异常小于或等于父类的-----异常之后
+	 * 3.一大:
+	 *   1)子类方法的访问权限大于或等于父类的-----访问控制修饰符之后
+3.重写与重载的区别:-----常见面试题
+  1)重写(Override):
+    1.1)发生在父子类中，方法名相同，参数列表相同，方法体不同
+	1.2)重写遵循"运行期"绑定，看对象的类型来调用方法
+  2)重载(Overload):
+    2.1)发生在一个类中，方法名相同，参数列表不同，方法体不同
+	2.2)重载遵循"编译期"绑定，看引用的类型来绑定方法
+4.package:
+  1)避免类名冲突
+  2)包名可以有层次结构，同包中的类不能同名
+  3)类的完全限定名: 包名.类名
+  4)建议:包名所有字母都小写
+  import:
+  1)同包中的类可以直接访问，
+    不同包中的类不能直接访问，只有如下两种方式:
+	  1.1)先import声明类，再访问类----建议
+	  1.2)类的完全限定名-------太繁琐，不建议
+5.访问控制修饰符:
+  1)public:公开的，任何类
+  2)private:私有的，本类
+  3)protected:受保护的，本类、子类、同包类
+  4)默认的:什么也不写，本类、同包类
+  类的访问修饰: public和默认的
+  类中成员的访问修饰: 如上4种都可以
+6.static:静态的
+  1)静态变量:
+    1.1)由static修饰
+	1.2)属于类，存在方法区中，只有一份
+	1.3)常常通过类名.来访问
+	1.4)何时用:所有对象共享的数据(图片、音频、视频等)
+  2)静态方法:
+    2.1)由static修饰
+	2.2)属于类，存在方法区中，只有一份
+	2.3)常常通过类名.来访问
+	2.4)静态方法没有隐式的this传递，
+	    静态方法中不能直接访问实例成员
+	2.5)何时用:方法的操作仅与参数相关而与对象无关
+  3)静态块:
+    3.1)由static修饰
+	3.2)类被加载期间自动执行，因类只被加载一次，
+	    所以静态块也只执行一次
+	3.3)何时用:常常用于初始化静态资源(图片、音频、视频等)
+
+
+
+
+练习:
+1.练习OverrideDemo重写
+2.练习OverrideOverloadDemo重写与重载的区别
+3.练习StaticDemo静态
+4.自学final和static final常量
+
+
+
+
+
+
+
+
+
+
+
+
+
+听得懂，一会就忘，写不出来------欠练
+
+
+
+
+
+
+
+
+
+
+
+
+
+小学四年级------------考了一次试
+初一------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cell c1 = new Cell(2,5);
+c1.drop();
+
+Cell c2 = new Cell(0,3);
+c2.drop();
+
+Cell c3 = new Cell(6,8);
+c3.drop();
+
+
+
+class Cell{
+  int row;
+  int col;
+  void drop(){
+    row++;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+不管是a1,a2,a3,...,100中的哪个对象去sort(arr)
+--------最终结果都是一样的
+--------意味着sort()方法与对象无关而仅与参数相关
+
+假设sort()不是静态的:
+  Arrays a1 = new Arrays();
+  a1.sort(arr);
+
+  Arrays a2 = new Arrays();
+  a2.sort(arr);
+  
+  Arrays a3 = new Arrays();
+  a3.sort(arr);
+
+  Arrays a4 = new Arrays();
+  a4.sort(arr);
+
+
+
+
+
+
+
+
+
+
+
+不管是m1,m2,m3,...,m100中的哪个对象去调sqrt(25)
+-------最终结果都是一样的
+-------意味着sqrt()方法与对象无关而仅与参数相关
+
+
+假设sqrt()不是静态的:
+  Math m1 = new Math();
+  double a = m1.sqrt(25); //5
+
+  Math m2 = new Math();
+  double b = m2.sqrt(25); //5
+
+  Math m3 = new Math();
+  double c = m3.sqrt(25); //5
+
+  Math m4 = new Math();
+  double d = m4.sqrt(25); //5
+
+
+
+
+
+
+
+
+
+
+
+
+Scanner scan = new Scanner(System.in);
+int a = scan.nextInt(); //实例方法
+double b = scan.nextDouble(); //实例方法
+
+double c = Math.random();
+double d = Math.sqrt(25);
+Arrays.sort(arr);
+
+
+
+
+
+
+
+
+
+
+class Moo{
+	int a; //对象点来访问
+	static int b; //类名为来访问
+	void show(){ //有this
+		System.out.println(this.a);
+		System.out.println(Moo.b);
+	}
+	static void test(){ //没有this
+		System.out.println(a); //编译错误
+		System.out.println(Moo.b); 
+	}
+}
+
+
+
+
+
+
+
+没有this意味着没有对象，
+而实例变量a必须通过对象点来访问
+
+
+
+
+
+
+
+
+
+CS----------map.jpg
+百度音乐----大王叫我来巡山.mp4
+乐视视频----吸血鬼日记第六季第一集.avi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+成员变量:
+1)实例变量:没有static修饰，属于对象的，存在堆中
+            有几个对象就有几份
+			通过对象点来访问
+2)静态变量:由static修饰，属于类的，存在方法区中
+            只有一份
+			通过类名点来访问
+
+
+
+
+
+
+
+
+
+
+
+
+oo.day04.vis
+
+
+
+
+
+
+
+
+
+
+
+
+class Aoo{
+  int a;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+数据私有化，行为公开化
+
+class Card{
+  private String cardId;
+  private String cardPwd;
+  private double balance;
+
+  public boolean payMoney(double money){
+    if(balance>=money){
+	  balance-=money;
+	  return true;
+	}else{
+	  return false;
+	}
+  }
+
+  public boolean checkPwd(String pwd){
+    if(cardPwd.equals(pwd)){
+	  return true;
+	}else{
+	  return false;
+	}
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package java.util;
+class Scanner{
+  Scanner(?){
+  }
+  int nextInt(){
+  }
+  double nextDouble(){
+  }
+  String next(){
+  }
+}
+
+import java.util.Scanner;
+Scanner scan = new Scanner(System.in);
+int a = scan.nextInt();
+
+
+
+
+
+
+
+
+
+
+
+package a;
+class Aoo{
+}
+class Boo{
+  Aoo o = new Aoo();
+}
+
+package b;
+class Moo{
+  Aoo o = new Aoo(); //编译错误
+}
+
+
+
+
+
+
+
+
+
+
+
+
+民生银行:
+
+A公司:
+  package a.b.c;
+  class Aoo{
+  }
+
+B公司:
+  package a.b.c;
+  class Aoo{
+  }
+
+
+包名的建议:
+  域名的反写 . 项目名称 . 模块名称 . 类名
+  cn.tedu    .  a       .  stumana  . Student
+  com.taobao .
+
+
+
+
+
+
+
+
+
+
+
+
+
+package a.b.c.d.e.f;
+class Aoo{
+}
+
+package b.m.n.y.i.o;
+class Aoo{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+项目-------------小区
+
+楼号+单元号------避免房号的命名冲突-----包
+
+
+
+101,102,103,104,105,106..
+199,200,201,202,203
+...
+999,1000
+
+
+
+
+
+
+
+
+
+
+
+
+问:子类可以继承父类的构造方法吗?
+答:不可以，父类的构造是被子类调用的
+
+
+
+
+
+
+
+
+
+
+Boo o = new Boo(3);
+
+class Aoo{
+  Aoo(){
+  }
+  Aoo(int a){
+  }
+}
+class Boo extends Aoo{
+  Boo(){
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Boo o = new Boo();
+o.say();
+o.say("zhangsan");
+
+
+class Aoo{
+  void say(){}
+}
+class Boo extends Aoo{
+  void say(String name){}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+编译期:.java，经过编译，生成.class
+运行期:JVM加载.class并运行.class
+
+
+
+
+
+
+
+
+
+
+
+
+我继承了一个中餐馆
+
+A)还想做中餐--------------------不需要重写
+B)想改做西餐--------------------需要重写
+C)想在中餐基础之上加上西餐------重写中先super再加西餐
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Student zs = new Student();
+zs.name = "zhangsan";
+zs.age = 25;
+zs.address = "廊坊";
+zs.className = "JSD1702";
+zs.sayHi(); //zhangsan,25,廊坊,JSD1702
+
+Teacher ls = new Teacher();
+ls.name = "lisi";
+ls.age = 27;
+ls.address = "佳木斯";
+ls.salary = 5000;
+ls.sayHi(); //lisi,27,佳木斯,5000
+
+Doctor ww = new Doctor();
+ww.name = "wangwu";
+ww.age = 37;
+ww.address = "山东";
+ww.level = "主治医师";
+ww.sayHi(); //wangwu,37,山东
+
+
+
+
+class Person{
+  String name;
+  int age;
+  String address;
+  void sayHi(){
+    System.out.println(name+","+age+","+address);
+  }
+}
+class Student extends Person{
+  String className;
+  void sayHi(){
+    System.out.println(name+","+age+","+address+","+className);
+  }
+}
+class Techer extends Person{
+  double salary;
+  void sayHi(){
+    System.out.println(name+","+age+","+address+","+salary);
+  }
+}
+class Doctor extends Person{
+  String level;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cell c1 = new Cell();
+c1.row = 2;
+c1.col = 5;
+
+Cell c2 = new Cell();
+c2.row = 1;
+c2.col = 4;
+
+
+this只能用在方法中，谁调指的就是谁
+
+
+c1.drop();---------c1.row=3;
+c2.drop();---------c2.row=2;
+c3.drop();
+c4.drop();
+
+
+
+
+
+
+
+class Cell{
+  int row;
+  int col;
+  void drop(){
+    row++;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+成员变量:
+1)类中，方法外
+2)有默认值
+3)创建对象时存在堆中，对象被回收时一并消失
+
+局部变量:
+1)方法中
+2)没有默认值
+3)调用方法时存在栈中，方法执行完以后与栈帧一并失效
+
+
+Aoo o = new Aoo();---------a=0
+o.show(6);-----------------b=6
+
+class Aoo{
+  int a;
+  void show(int b){
+    int c;
+    System.out.println(a); //0
+	System.out.println(b); //6
+	System.out.println(c); //编译错误
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+垃圾回收机制-------GC(垃圾回收器)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+有一个java程序，运行运行运行，报内存不足
+中关村买2G的内存条，装到我的电脑上
+再运行-------内存就足了吗?----依然内存不足
+应该给JVM加内存才能解决
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

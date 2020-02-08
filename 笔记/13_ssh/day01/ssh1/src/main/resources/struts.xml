@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- resource/struts.xml
+doctype = dtd 用于规定当前XML中可以使用那些
+标签, 以及标签的嵌套关系 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 定义WEB请求的第一层路径 namespace="/demo" -->
+	<package name="demo" namespace="/demo"
+		extends="struts-default" >
+		<action name="hello" 
+			class="cn.tedu.controller.DemoAction">
+			<result name="success">
+				/WEB-INF/jsp/ok.jsp
+			</result>
+		</action>
+		<!-- 请求 /demo/hello.action 时候, 执行
+		DemoAction的execute方法, 当方法返回值是
+		success时候, 转发到ok.jsp -->
+		
+		<!-- 请求路径: /demo/param.action?name=Tom&age=5 -->
+		<action name="param"
+			class="cn.tedu.controller.ParamAction">
+			<result name="success">
+				/WEB-INF/jsp/param.jsp
+			</result>
+		</action>
+		
+		<!-- 利用值对象打包传递参数 -->
+		<action name="user"
+			class="cn.tedu.controller.UserAction">
+			<result name="success">
+				/WEB-INF/jsp/success.jsp
+			</result>
+		</action>
+		
+	</package>
+	
+	
+ 
+</struts>
+
+
+

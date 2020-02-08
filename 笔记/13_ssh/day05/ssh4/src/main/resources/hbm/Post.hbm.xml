@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.tedu.note.entity.Post"
+			table="p_post">
+		<id name="id" column="id">
+			<!-- 使用自增类型的主键生成器 -->
+			<generator class="identity"/>
+		</id>
+		<property name="title" column="title"/>
+		<!-- 多个post对应一个person -->
+		<!-- 其中: 属性是person, 属性的类型是Person
+		属性对应的表格列是 person_id -->
+		<many-to-one name="person" 
+			class="cn.tedu.note.entity.Person"
+			column="person_id" >
+		</many-to-one>
+		
+		<set name="comments" >
+			<!-- p_comment 表中的 外键列 post_id-->
+			<key column="post_id"></key>
+			<!-- 当前一个(one)帖子对应多个(many)回复 -->
+			<one-to-many 
+				class="cn.tedu.note.entity.Comment"/>
+		</set>
+		
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+

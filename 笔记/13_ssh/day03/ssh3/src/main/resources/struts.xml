@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<package name="product"
+		namespace="/product"
+		extends="struts-default">
+		
+		<action name="list" class="productAction"
+			method="list">
+			<result>
+				/WEB-INF/jsp/${name}.jsp
+			</result>
+		</action>	
+		
+		<action name="vs" class="productAction"
+			method="list">
+			<result>
+				/WEB-INF/jsp/vs.jsp
+			</result>
+		</action>	
+		
+		<!-- 利用 OGNL 读取ValueStack中的数据 -->
+		<action name="data" class="dataAction">
+			<result>
+				/WEB-INF/jsp/${target}
+			</result>
+		</action>
+	</package>
+	
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	p {
+		width: 200px;
+		height: 30px;
+		line-height: 30px;
+		font-size: 20px;
+		text-align: center;
+		border: 1px solid red;
+	}
+</style>
+<script>
+	var id;
+	function start() {
+		id = setInterval(function(){
+			//获得当前时间
+			var date = new Date();
+			//转换为本地格式
+			var now = date.toLocaleTimeString();
+			//将时间写入p
+			var p = document.getElementById("clock");
+			p.innerHTML = now;
+		},1000);
+	}
+	function stop() {
+		clearInterval(id);
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="开始"
+		onclick="start();"/>
+	<input type="button" value="停止"
+		onclick="stop();"/>
+	<p id="clock"></p>
+</body>
+</html>
+
+
+
+
+
+

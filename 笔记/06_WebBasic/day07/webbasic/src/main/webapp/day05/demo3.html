@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//此处写js有2种方式:
+	//1.函数:在用户点击某按钮时调用.
+	//即:函数是在页面加载后调用的.
+	//2.直接写js:在页面加载时调用.
+	//即:直接写的js比body执行的早.
+	//alert(1);
+	console.log("控制台打印");
+	
+	//1.声明变量
+	var x;
+	console.log(x);
+	x = 6;
+	console.log(x);
+	var y = "hello";
+	console.log(y);
+	
+	//2.数据类型
+	var s = "hi";
+	var n = 3.14;
+	var b = true;
+	
+	//3.隐式转换
+	console.log(s+n);
+	console.log(s+b);
+	console.log(n+b);
+	console.log(b+b);
+	
+	//4.强制转换
+	console.log(parseInt(3.14));
+	console.log(parseInt("5.6"));
+	console.log(parseInt("abc"));
+	console.log(typeof(b));
+	console.log(isNaN(3));
+	console.log(isNaN("3"));
+	console.log(isNaN("abc"));
+	console.log(isNaN(""));//false
+	console.log(parseInt(""));//NaN
+	
+	//5.运算符
+	var k = "5";
+	var d = 5;
+	console.log(k===d);
+	console.log(k==d);
+	
+	//6.条件表达式
+	var c = 6;
+	if(c) {
+		console.log("ok");
+	}
+	c && console.log("over");
+	
+</script>
+</head>
+<body>
+	<p>我们在这个页面上演示JS基本语法</p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

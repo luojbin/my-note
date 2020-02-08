@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" 
+	src="js/jquery-1.4.3.js">
+</script>
+<script type="text/javascript">
+	$(function(){
+		$('a.s1').toggle(f1,f2);
+	});
+	function f1(){
+		var flight = $(this).parent()
+		.siblings().eq(0).text();
+		$(this).next().load(
+				'getPrice.do','flight=' + flight);
+	}
+	function f2(){
+		$(this).next().empty();
+	}
+</script>
+</head>
+<body style="font-size:30px;">
+	<table width="80%" border="1" 
+	cellpadding="0" cellspacing="0">
+		<tr>
+			<td>航班号</td>
+			<td>机型</td>
+			<td></td>
+			<td>经济舱价格</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="#">CA2201</a></td>
+			<td>波音737</td>
+			<td>
+				<a class="s1" href="javascript:;">显示所有票价</a>
+				<div></div>
+			</td>
+			<td>￥1200</td>
+			<td>
+				<input type="button" value="订票"/>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="#">MU1748</a></td>
+			<td>空客320</td>
+			<td>
+				<a class="s1" href="javascript:;">显示所有票价</a>
+				<div></div>
+			</td>
+			<td>￥800</td>
+			<td>
+				<input type="button" value="订票"/>
+			</td>
+		</tr>
+		
+	</table>
+</body>
+</html>

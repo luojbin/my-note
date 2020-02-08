@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.big {
+		width: 250px;
+		height: 250px;
+	}
+</style>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+	//window.onload只能写一次,
+	//若写了多次则后者覆盖前者.
+	//$(function(){})可以写多次,
+	//若写了多次则它们的逻辑会叠加.
+	$(function(){
+		//给按钮1绑定单击事件
+		$(":button:first").click(function(e){
+			console.log(1);
+			console.log(e);
+		});
+		//给图片绑定悬停事件
+		$("img").hover(
+			function(){
+				$(this).addClass("big");
+				//width()
+				//css()
+				//addClass("big")
+				//toggleClass("big")
+			},//悬停时
+			function(){
+				$(this).removeClass("big");
+			} //离开时
+		);
+		//给按钮2绑定单击事件
+		$(":button:eq(1)").click(function(){
+			//让图片在显示与隐藏之间切换
+			$("img").toggle();
+		});
+	});
+</script>
+</head>
+<body>
+	<input type="button" value="按钮1"/>
+	<p>
+		<img src="../images/01.jpg" />
+	</p>
+	<input type="button" value="按钮2"/>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

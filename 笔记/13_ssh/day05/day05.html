@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day05</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>整合开发</h2>
+<h3>自定义异常处理</h3>
+<p>重新异常处理方法即可实现自定义异常处理:</p>
+<ol>
+<li>
+<p>重写异常处理方法 UserAction</p>
+<pre><code>@Override
+public String handleException(Exception e) {
+    if(e instanceof UserNotFoundException){
+        jsonResult = new JsonResult(2, e);
+    }else if(e instanceof PasswordException){
+        jsonResult = new JsonResult(3, e);
+    }else if(e instanceof UserNameException){
+        jsonResult = new JsonResult(4, e);
+    }else {
+        jsonResult = new JsonResult(e);
+    }
+    return JSON;
+}
+</code></pre>
+
+</li>
+</ol>
+<h2>笔记本列表功能</h2>
+<ol>
+<li>
+<p>映射笔记本实体到数据库表 Notebook.hbm.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+ &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+ &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.note.entity.Notebook&quot;
+            table=&quot;cn_notebook&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;cn_notebook_id&quot;&gt;&lt;/id&gt;
+        &lt;property name=&quot;name&quot; column=&quot;cn_notebook_name&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;typeId&quot; column=&quot;cn_notebook_type_id&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;userId&quot; column=&quot;cn_user_id&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;desc&quot; column=&quot;cn_notebook_desc&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;createtime&quot; 
+            column=&quot;cn_notebook_createtime&quot;
+            type=&quot;java.sql.Timestamp&quot;&gt;&lt;/property&gt; 
+    &lt;/class&gt; 
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>更新配置文件 spring-hbm.xml:</p>
+<pre><code>&lt;property name=&quot;mappingLocations&quot;&gt;
+    &lt;list&gt;
+        &lt;value&gt;classpath:hbm/User.hbm.xml&lt;/value&gt;
+        &lt;value&gt;classpath:hbm/Notebook.hbm.xml&lt;/value&gt;
+    &lt;/list&gt;
+&lt;/property&gt;
+</code></pre>
+
+</li>
+<li>
+<p>实现 NotebookDaoImpl</p>
+<pre><code>@Repository(&quot;notebookDao&quot;)
+public class NotebookDaoImpl implements NotebookDao {
+
+    @Resource
+    private HibernateTemplate hibernateTemplate;
+
+    public List&lt;Map&lt;String, Object&gt;&gt; 
+        findNotebooksByUserId(String userId) {
+        final String hql=
+                &quot;select new map(id as id, name as name) &quot;+
+                &quot;from Notebook &quot;+
+                &quot;where userId=? &quot;+
+                &quot;order by createtime desc&quot;;
+        List&lt;Map&lt;String, Object&gt;&gt; list= 
+            hibernateTemplate.find(
+            hql, userId);
+        return list;
+    }
+
+    public int countNotebookById( String notebookId) {
+        //sql:
+        // select count(*) 
+        // from cn_notebook
+        // where cn_notebook_id=?
+        //hql:
+        // select count(*) 
+        // from Notebook
+        // where id=?
+        String hql = &quot;select count(*) &quot;
+                + &quot;from Notebook where id=?&quot;;
+        List&lt;Number&gt; list=hibernateTemplate.find(hql, notebookId);
+        return list.isEmpty()? 0: list.get(0).intValue();
+    }
+
+    public List&lt;Map&lt;String, Object&gt;&gt; findNotebooksByPage(
+                final String userId, 
+                final int start, 
+                final int pageSize, 
+                final String table) {
+        //sql: select cn_notebook_id, cn_notebook_name 
+        //  from cn_notebook 
+        //  where cn_user_id=?
+        //  order by cn_notebook_createtime desc
+        //HQL:
+        //  select new map(id as id, name as name)
+        //  from Notebook
+        //  where userId=?
+        //  order by createtime desc
+        final String hql=&quot;select new map(id as id, name as name) &quot;+
+                &quot;from Notebook &quot;+
+                &quot;where userId=? &quot;+
+                &quot;order by createtime desc&quot;;
+        List&lt;Map&lt;String, Object&gt;&gt; list=hibernateTemplate.execute(new HibernateCallback&lt;List&lt;Map&lt;String, Object&gt;&gt;&gt;() { 
+            public List&lt;Map&lt;String, Object&gt;&gt; doInHibernate(Session session) throws HibernateException, SQLException {
+                //利用session创建查询对象
+                Query query=session.createQuery(hql);
+                //绑定 查询参数
+                query.setString(0, userId);
+                //绑定分页参数:
+                query.setFirstResult(start);
+                query.setMaxResults(pageSize);
+                //query.list() 执行查询
+                //返回查询结果
+                return query.list();
+            }
+        });
+
+        return list;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>单元测试: 对持久层和业务层进行回归性测试</p>
+<pre><code>...
+</code></pre>
+
+</li>
+<li>
+<p>创建控制器 NotebookAction</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class NotebookAction 
+    extends AbstractAction {
+
+    @Resource
+    private NotebookService notebookService;
+
+    private String userId;
+    private Integer page;
+    public String getUserId() {
+        return userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+    public Integer getPage() {
+        return page;
+    }
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public String page(){
+        List&lt;Map&lt;String, Object&gt;&gt; list=
+        notebookService.listNotebooks(userId, page);
+        jsonResult = new JsonResult(list);
+        return JSON;
+    }
+
+    public String list(){
+        List&lt;Map&lt;String, Object&gt;&gt; list=
+        notebookService.listNotebooks(userId);
+        jsonResult = new JsonResult(list);
+        return JSON;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置控制器:</p>
+<blockquote>
+<p>配置文件结构:</p>
+</blockquote>
+<p><img src="1.png" /></p>
+<blockquote>
+<p>配置文件内容重构: struts.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;
+&lt;struts&gt;
+    &lt;!-- 修改请求扩展名 action改为do --&gt;
+    &lt;constant name=&quot;struts.action.extension&quot; value=&quot;do&quot;&gt;&lt;/constant&gt;
+
+    &lt;package name=&quot;basepkg&quot; extends=&quot;json-default&quot;&gt;
+        &lt;interceptors&gt;
+            &lt;interceptor name=&quot;demo&quot; class=&quot;myInterceptor&quot;/&gt;
+
+            &lt;interceptor name=&quot;execInte&quot; class=&quot;exceptionInterceptor&quot;/&gt;
+
+            &lt;interceptor-stack name=&quot;noteStack&quot;&gt;
+                &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;
+                &lt;interceptor-ref name=&quot;execInte&quot;&gt;&lt;/interceptor-ref&gt;
+            &lt;/interceptor-stack&gt;
+
+            &lt;interceptor-stack name=&quot;demoStack&quot;&gt;
+                &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;
+                &lt;interceptor-ref name=&quot;demo&quot;&gt;&lt;/interceptor-ref&gt;
+            &lt;/interceptor-stack&gt;
+
+        &lt;/interceptors&gt;
+
+        &lt;default-interceptor-ref name=&quot;noteStack&quot;/&gt;
+
+        &lt;global-results&gt;
+            &lt;result name=&quot;json&quot; type=&quot;json&quot;&gt;
+                &lt;param name=&quot;root&quot;&gt;jsonResult&lt;/param&gt;
+            &lt;/result&gt;
+        &lt;/global-results&gt;
+
+    &lt;/package&gt;
+
+    &lt;package name=&quot;user&quot; namespace=&quot;/user&quot; extends=&quot;basepkg&quot;&gt;
+        &lt;action name=&quot;login&quot; class=&quot;userAction&quot; method=&quot;login&quot;/&gt;
+        &lt;action name=&quot;regist&quot; class=&quot;userAction&quot; method=&quot;regist&quot;/&gt;
+    &lt;/package&gt;
+
+    &lt;package name=&quot;notebook&quot; extends=&quot;basepkg&quot;
+        namespace=&quot;/notebook&quot;&gt;
+        &lt;action name=&quot;page&quot; 
+            class=&quot;notebookAction&quot;
+            method=&quot;page&quot;/&gt;
+
+        &lt;action name=&quot;list&quot; 
+            class=&quot;notebookAction&quot;
+            method=&quot;list&quot;/&gt;
+
+    &lt;/package&gt;
+
+&lt;/struts&gt;
+</code></pre>
+
+</li>
+<li>
+<p>对控制器进行测试, 对页面功能进行测试</p>
+</li>
+</ol>
+<h2>Hibernate</h2>
+<p>Hibernate的结构:</p>
+<p><img src="2.png" /></p>
+<p>Session 提供了CRUD 功能</p>
+<ul>
+<li>
+Sesison.get(id)
+<ul>
+<li>根据ID从数据库中获取对象, 如果找不到返回null</li>
+</ul>
+</li>
+<li>
+Session.load(id)
+<ul>
+<li>根据ID从数据库中获取对象, 如果找不到抛异常</li>
+</ul>
+</li>
+<li>
+Session.save()
+<ul>
+<li>将新对象添加到数据库</li>
+</ul>
+</li>
+<li>
+Session.update()
+<ul>
+<li>将对象信息保存到数据库</li>
+</ul>
+</li>
+<li>
+Session.delete()
+<ul>
+<li>将对象的信息从数据库中删除</li>
+</ul>
+</li>
+<li>
+Session.clear() 
+<ul>
+<li>清空Session一级缓存</li>
+</ul>
+</li>
+<li>
+Session.evict(对象)
+<ul>
+<li>将一个对象从Session缓存中清除</li>
+</ul>
+</li>
+</ul>
+<p>Hibernate 持久化对象生存周期状态管理</p>
+<p><img src="3.png" /></p>
+<p>Java Bean == POJO</p>
+<p>案例:</p>
+<pre><code>public class HibernateTest extends BaseTest {
+    SessionFactory factory;
+    Session session;
+    @Before 
+    public void initSession(){
+        factory = ctx.getBean(&quot;sessionFactory&quot;,
+                SessionFactory.class);
+        session = factory.openSession();
+    }
+    @After
+    public void destory(){
+        session.close();
+        factory.close();
+    }
+    @Test
+    public void testSessionFactory(){
+        //Spring 简化了 Session Factory 的关联
+        SessionFactory factory =
+                ctx.getBean(&quot;sessionFactory&quot;,
+                SessionFactory.class);
+        //利用SessionFactory创建Session
+        Session session = factory.openSession();
+        System.out.println(session);
+
+        session.close();
+        System.out.println(factory);
+    }
+
+    @Test
+    public void testSave(){
+        Transaction tx=session.beginTransaction();
+        //持久状态下,更改属性影响到数据库
+        //user 对象 是临时状态的
+        User user = new User(
+            &quot;1234567&quot;, &quot;熊大&quot;, &quot;1234&quot;, &quot;&quot;, &quot;&quot;);
+        //user成为持久状态
+        session.save(user);
+        user.setName(&quot;范传奇&quot;);
+        user.setPassword(&quot;abcde&quot;);
+        tx.commit();
+    }
+
+
+    @Test
+    public void testGet(){
+        Transaction tx=session.beginTransaction();
+        //get返回对象是持久状态的
+        User user = (User)session.get(
+            User.class, &quot;1234567&quot;);
+        System.out.println(user);
+        //更改持久创建对象的属性影响数据库
+        user.setName(&quot;李洪鹤&quot;); 
+        tx.commit();
+    }
+
+    @Test
+    public void testEvict(){
+        Transaction tx = session.beginTransaction();
+        //get返回的对象是持久状态
+        User user = (User)session.get(
+                User.class, &quot;1234567&quot;);
+        System.out.println(user);
+        //evict将对象清除 sessin缓存, 变成游离状态
+        session.evict(user);
+        //session.clear();
+        user.setName(&quot;光头强&quot;);
+        tx.commit();
+    }
+
+    @Test
+    public void testUpdate(){
+        Transaction tx = session.beginTransaction();
+        //get返回的对象是持久状态
+        User user = (User)session.get(
+                User.class, &quot;1234567&quot;);
+        System.out.println(user);
+        //evict将对象清除 sessin缓存, 变成游离状态
+        session.evict(user);
+        //session.clear();
+        user.setName(&quot;光头强&quot;);
+        //update 方法 将对象从游离状态改为持久状态
+        session.update(user); 
+
+        tx.commit();
+    }
+
+    @Test
+    public void testDelete(){
+        Transaction tx = session.beginTransaction();
+        //get返回的对象是持久状态
+        User user = (User)session.get(
+                User.class, &quot;1234567&quot;);
+        System.out.println(user);
+        //delete方法将数据从数据库删除, 
+        // 对象user在内存中还有数据
+        // 此时对象是临时状态的!
+        session.delete(user); 
+        System.out.println(user);
+
+        tx.commit();
+    }
+
+    @Test 
+    public void testLoad(){
+        //get方法在没有数据时候, 返回null
+        User user = (User)session.get(
+            User.class, &quot;1234567&quot;);
+        System.out.println(user); //null
+        //load方法在没有数据时候, 抛出异常
+        User u = (User) session.load(
+            User.class, &quot;1234567&quot;);
+        System.out.println(u); 
+    }
+
+    @Test
+    public void testQuery(){
+        //执行HQL查询
+        Transaction tx=session.beginTransaction();
+        //sql: select * from cn_user
+        String hql = &quot;from User&quot;; 
+        Query query=session.createQuery(hql);
+        //list 执行返回一组数据的查询
+        List&lt;User&gt; list = query.list();
+        for (User user : list) {
+            System.out.println(user);
+        }
+        tx.commit();
+    }
+
+    @Test
+    public void testQuery2(){
+        //执行带参数的SQL
+        //sql: select * from cn_user 
+        //     where cn_user_name like ? 
+        String hql = &quot;from User &quot;
+                + &quot;where name like ?&quot;; 
+        Transaction tx = session.beginTransaction();
+        Query query=session.createQuery(hql);
+        //绑定查询参数
+        query.setString(0, &quot;%o%&quot;);
+        //执行查询
+        List&lt;User&gt; list=query.list();
+        for (User user : list) {
+            System.out.println(user);
+        }
+        tx.commit();
+    }
+
+    @Test
+    public void testQuery3(){
+        //按照名字绑定参数
+        String hql = &quot;from User &quot;
+                + &quot;where name like :name&quot;; 
+        Transaction tx = session.beginTransaction();
+        Query query=session.createQuery(hql);
+        //绑定查询参数
+        query.setString(&quot;name&quot;, &quot;%o%&quot;);
+        //执行查询
+        List&lt;User&gt; list=query.list();
+        for (User user : list) {
+            System.out.println(user);
+        }
+        tx.commit();
+    }
+
+    @Test
+    public void testQuery4(){
+        //query 支持唯一结果查询
+        Transaction tx = session.beginTransaction();
+        String hql = &quot;from User where name=?&quot;;
+        Query query = session.createQuery(hql);
+        query.setString(0, &quot;demo&quot;);
+        //uniqueResult 用于查找返回唯一的结果
+        User user = (User)query.uniqueResult();
+        System.out.println(user);
+        user.setToken(&quot;123456&quot;); 
+        tx.commit();
+    }
+
+    @Test
+    public void testFindPerson(){
+        String hql = &quot;from Person&quot;;
+        Query query = session.createQuery(hql);
+        List&lt;Person&gt; list = query.list();
+        for (Person person : list) {
+            System.out.println(person); 
+        }
+    }
+    @Test
+    public void testAddPerson(){
+        Person person = new Person(null, &quot;Wang&quot;);
+        System.out.println(person);
+        Transaction tx = session.beginTransaction();
+        session.save(person);
+        System.out.println(person);
+        tx.commit();
+    }
+
+    @Test
+    public void testFindComment(){
+        String hql = &quot;from Comment&quot;;
+        Query query = session.createQuery(hql);
+        List&lt;Comment&gt; list = query.list();
+        for (Comment comment : list) {
+            System.out.println(comment); 
+        }
+    }
+
+    @Test
+    public void testFindPost(){
+        String hql = &quot;from Post&quot;;
+        Query query = session.createQuery(hql);
+        List&lt;Post&gt; list = query.list();
+        for (Post p : list) {
+            System.out.println(p); 
+        }
+    }
+
+}
+</code></pre>
+
+<p>映射文件:</p>
+<blockquote>
+<p>Person.hbm.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+ &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+ &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.note.entity.Person&quot;
+            table=&quot;p_person&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;id&quot;&gt;
+            &lt;!-- 使用自增类型的主键生成器 --&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;property name=&quot;name&quot; column=&quot;name&quot;/&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+<blockquote>
+<p>Comment.hbm.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+ &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+ &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.note.entity.Comment&quot;
+            table=&quot;p_comment&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;id&quot;&gt;
+            &lt;!-- 使用自增类型的主键生成器 --&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;property name=&quot;title&quot; column=&quot;title&quot;/&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+<blockquote>
+<p>Post.hbm.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+ &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+ &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.note.entity.Post&quot;
+            table=&quot;p_post&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;id&quot;&gt;
+            &lt;!-- 使用自增类型的主键生成器 --&gt;
+            &lt;generator class=&quot;identity&quot;/&gt;
+        &lt;/id&gt;
+        &lt;property name=&quot;title&quot; column=&quot;title&quot;/&gt;
+        &lt;!-- 多个post对应一个person --&gt;
+        &lt;!-- 其中: 属性是person, 属性的类型是Person
+        属性对应的表格列是 person_id --&gt;
+        &lt;many-to-one name=&quot;person&quot; 
+            class=&quot;cn.tedu.note.entity.Person&quot;
+            column=&quot;person_id&quot; &gt;
+        &lt;/many-to-one&gt;
+
+        &lt;set name=&quot;comments&quot; &gt;
+            &lt;!-- p_comment 表中的 外键列 post_id--&gt;
+            &lt;key column=&quot;post_id&quot;&gt;&lt;/key&gt;
+            &lt;!-- 当前一个(one)帖子对应多个(many)回复 --&gt;
+            &lt;one-to-many 
+                class=&quot;cn.tedu.note.entity.Comment&quot;/&gt;
+        &lt;/set&gt;
+
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+<h2>单例模式</h2>
+<p>模式: 解决问题的固定套路</p>
+<p>单例: 在软件中永远唯一的对象个体.</p>
+<p>单例模式: 解决 在软件中永远唯一的对象个体 固定套路</p>
+<blockquote>
+<p>注意: Spring 中的Bean默认情况下是 &quot;单例&quot;的, 但是不能称为单例模式!!</p>
+</blockquote>
+<h3>饿汉式:</h3>
+<pre><code>//&quot;饿汉式&quot; 立即加载模式
+class Girl{
+    private static Girl instance = new Girl();
+    private Girl(){
+    }
+    public static Girl getInstance() {
+        return instance;
+    } 
+}
+</code></pre>
+
+<h3>懒汉式</h3>
+<pre><code>//&quot;懒汉式&quot; 按需加载
+class Boy{
+    private static Boy instance;
+    private Boy(){
+    }
+    public synchronized static Boy getInstance() {
+        if(instance == null){
+            instance = new Boy();
+        }
+        return instance;
+    }
+}
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

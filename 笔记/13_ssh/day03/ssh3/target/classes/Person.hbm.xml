@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Hibernate 映射文件负责: 
+映射 实体和表的对应关系, 映射实体属性和列的对应关系
+Class Person{          p_person(
+  id                     id
+  name                   name
+}                      )
+
+ -->
+<hibernate-mapping>
+	<class name="cn.tedu.entity.Person"
+			table="p_person">
+		<!-- id 属性是主键, 使用id标签映射 -->
+		<id name="id" column="id">
+			<!-- class=identity 用于处理自增类型 -->
+			<generator class="identity"/>
+		</id>
+		<!-- 映射普通属性 
+		  Person.name -> p_person.name -->
+		<property name="name" column="name"/>
+	</class>
+</hibernate-mapping>
+
+
+
+
+
+

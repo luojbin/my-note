@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day02</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>Struts2 中访问 session</h2>
+<h3>利用SessionAware接口注入Session对象</h3>
+<p>Struts 2 的控制器只要实现 SessionAware接口, 实现其Bean属性注入方法 setSession, Struts 2 主控制器就会在执行控制器方法之前将Session对象注入到控制器中.</p>
+<p>原理:</p>
+<p><img src="1.png" /> </p>
+<p>案例:</p>
+<ol>
+<li>
+<p>声明控制器, 实现SessionAware接口:</p>
+<pre><code>/**
+ * 自动注入Session对象. 
+ * Struts主控制器在发现控制器类,  SessionController
+ * 实现了SessionAware时候, 会自动的将Session对象
+ * 注入到 控制器对象中. 注入时候调用的方法是setSession 
+ */
+public class SessionAction
+    implements SessionAware{
+
+    private Map&lt;String, Object&gt; session;
+
+    public void setSession(
+            Map&lt;String, Object&gt; session) {
+        this.session=session;
+    }
+
+    public String demo(){
+        session.put(&quot;name&quot;, &quot;Tom&quot;);
+        return &quot;success&quot;;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>编写success.jsp测试, session中存储的数据:</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; 
+    contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Session Demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Session&lt;/h1&gt;
+    &lt;p&gt;session数据: ${name}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编辑配置文件, struts.xml</p>
+<pre><code>&lt;action name=&quot;session&quot;
+    class=&quot;cn.tedu.controller.SessionAction&quot;
+    method=&quot;demo&quot;&gt;
+    &lt;result name=&quot;success&quot;&gt;
+        /WEB-INF/jsp/session.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh2/demo/session.action
+</code></pre>
+
+</li>
+</ol>
+<h3>抽取AbstractAction类, 简化控制器</h3>
+<p>为了重用SessionAware注入代码, 简化控制器编写, 在实际工作中经常抽取AbstractAction, 封装控制器的公共代码, 简化控制器的开发. </p>
+<p>Struts 2 也提供了一个 ActionSupport 类, 建议作为Action的父类, 其作用也是封装了 Action常用功能, 简化Action的开发.</p>
+<p><img src="2.png" /> </p>
+<p>案例:</p>
+<pre><code>public abstract class AbstractAction 
+    extends ActionSupport
+    implements SessionAware {
+
+    protected Map&lt;String, Object&gt; session;
+
+    public void setSession(
+            Map&lt;String, Object&gt; session) {
+        this.session=session;
+    }
+}
+</code></pre>
+
+<p>Struts2 还提供了 RequestAware 和 ApplicationAware, 用于注入 request和application, 为了方便控制器的编程, 可以将这些接口在AbstractAction上实现:</p>
+<pre><code>public abstract class AbstractAction 
+    extends ActionSupport
+    implements SessionAware,
+    RequestAware, 
+    ApplicationAware{
+
+    protected Map&lt;String, Object&gt; request;
+    protected Map&lt;String, Object&gt; session;
+    protected Map&lt;String, Object&gt; application;
+
+    public void setSession(
+            Map&lt;String, Object&gt; session) {
+        this.session=session;
+    }
+    public void setRequest(
+            Map&lt;String, Object&gt; request) {
+        this.request=request;
+    }
+    public void setApplication(
+            Map&lt;String, Object&gt; application) {
+        this.application=application;
+    }
+
+}
+</code></pre>
+
+<p>这样控制器可以简化为:</p>
+<pre><code>public class DemoAction extends AbstractAction{
+
+    public String execute(){
+        request.put(&quot;myName&quot;, &quot;Wang&quot;);
+        session.put(&quot;name&quot;, &quot;Andy&quot;);
+        application.put(&quot;test&quot;, &quot;熊大&quot;);
+        return SUCCESS;
+    }
+}   
+</code></pre>
+
+<p>配置控制器:</p>
+<pre><code>    &lt;action name=&quot;demo&quot; 
+        class=&quot;cn.tedu.controller.DemoAction&quot;&gt;
+        &lt;result name=&quot;success&quot;&gt;
+            /WEB-INF/jsp/session.jsp
+        &lt;/result&gt;
+    &lt;/action&gt;
+</code></pre>
+
+<p>session.jsp</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; 
+    contentType=&quot;text/html; charset=UTF-8&quot;
+    pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Session Demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Session&lt;/h1&gt;
+    &lt;p&gt;request数据: ${myName}&lt;/p&gt;
+    &lt;p&gt;session数据: ${name}&lt;/p&gt;
+    &lt;p&gt;application数据: ${test}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<blockquote>
+<p>可以体会到在控制器中访问 session request 和 application的便捷性.</p>
+</blockquote>
+<h3>控制器的线程安全(重要)</h3>
+<p>Struts 2 为了保护控制器的线程安全, 每个用户请求创建一个新的 控制器(Action)对象.</p>
+<p>原理:</p>
+<p><img src="3.png" /> </p>
+<h2>Spring 和 Struts 2 整合</h2>
+<p>Spring 将接管 Struts 2 控制器对象的管理, 帮助创建 Struts 2 控制器Bean对象.</p>
+<p>整合步骤:</p>
+<ol>
+<li>
+<p>导入包 Struts 2 提供的整合包</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+  &lt;artifactId&gt;struts2-spring-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<blockquote>
+<p>导入以后, 无需配置, 自动工作!</p>
+</blockquote>
+</li>
+<li>
+<p>导入Spring包, 和配置Spring容器.</p>
+<blockquote>
+<p>Spring 包已经自动依赖, 无需再次导入</p>
+</blockquote>
+<pre><code>  &lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;context-param&gt;
+     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+     &lt;param-value&gt;classpath:spring-*.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;  
+</code></pre>
+
+<blockquote>
+<p>其中 ContextLoaderListener 类要求配置参数 contextConfigLocation</p>
+<p>添加Spring配置文件 spring-web.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd&quot;&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+<blockquote>
+<p>当前Spring版本是3.0版本, 配置文件中的Schema文件版本也要改成3.0版本的! 否则无法使用.</p>
+<p>部署到容器进行测试...</p>
+</blockquote>
+</li>
+<li>
+<p>利用Spring 管理 控制器Bean组件, 注意这些bean不能是单例的, 否则有线程安全问题!!</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class HelloAction extends AbstractAction {
+    public String execute(){
+        System.out.println(&quot;Hello World!&quot;);
+        return SUCCESS;
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>在spring 配置文件中配置组件扫描功能 spring-web.xml</p>
+</blockquote>
+<pre><code>    &lt;context:component-scan  base-package=&quot;cn.tedu.controller&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>在Struts2 配置文件中, class 属性替换为 Spring Bean ID 即可使用Spring 创建的Bean组件了.</p>
+<pre><code>&lt;!-- 利用Spring作为控制器Action的容器 
+    只需要使用class=&quot;Bean ID&quot;--&gt;
+&lt;action name=&quot;hello&quot;    
+    class=&quot;helloAction&quot;&gt;
+    &lt;result type=&quot;dispatcher&quot; name=&quot;success&quot;&gt;
+        /WEB-INF/jsp/ok.jsp
+    &lt;/result&gt;
+&lt;/action&gt;   
+</code></pre>
+
+</li>
+</ol>
+<h3>为什么要将 Spring 和 Struts2 整合</h3>
+<ol>
+<li>
+Spring 框架核心功能: IOC/DI  AOP
+<ul>
+<li>IOC/DI 管理对象, 管理对象和对象的关系, 可以解除耦合</li>
+<li>AOP </li>
+</ul>
+</li>
+<li>Struts2 可以简化WEB编程.</li>
+<li>
+整合以后: 
+<ol>
+<li>简化了Web开发</li>
+<li>简化业务层和持久层组件的开发.</li>
+</ol>
+</li>
+</ol>
+<p><img src="3.png" /> </p>
+<h2>Result</h2>
+<p>Struts 提供了丰富的Result支持, 在struts的默认配置文件struts-default.xml中声明了这些result:</p>
+<pre><code>&lt;package name=&quot;struts-default&quot; abstract=&quot;true&quot;&gt;
+    &lt;result-types&gt;
+        &lt;result-type name=&quot;chain&quot; class=&quot;com.opensymphony.xwork2.ActionChainResult&quot;/&gt;
+        &lt;result-type name=&quot;dispatcher&quot; class=&quot;org.apache.struts2.dispatcher.ServletDispatcherResult&quot; default=&quot;true&quot;/&gt;
+        &lt;result-type name=&quot;freemarker&quot; class=&quot;org.apache.struts2.views.freemarker.FreemarkerResult&quot;/&gt;
+        &lt;result-type name=&quot;httpheader&quot; class=&quot;org.apache.struts2.dispatcher.HttpHeaderResult&quot;/&gt;
+        &lt;result-type name=&quot;redirect&quot; class=&quot;org.apache.struts2.dispatcher.ServletRedirectResult&quot;/&gt;
+        &lt;result-type name=&quot;redirectAction&quot; class=&quot;org.apache.struts2.dispatcher.ServletActionRedirectResult&quot;/&gt;
+        &lt;result-type name=&quot;stream&quot; class=&quot;org.apache.struts2.dispatcher.StreamResult&quot;/&gt;
+        &lt;result-type name=&quot;velocity&quot; class=&quot;org.apache.struts2.dispatcher.VelocityResult&quot;/&gt;
+        &lt;result-type name=&quot;xslt&quot; class=&quot;org.apache.struts2.views.xslt.XSLTResult&quot;/&gt;
+        &lt;result-type name=&quot;plainText&quot; class=&quot;org.apache.struts2.dispatcher.PlainTextResult&quot; /&gt;
+    &lt;/result-types&gt;
+    ...
+
+&gt; 可以看到在struts-default包中定义了这些Result类型, 只要继承struts-default既可以继承这些Result类型. 
+
+&gt; 每个Result类型对应一个类, Result类型的具体功能是由这个类提供算法支持. 如: dispatcher 类型的功能, 由 org.apache.struts2.dispatcher.ServletDispatcherResult 类来处理.
+
+&gt; 这个配置也说明: 如果在使用Struts2时候, 对其提供的Result类型不满意, 可以自行添加类进行扩展, 扩展出自己的Result类型.
+</code></pre>
+
+<p>常用的类型有:</p>
+<ol>
+<li>dispatcher</li>
+<li>redirect</li>
+<li>redirectAction</li>
+<li>stream</li>
+<li>json</li>
+</ol>
+<h3>dispatcher</h3>
+<p>dispatcher 类型是默认的结果类型, 其处理规则是将控制器转发到目标JSP.</p>
+<p><img src="3.png" /> </p>
+<p>案例:</p>
+<pre><code>&lt;action name=&quot;demo&quot; 
+    class=&quot;cn.tedu.controller.DemoAction&quot;&gt;
+    &lt;result name=&quot;success&quot;&gt;
+        /WEB-INF/jsp/session.jsp
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+<h3>redirect</h3>
+<p>就是重定向, 控制器处理以后, 重定向到其他URL目标:</p>
+<p><img src="5.png" /> </p>
+<p>案例:</p>
+<ol>
+<li>
+<p>编写控制器</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class RedirectDemoAction 
+    extends AbstractAction{
+
+    public String execute() {
+        System.out.println(&quot;重定向请求&quot;);
+        return SUCCESS;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 重定向演示 --&gt;
+&lt;action name=&quot;doc&quot;
+    class=&quot;redirectDemoAction&quot;&gt;
+    &lt;result type=&quot;redirect&quot; name=&quot;success&quot;&gt;
+        &lt;param name=&quot;location&quot;&gt;
+            http://doc.tedu.cn
+        &lt;/param&gt;
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh2/demo/doc.action
+</code></pre>
+
+</li>
+</ol>
+<h3>redirectAction</h3>
+<p>与 redirect 类型, 只是重定向的目标不是url而是 action</p>
+<p>案例:</p>
+<ol>
+<li>
+<p>编写控制器类</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class RedirectActionDemoAction 
+    extends AbstractAction{
+
+    public String execute(){
+        System.out.println(&quot;重定向到其他控制器&quot;);
+        return SUCCESS;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 重定向到其他的控制器 --&gt;
+&lt;action name=&quot;redirect&quot;
+    class=&quot;redirectActionDemoAction&quot;&gt;
+    &lt;result type=&quot;redirectAction&quot;
+        name=&quot;success&quot;&gt;
+        &lt;param name=&quot;actionName&quot;&gt;hello&lt;/param&gt;          
+        &lt;param name=&quot;namespace&quot;&gt;/demo&lt;/param&gt;
+    &lt;/result&gt;
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh2/demo/redirect.action
+</code></pre>
+
+</li>
+</ol>
+<h3>stream</h3>
+<p>stream 可以用于HTTP下载 文件:</p>
+<p><img src="6.png" /></p>
+<p>将一个图片显示发送到客户端:</p>
+<ol>
+<li>
+<p>编写控制器:</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class ImgAction extends AbstractAction {
+    private InputStream img;
+    public InputStream getImg() {
+        return img;
+    }
+    public void setImg(InputStream img) {
+        this.img = img;
+    }
+
+    private byte[] createPng() throws IOException{
+        BufferedImage img = new BufferedImage(200, 60, BufferedImage.TYPE_3BYTE_BGR);
+        Random r = new Random();
+        for(int i=0; i&lt;100; i++){
+            int x = r.nextInt(img.getWidth());
+            int y = r.nextInt(img.getHeight());
+            int rgb=r.nextInt(0xffffff);
+            img.setRGB(x, y, rgb);
+        }
+        ByteArrayOutputStream out = 
+            new ByteArrayOutputStream();
+        ImageIO.write(img, &quot;png&quot;, out);
+        out.close();
+        return out.toByteArray();
+    }
+
+
+    public String execute() throws IOException{
+
+        byte[] png=createPng();
+        img = new ByteArrayInputStream(png);
+
+        return SUCCESS;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 将图片发送到浏览器 --&gt;
+&lt;action name=&quot;img&quot;
+    class=&quot;imgAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;stream&quot;&gt;
+        &lt;param name=&quot;inputName&quot;&gt;img&lt;/param&gt;
+        &lt;param name=&quot;contentType&quot;&gt;image/png&lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+<blockquote>
+<p>注意: img 是控制器ImgAction的bean属性, 其类型必须是inputStream</p>
+</blockquote>
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh2/demo/img.action
+</code></pre>
+
+</li>
+</ol>
+<p>将图片下载到浏览器:</p>
+<ol>
+<li>
+<p>控制器, 重用ImgAction</p>
+</li>
+<li>
+<p>配置struts.xml</p>
+<pre><code>&lt;!-- 浏览器端自动下载图片 --&gt;
+&lt;action name=&quot;download&quot;
+    class=&quot;imgAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;stream&quot;&gt;
+        &lt;param name=&quot;inputName&quot;&gt;img&lt;/param&gt;
+        &lt;param name=&quot;contentType&quot;&gt;
+            application/octet-stream
+        &lt;/param&gt;
+        &lt;param name=&quot;contentDisposition&quot;&gt;
+            attachment; filename=&quot;demo.png&quot;
+        &lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+<blockquote>
+<p>根据Http协议, 设置contentType 和 contentDisposition, HTTP协议具体内容请参考RFC2616.</p>
+</blockquote>
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh2/demo/download.action
+</code></pre>
+
+</li>
+</ol>
+<p>下载Excel文件:</p>
+<ol>
+<li>
+<p>导入POI API</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+  &lt;artifactId&gt;poi&lt;/artifactId&gt;
+  &lt;version&gt;3.13&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>编写控制器</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class ExcelAction extends AbstractAction {
+
+    private InputStream excel;
+
+    public InputStream getExcel() {
+        return excel;
+    }
+    public void setExcel(InputStream excel) {
+        this.excel = excel;
+    }
+
+    private byte[] createExcel() 
+        throws IOException{
+        //创建工作簿
+        HSSFWorkbook workbook=new HSSFWorkbook();
+        //创建工作表
+        HSSFSheet sheet=
+                workbook.createSheet(&quot;Demo&quot;);
+        //在工作表中创建数据行
+        HSSFRow row = sheet.createRow(0);
+        //创建行中的格子
+        HSSFCell cell = row.createCell(0);
+        cell.setCellValue(&quot;Hello World!&quot;); 
+        //将Excel文件保存为 byte 数组
+        ByteArrayOutputStream out =
+                new ByteArrayOutputStream();
+        workbook.write(out);
+        out.close();
+        return out.toByteArray();
+    }
+
+    public String execute() throws IOException{
+
+        byte[] buf = createExcel();
+        excel = new ByteArrayInputStream(buf);
+
+        return SUCCESS;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置 struts.xml</p>
+<pre><code>&lt;!-- 浏览器端自动下载Excel --&gt;
+&lt;action name=&quot;excel&quot;
+    class=&quot;excelAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;stream&quot;&gt;
+        &lt;param name=&quot;inputName&quot;&gt;excel&lt;/param&gt;
+        &lt;param name=&quot;contentType&quot;&gt;
+            application/octet-stream
+        &lt;/param&gt;
+        &lt;param name=&quot;contentDisposition&quot;&gt;
+            attachment; filename=&quot;demo.xls&quot;
+        &lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh2/demo/excel.action
+</code></pre>
+
+</li>
+</ol>
+<h3>json</h3>
+<p>json Result 不是Struts2 内嵌结果类型, 需要导入 struts2-json-plugin:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+  &lt;artifactId&gt;struts2-json-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p>在 struts2-json-plugin-2.3.8.jar	 包中的struts-plugin.xml文件中声明了 json类型的result:</p>
+<pre><code>&lt;package name=&quot;json-default&quot; extends=&quot;struts-default&quot;&gt;
+
+    &lt;result-types&gt;
+        &lt;result-type name=&quot;json&quot; class=&quot;org.apache.struts2.json.JSONResult&quot;/&gt;
+    &lt;/result-types&gt;
+...
+</code></pre>
+
+<p>使用时候需要将 package 继承于 json-default 就可以使用 json Result, 由于json-default继承于struts-default, 这样也可以使用struts-default中定义的result了.</p>
+<p>Json Result 原理:</p>
+<p><img src="7.png" /></p>
+<p>使用Json Result</p>
+<ol>
+<li>
+<p>编写控制器</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+//转换为json: {name:&quot;Tom&quot;, age:10}
+public class JsonDemoAction {
+    private String name;
+    private int age;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public String execute(){
+        name = &quot;Tom&quot;;
+        age = 10;
+        return &quot;success&quot;;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置:</p>
+<pre><code>&lt;package name=&quot;json&quot; namespace=&quot;/json&quot;
+    extends=&quot;json-default&quot;&gt;
+    &lt;action name=&quot;jsonDemo&quot; 
+        class=&quot;jsonDemoAction&quot;&gt;
+        &lt;result name=&quot;success&quot; type=&quot;json&quot;&gt;
+        &lt;/result&gt;
+    &lt;/action&gt;
+&lt;/package&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<pre><code>http://localhost:8080/ssh2/json/jsonDemo.action
+</code></pre>
+
+<blockquote>
+<p>将jsonDemoAction的整体作为Java Bean 转换为json字符串发送到浏览器 jsonDemoAction中的Bean属性会转换为 json字符串中的属性</p>
+</blockquote>
+</li>
+</ol>
+<p>以上案例问题是不能精确控制器哪些Bean属性转换为json字符串, 所以一般将指定属性转换为JSON</p>
+<ol>
+<li>
+<p>编写控制器:</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class RootDemoAction extends AbstractAction{
+
+    private Object jsonResult;
+
+    public void setJsonResult(Object jsonResult) {
+        this.jsonResult = jsonResult;
+    }
+    public Object getJsonResult() {
+        return jsonResult;
+    }
+
+    public String execute(){
+        String[] ary={&quot;Tom&quot;, &quot;Andy&quot;};
+        jsonResult = ary;
+        return SUCCESS;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置:</p>
+<pre><code>&lt;!-- 指定Action中的一个Bean属性, 转换为
+json字符串, 发送到客户端, jsonResult 
+是Action中的Bean属性名 --&gt;
+&lt;action name=&quot;rootDemo&quot;
+    class=&quot;rootDemoAction&quot;&gt;
+    &lt;result name=&quot;success&quot; type=&quot;json&quot;&gt;
+        &lt;param name=&quot;root&quot;&gt;jsonResult&lt;/param&gt;
+    &lt;/result&gt;   
+&lt;/action&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh2/json/rootDemo.action
+</code></pre>
+
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>搭建Struts2 + Spring + JSON 整合开发环境</li>
+<li>实现控制器将List作为JSON返回值	</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

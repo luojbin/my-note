@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//confirm()
+	function f1() {
+		var b = confirm("您确定要清空购物车吗?");
+		if(b) {
+			console.log("购物车已清空");
+		}
+	}
+	//周期性定时器
+	function f2() {
+		//启动周期性定时器:
+		//每隔1000ms调用一次函数.
+		//返回的ID是定时器的唯一标识,
+		//用来停止定时器.
+		var n = 5;
+		var id = setInterval(function(){
+			console.log(n--);
+			if(n==0) {
+				clearInterval(id);
+				console.log("DUANG!");
+			}
+		},1000);
+		//当前方法f2相当于主线程,
+		//setInterval相当于启动了支线程,
+		//二者并发执行,不互相等待.
+		//主线程在启动支线程后立刻向下执行,
+		//支线程需要等待1秒后才执行第一次.
+		console.log("BOOM!");
+	}
+	//一次性定时器
+	var id;
+	function f3() {
+		console.log("显示广告");
+		//启动一次性定时器:
+		//推迟5000ms调用函数,
+		//调用一次后自动结束.
+		id = setTimeout(function(){
+			console.log("自动关闭广告");
+		},5000);
+	}
+	function f4() {
+		//在定时器没有自动停止前,
+		//可以调用此方法提前停止.
+		clearTimeout(id);
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="清空"
+		onclick="f1();"/>
+	<input type="button" value="倒计时"
+		onclick="f2();"/>
+	<input type="button" value="广告"
+		onclick="f3();"/>
+	<input type="button" value="看广告"
+		onclick="f4();"/>
+</body>
+</html>
+
+
+
+
+
+
+

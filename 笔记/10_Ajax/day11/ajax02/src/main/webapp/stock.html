@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+	#d1{
+		width:450px;
+		height:360px;
+		background-color:black;
+		margin-left:400px;
+		margin-top:20px;
+	}
+	#d2{
+		height:32px;
+		background-color:red;
+		color:yellow;
+	}
+	table{
+		color:white;
+		font-size:24px;
+	}
+</style>
+<script type="text/javascript" 
+	src="js/ajax.js">
+</script>
+<script type="text/javascript">
+	function showStocks(){
+		setInterval(quoto,5000);
+	}
+	
+	function quoto(){
+		var xhr = getXhr();
+		xhr.open('get','quoto.do',true);
+		xhr.onreadystatechange  = function(){
+			if(xhr.readyState == 4 && 
+					xhr.status == 200){
+				var txt = xhr.responseText;
+				/*
+					txt是一个json字符串，要将
+					这个字符串转换成javascript对象。
+				*/
+				var arr = JSON.parse(txt);
+				var trs = '';
+				for(i = 0; i < arr.length; i ++){
+					var s = arr[i];
+					trs += '<tr><td>' + s.code 
+					+ '</td><td>' + s.name 
+					+ '</td><td>' + s.price 
+					+ '</td></tr>';
+				}
+				$('tb1').innerHTML = trs;
+			}
+		};
+		xhr.send(null);
+	}
+</script>
+</head>
+<body style="font-size:30px;" 
+	onload="showStocks();">
+	<div id="d1">
+		<div id="d2">股票实时行情</div>
+		<div id="d3">
+			<table width="100%">
+				<thead>
+					<tr>
+						<td>代码</td>
+						<td>名称</td>
+						<td>价格</td>
+					</tr>
+				</thead>
+				<tbody id="tb1">
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

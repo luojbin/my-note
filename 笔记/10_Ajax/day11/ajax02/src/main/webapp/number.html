@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript"
+src="js/jquery-1.4.3.js">
+</script>
+<script type="text/javascript">
+	$(function(){
+		$('#b1').click(f1);
+	});
+	function f1(){
+		$.ajax({
+			"url":"getNumber.do",
+			"type":"post",
+			"dataType":"text",
+			"success":function(data){
+				$('#number').val(data);
+			}
+		});
+	}
+	
+</script>
+</head>
+<body style="font-size:30px;">
+	<input id="number"/>
+	<input id="b1" type="button" value="获取随机数"/>
+</body>
+</html>

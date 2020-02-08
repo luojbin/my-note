@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day06</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Java API</h1>
+<h2>Java File</h2>
+<p>Java 程序中如何操作文件、文件夹：</p>
+<ol>
+<li>创建File对象代表文件夹、文件</li>
+<li>利用File对象提供方法操作文件夹、文件</li>
+<li>
+File 对象提供的方法:
+<ul>
+<li>
+属性方法
+<ul>
+<li>是否存在 </li>
+<li>是否是文件</li>
+<li>是否是文件夹</li>
+<li>文件的长度，文件中包含的字节数量</li>
+<li>文件（文件夹）的读写属性</li>
+<li>文件夹、文件是否隐藏</li>
+<li>文件的创建时间</li>
+</ul>
+</li>
+<li>
+操作方法
+<ul>
+<li>删除文件夹、文件</li>
+<li>创建文件夹，创建系列文件夹</li>
+<li>创建文件</li>
+<li>文件夹、文件的改名</li>
+</ul>
+</li>
+<li>
+查询方法
+<ul>
+<li>列文件夹的内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3>File	构造器</h3>
+<p>创建File对象可以代表文件或者文件夹</p>
+<ol>
+<li>new File(文件路径名)</li>
+<li>new File(父文件夹，文件名)</li>
+</ol>
+<blockquote>
+<p>利用构造器创建file对象以后就可以调用File 提供的API方法了</p>
+</blockquote>
+<p>案例：</p>
+<pre><code>/**
+ * 创建file对象，代表某个文件夹中的某个文件 
+ */
+public class Demo06 {
+    public static void main(String[] args) {
+        //创建file对象代表文件夹
+        File dir=new File(&quot;test&quot;);
+        //创建file对象代表 文件夹中的文件
+        File file=new File(dir, &quot;demo.txt&quot;);
+        //如上file代表 test文件夹中的demo.txt
+        //文件
+        boolean b = file.exists();
+        System.out.println(b); 
+    }
+}
+</code></pre>
+
+<h3>删除文件 API 方法</h3>
+<p>案例：</p>
+<pre><code>/**
+ * File API 的使用
+ *
+ */
+public class Demo01 {
+    public static void main(String[] args) {
+        //创建file 对象，代表硬盘上的文件
+        File file=new File(&quot;demo/test.txt&quot;);
+        //有了file对象后就可以利用File类
+        //提供的API方法操作 demo/test.txt文件
+        //delete：删除file所代表的硬盘文件
+        boolean success = file.delete();
+        System.out.println(success);
+        //当删除成功时候返回 true，
+        //删除失败时候返回false
+        success = file.delete();
+        System.out.println(success); 
+    }   
+}
+</code></pre>
+
+<h3>File 对象可以代表文件或文件夹</h3>
+<pre><code>/**
+ * File 可以代表文件夹 
+ */
+public class Demo04 {
+    public static void main(String[] args) {
+        //dir 就代表硬盘上的一个文件夹
+        File dir=new File(&quot;demo&quot;);
+        //File API 提供了检查是否是文件夹的方法
+        //isDirectory 返回true是文件夹
+        boolean b = dir.isDirectory();
+        System.out.println(b); //true
+        //删除文件夹！只能删除空文件夹！
+        dir.delete();
+        //此时file对象，没有被代表的文件、文件夹
+        //这时候 file对象：不是文件，不是文件夹
+        // 也不存在
+        b = dir.isDirectory();
+        System.out.println(b); 
+    }
+}
+</code></pre>
+
+<h3>检查文件是否存在</h3>
+<p>new File（） 用于创建内存对象，并不是创建文件或者文件夹，甚至并不一定有对应的磁盘文件，Java File 提供了exists用于检查对应的磁盘文件（文件夹）是否存在：</p>
+<pre><code>/**
+ * 检查磁盘文件是否存在 
+ */
+public class Demo02 {
+    public static void main(String[] args) {
+        File file=new File(&quot;demo/hello.txt&quot;);
+        //exists: 检查file对象代表的硬盘文件
+        //是否存在，如果存在则true，否则false
+        boolean b = file.exists();
+        System.out.println(b);//true
+        file.delete();
+        //删除以后磁盘文件就不存在了，但是内存对象还在
+        b = file.exists();
+        System.out.println(b);//false
+    }
+}
+</code></pre>
+
+<h3>文件分隔符</h3>
+<pre><code>/**
+ * 文件分隔符问题：
+ * 1. Windows 的文件分隔符 ：\
+ *    - D:\demo\test.txt
+ *    - demo\test.txt
+ *    - File.separator = \
+ * 2. Linux 的文件分隔符 ：/
+ *    - /home/soft01/demo/test.txt
+ *    - demo/test.txt
+ *    - File.separator = /
+ * 3. File 类提供了自动适应操作系统的文件分隔符
+ * 变量File.separator或随着操作系统自动变化，
+ * 可以利用这变量，编写跨系统的程序：
+ *    - &quot;demo&quot;+File.separator+&quot;test.txt&quot;
+ * 4. 当使用 “/” 时候 Java 会自动使用所有操作
+ *    系统，这样更加方便！
+ */
+public class Demo03 {
+    public static void main(String[] args) {
+        String path= &quot;demo&quot;+File.separator+
+                &quot;test.txt&quot;;
+        File file = new File(path);
+        boolean b = file.exists();
+        System.out.println(b);//false
+    }
+}
+</code></pre>
+
+<h3>不能删除非空文件夹</h3>
+<p>delete()方法可以删除文件或者空文件夹，但是不能删除非空文件夹！！</p>
+<p>案例:</p>
+<pre><code>/**
+ * 不能删除非空文件夹 
+ * 首先准备实验素材：test/demo.txt
+ */
+public class Demo05 {
+    public static void main(String[] args) {
+        //创建file对象代表文件夹
+        File dir=new File(&quot;test&quot;);
+        boolean b=dir.isDirectory();
+        System.out.println(b);//true
+        boolean success=dir.delete();
+        System.out.println(success);//false
+        //test 文件夹中包含文件，这时
+        //不能直接删除。delete()返回false
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>删除非空文件夹可以利用后面的递归删除方法实现！</p>
+</blockquote>
+<h3>读取文件的属性</h3>
+<p>File API 提供了读取文件（文件夹）属性的方法</p>
+<pre><code>/**
+ * 读取一个文件夹、文件的全部属性
+ * 素材：test/demo.txt 
+ */
+public class Demo07 {
+    public static void main(String[] args) {
+        File dir=new File(&quot;test&quot;);
+        File file=new File(dir, &quot;demo.txt&quot;);
+        //dir代表一个文件夹
+        //file 代表一个文件
+        //检查是否是文件
+        System.out.println(dir.isFile());
+        System.out.println(file.isFile());
+        //检查文件的长度
+        long length = file.length();
+        System.out.println(length); 
+        //检查文件的最后修改时间
+        long time = file.lastModified();
+        Date date = new Date(time);
+        System.out.println(date);
+        //检查文件的读写属性
+        boolean read=file.canRead();
+        boolean write=file.canWrite();
+        boolean hidden = file.isHidden();
+
+        System.out.println(read);
+        System.out.println(write);
+        System.out.println(hidden);
+    }
+
+}
+</code></pre>
+
+<blockquote>
+<p>文件夹的长度是没有意义的数据！！</p>
+</blockquote>
+<h3>创建文件夹</h3>
+<pre><code>/**
+ * 创建文件夹 
+ */
+public class Demo08 {
+    public static void main(String[] args) {
+        File file = new File(&quot;abc&quot;);
+        //mkdir()用于创建文件夹，如果成功
+        //创建文件夹，则返回true，否则false
+        boolean b = file.mkdir();
+        System.out.println(b);//true
+        //创建系列文件夹
+        File file2=new File(&quot;def/demo/test&quot;);
+        //mkdirs 用于创建一系列父子文件夹
+        b = file2.mkdirs();
+        System.out.println(b); 
+        //使用绝对路径创建文件夹
+        File file3=new File(&quot;d:/demo/test&quot;);
+        //new File(&quot;/home/soft01/demo/test&quot;);
+        file3.mkdirs();
+    }
+}
+</code></pre>
+
+<h3>创建文件</h3>
+<pre><code>/**
+ * 利用File API 创建文件
+ * 
+ */
+public class Demo09 {
+    public static void main(String[] args) 
+        throws Exception{
+        File file = new File(&quot;test/abc.txt&quot;);
+        //调用file对象的API方法
+        //create:创建
+        //createNewFile: 创建新文件
+        //如果创建成功返回true，创建失败
+        //返回false，如果没有写入权限，则
+        //出现异常！！
+        boolean b = file.createNewFile();
+        System.out.println(b);//true
+        //使用绝对路径创建文件
+    }
+}
+</code></pre>
+
+<h3>文件（文件夹）改名</h3>
+<pre><code>/**
+ * 文件的改名操作
+ * 素材： test/abc.txt  没有 test/def.txt
+ */
+public class Demo10 {
+    public static void main(String[] args) {
+        File file1=new File(&quot;test/abc.txt&quot;);
+        File file2=new File(&quot;test/def.txt&quot;);
+        //file1 是存在的文件，
+        //file2 是一个不存在的文件
+        //将file1的名字改名为file2对应的名字
+        boolean b = file1.renameTo(file2);
+        //改名之后：file1就不存在了（abc.txt）
+        //          file2存在(def.txt)
+        System.out.println(b);//true
+    }
+}
+</code></pre>
+
+<h3>列出文件夹的内容</h3>
+<pre><code>/**
+ * 列文件夹的内容 
+ */
+public class Demo11 {
+    public static void main(String[] args) {
+        //创建file对象代表test文件夹
+        // new File(&quot;D:/&quot;);
+        // new File(&quot;/home/soft01/&quot;);
+        File dir=new File(&quot;test&quot;);
+        //查询 test文件夹的内容列表
+        //返回值是File类型的数组，有的是
+        //文件有的是文件夹
+        File[] files=dir.listFiles();
+        //在控制台输出文件夹中全部的内容
+        for(File file:files){
+            //文件夹显示为： [文件夹名]
+            if(file.isDirectory()){
+                System.out.println(
+                        &quot;[&quot;+file.getName()+&quot;]&quot;); 
+            }else{
+                System.out.println(
+                        file.getName());
+            }
+        }
+    }
+}
+</code></pre>
+
+<h3>递归删除文件夹的内容</h3>
+<pre><code>/**
+ * 删除一个包含文件的文件夹 
+ */
+public class Demo12 {
+    public static void main(String[] args) {
+        File file = new File(&quot;abc&quot;);
+        boolean b=delete(file);
+        System.out.println(b); 
+    }
+    // 删除一个包含文件的文件夹 
+    public static boolean delete(File dir){
+        //删除一个文件夹的步骤：
+        //1. 列出文件夹的全部内容
+        //2. 遍历每个文件，并且调用文件的detete()
+        //3. 删除文件夹
+        //4. 返回删除的结果
+        if(! dir.exists()){
+            return false;
+        }
+        File[] files=dir.listFiles();
+        for(File file:files){
+            if(file.isDirectory()){
+                //删除子文件夹
+                //删除子文件的算法与删除当前
+                //文件夹的算法是一致的。利用
+                //递归删除子文件夹
+                delete(file);
+            }else{
+                file.delete();
+            }
+        }
+        return dir.delete();
+    }
+}
+</code></pre>
+
+<h3>递归统计文件夹的大小</h3>
+<pre><code>/**
+ * 统计一个文件夹中全部文件的总长度 
+ */
+public class Demo13 {
+    public static void main(String[] args) {
+        File dir = new File(&quot;abc&quot;);
+        long n = count(dir);
+        System.out.println(n); 
+    }
+    //统计dir对应的文件夹中文件的总大小
+    public static long count(File dir){
+        //1. 查找dir的全部内容
+        //2. 遍历每个文件，累加文件的大小
+        //3. 返回统计结果
+        if(! dir.exists()){ return 0;}
+        if(dir.isFile()){return dir.length();}
+        File[] files=dir.listFiles();
+        long sum = 0;
+        for(File file:files){
+            if(file.isDirectory()){
+                //统计子文件夹的总大小:
+                //统计子文件夹时候和统计当前
+                //文件夹的算法是一样的！
+                long l = count(file);
+                sum += l;
+            }else{
+                //统计一个文件
+                sum+=file.length(); 
+            }
+        }
+        return sum;
+    }
+}
+</code></pre>
+
+<h3>有条件列目录</h3>
+<pre><code>/**
+ * 设置文件的过滤条件
+ * File： 文件
+ * Filter: 过滤器
+ */
+public class Demo14 {
+    public static void main(String[] args) {
+        //FileFilter 是一个接口
+        //new FileFilter(){} 创建匿名内部类
+        FileFilter filter = 
+            new FileFilter(){
+            //accept 方法是在FileFilter中定义
+            //的抽象方法。
+            //accept: 接受，测试文件是否
+            //被接受
+            public boolean accept(File file){
+                //接受一个文件的名是以.txt
+                //为结尾的。
+                String name=file.getName();
+                return name.endsWith(&quot;.txt&quot;); 
+            }
+        };
+
+        File file1 = new File(&quot;abc/demo1.txt&quot;);
+        File file2 = new File(&quot;abc/test.dat&quot;);
+        //检查 file1 使用以 .txt 为结尾
+        System.out.println(
+                filter.accept(file1));//true
+        //检查 file2 使用以 .txt 为结尾
+        System.out.println(
+                filter.accept(file2));//false
+
+        //listFiles 重载方法，与filter配合
+        //可以过滤文件夹内容列表，列出满足
+        //条件的文件
+
+        File dir=new File(&quot;abc&quot;);
+        //满足过滤条件的全部文件（或文件夹）
+        File[] files=dir.listFiles(filter);
+        for(File file:files){
+            System.out.println(file.getName());
+        }
+        //有过滤条件的列目录方法
+        //listFiles(过滤条件);
+    }
+}
+</code></pre>
+
+<h2>RandomAccessFile</h2>
+<p>RandomAccessFile 简称 RAF，Java是提供的API，可以从文件的任意一个位置开始访问文件的内容。</p>
+<p>Random： 随机，任意位置
+Access： 访问，读写</p>
+<blockquote>
+<p>任何文件都是一个长长的byte数据序列。</p>
+</blockquote>
+<h3>RAF 写文件</h3>
+<pre><code>/**
+ * RAF 写出文件 
+ */
+public class Demo15 {
+    public static void main(String[] args) 
+        throws Exception{
+        String file=&quot;abc/demo.txt&quot;;
+        //创建RAF对象，以读写方式创建对象时候
+        //如果文件不存在，则在磁盘上自动创建
+        //文件，文件默认的指针位置在0
+        //如果文件与文件夹同名或者不能写文件
+        //则抛出异常
+        RandomAccessFile raf=
+            new RandomAccessFile(file, &quot;rw&quot;);
+        //检查文件的读写指针位置
+        long p=raf.getFilePointer();
+        System.out.println(p);//0
+        //将数据写到文件中
+        raf.write(65); //有效范围：0~255
+        p = raf.getFilePointer();
+        System.out.println(p);
+
+        raf.write(66);
+        p = raf.getFilePointer();
+        System.out.println(p);
+
+        long l = raf.length();//检查文件的长度
+        System.out.println(l); 
+
+        raf.close();//raf必须关闭
+    }
+
+}
+</code></pre>
+
+<h3>RAF 读取文件</h3>
+<pre><code>/**
+ * RAF 读取文件
+ *
+ */
+public class Demo16 {
+    public static void main(String[] args) 
+        throws Exception {
+        //以只读访问打开文件
+        String file = &quot;abc/demo.txt&quot;;
+        RandomAccessFile raf=
+            new RandomAccessFile(file, &quot;r&quot;);
+        //刚刚打开的文件读写指针位置是0
+        long p=raf.getFilePointer();
+        System.out.println(p);//0
+        //读取0位置上的数据(65)
+        int b = raf.read();//将byte填充到int
+        //占用int： 0~255 范围
+        System.out.println(b);//65
+        //读取以后，文件指针位置自动移动一下
+        //检查文件指针位置
+        p = raf.getFilePointer();
+        System.out.println(p);//1
+        //读取下一个byte数据: 66
+        b = raf.read(); 
+        System.out.println(b);//66
+        //文件指针位置：
+        p = raf.getFilePointer();
+        System.out.println(p);//2
+        //在文件末尾时候调用raf.read()
+        //返回一个特殊值：-1 表示读取到文件末尾了
+        b = raf.read();
+        System.out.println(b);//-1
+        p = raf.getFilePointer();
+        System.out.println(p);//2
+        raf.close();
+    }
+}
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

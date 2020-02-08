@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>servlet1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 配置Servlet -->
+  <!-- 1.声明Servlet,并给它取个别名 -->
+  <servlet>
+  	 <servlet-name>time</servlet-name>
+  	 <servlet-class>web.TimeServlet</servlet-class>
+  </servlet>
+  <!-- 2.通过别名引用Servlet,并给它取个
+  		网名(网络访问路径) -->
+  <servlet-mapping>
+  	<servlet-name>time</servlet-name>
+  	<!-- 网名必须以/开头 -->
+  	<url-pattern>/ts</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+

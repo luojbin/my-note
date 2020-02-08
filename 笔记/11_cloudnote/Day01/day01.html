@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day01</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>云笔记</h1>
+<h2>Spring MVC AJAX</h2>
+<p>Spring MVC 提供了 Ajax支持: </p>
+<p><img src="1.png" /></p>
+<ol>
+<li>
+<p>必须导入 jackson API</p>
+<pre><code>    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+        &lt;version&gt;2.2.3&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+        &lt;version&gt;2.2.3&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+        &lt;version&gt;2.2.3&lt;/version&gt;
+    &lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>在控制器方法上使用 @ResponseBody 注解, 就可以自动的将控制器的返回值(JavaBean)转换为JSON发送到客户端.</p>
+</li>
+</ol>
+<p>案例: </p>
+<ol>
+<li>创建Maven 项目</li>
+<li>
+<p>导入Spring MVC 和 jackson </p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+    &lt;version&gt;3.2.8.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt;
+    &lt;version&gt;2.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-core&lt;/artifactId&gt;
+    &lt;version&gt;2.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+    &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+    &lt;version&gt;2.2.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置Spring MVC: web.xml</p>
+<pre><code>  &lt;servlet&gt;
+    &lt;display-name&gt;DispatcherServlet&lt;/display-name&gt;
+    &lt;servlet-name&gt;DispatcherServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+      &lt;description&gt;&lt;/description&gt;
+      &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+      &lt;param-value&gt;classpath:spring-*.xml&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;DispatcherServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Spring 配置文件: resource</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd&quot;&gt;
+    &lt;!-- 配置组件扫描 --&gt;
+    &lt;context:component-scan 
+        base-package=&quot;controller&quot;/&gt;
+    &lt;!-- 配置MVC注解扫描 --&gt;
+    &lt;mvc:annotation-driven /&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试 ...</p>
+</li>
+<li>
+<p>添加控制器:</p>
+<pre><code>@Controller
+@RequestMapping(&quot;/demo&quot;)
+public class DemoController {
+
+    @RequestMapping(&quot;/ary.do&quot;)
+    @ResponseBody
+    //ResponseBody会自动的将返回结果中JavaBean转换
+    //为JSON字符串发送到浏览器客户端, 底层用了
+    // Jackson API
+    public Object test(){
+        String[] ary = {&quot;李洪鹤&quot;,&quot;熊二&quot;,&quot;熊大&quot;};
+        return ary;
+    }
+
+    @RequestMapping(&quot;/bean.do&quot;)
+    @ResponseBody
+    //将JavaBean作为返回值,ResponseBody注解将Bean
+    //转换为 Json 字符串发送到浏览器端
+    public Object bean(){
+        return new Foo(8,&quot;Tom&quot;, 34.6);
+    }
+
+    @RequestMapping(&quot;/list.do&quot;)
+    @ResponseBody
+    public Object list(){
+        List&lt;Foo&gt; list = new ArrayList&lt;Foo&gt;();
+        list.add(new Foo(1, &quot;Tom&quot;, 3.4));
+        list.add(new Foo(2, &quot;Jerry&quot;, 3.4));
+        list.add(new Foo(3, &quot;Andy&quot;, 3.5));
+        list.add(new Foo(4, &quot;Wang&quot;, 3.2));
+        return list;
+    }
+
+    @RequestMapping(&quot;/map.do&quot;)
+    @ResponseBody
+    public Object map(){
+        Map&lt;String, Object&gt; map = 
+                new LinkedHashMap&lt;String, Object&gt;();
+        map.put(&quot;age&quot;, 20);
+        map.put(&quot;name&quot;, &quot;Andy&quot;);
+        map.put(&quot;price&quot;, 123.6);
+        return map;
+    }
+
+
+    @RequestMapping(&quot;/list2.do&quot;)
+    @ResponseBody
+    public Object list2(){
+        List&lt;String&gt; list = 
+                new ArrayList&lt;String&gt;();
+        list.add(&quot;李红鹤&quot;);
+        list.add(&quot;熊大&quot;);
+        list.add(&quot;熊二&quot;);
+        return list;
+    }
+
+    //List&lt;Map&gt; 
+    @RequestMapping(&quot;/map2.do&quot;)
+    @ResponseBody
+    public Object map2(){
+        List&lt;Map&lt;String, Object&gt;&gt; list=
+            new ArrayList&lt;Map&lt;String,Object&gt;&gt;();
+        Map&lt;String, Object&gt; map = 
+            new LinkedHashMap&lt;String,Object&gt;();
+        map.put(&quot;age&quot;, 5);
+        map.put(&quot;name&quot;, &quot;Tom&quot;);
+        map.put(&quot;price&quot;, 4.5);
+        list.add(map);
+        map=new LinkedHashMap&lt;String,Object&gt;();
+        map.put(&quot;age&quot;, 6);
+        map.put(&quot;name&quot;, &quot;Jerry&quot;);
+        map.put(&quot;price&quot;, 4.5);
+        list.add(map);
+        map=new LinkedHashMap&lt;String,Object&gt;();
+        map.put(&quot;age&quot;, 8);
+        map.put(&quot;name&quot;, &quot;Andy&quot;);
+        map.put(&quot;price&quot;, 5.5);
+        list.add(map);
+        return list;
+    }
+}
+</code></pre>
+
+</li>
+<li>
+<p>用浏览器测试:</p>
+<pre><code>http://localhost:8080/spring-ajax/demo/ary.do
+http://localhost:8080/spring-ajax/demo/bean.do
+http://localhost:8080/spring-ajax/demo/list.do
+http://localhost:8080/spring-ajax/demo/map.do
+http://localhost:8080/spring-ajax/demo/list2.do
+http://localhost:8080/spring-ajax/demo/map2.do
+</code></pre>
+
+</li>
+<li>
+<p>导入Jquery</p>
+<pre><code>webapp/js/jquery-1.4.3.js
+</code></pre>
+
+</li>
+<li>
+<p>开发客户端HTML demo.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Spring MVC AJAX DEMO&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; 
+    src=&quot;js/jquery-1.4.3.js&quot;&gt;&lt;/script&gt; 
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(function(){
+    $('#ary-btn').click(aryDemo);
+    $('#map2-btn').click(map2Demo);
+    $('#map-btn').click(mapDemo);
+});
+function aryDemo(){
+    //console.log('Click');
+    $.ajax({
+        url:'demo/ary.do',
+        type:'get',
+        dataType: 'json',
+        success: function(ary){
+            console.log(ary);
+            for(var i=0; i&lt;ary.length; i++){
+                $('#ary-result').append(ary[i]);    
+            }
+        },
+        error: function(){
+            alert('通信故障!');
+        }
+    });
+
+}
+function map2Demo(){
+    //console.log('Click');
+    $.ajax({
+        url:'demo/map2.do',
+        type:'get',
+        dataType: 'json',
+        success: function(ary){
+            console.log(ary);
+            for(var i=0; i&lt;ary.length; i++){
+                var obj = ary[i];
+                // obj = {age:4, name:TOm, price:}
+                $('#map2-result').append(
+                    obj.age+','+obj.name+','+
+                    obj.price+'&lt;br&gt;');  
+            }
+        },
+        error: function(){
+            alert('通信故障!');
+        }
+    });
+}
+
+function mapDemo(){
+    //console.log('Click');
+    $.ajax({
+        url:'demo/map.do',
+        type:'get',
+        dataType: 'json',
+        success: function(obj){
+            console.log(obj);
+            $('#map-result').append(
+                obj.age+','+obj.name+','+
+                obj.price+'&lt;br&gt;');  
+        },
+        error: function(){
+            alert('通信故障!');
+        }
+    });
+}
+
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- webapp/demo.html --&gt;
+    &lt;h1&gt;Spring MVC AJAX&lt;/h1&gt;
+    &lt;h2&gt;获取数组数据&lt;/h2&gt;
+    &lt;input type=&quot;button&quot; id=&quot;ary-btn&quot; 
+        value=&quot;数组&quot;&gt;
+    &lt;p id=&quot;ary-result&quot;&gt;&lt;/p&gt;
+
+    &lt;h2&gt;获取List&amp;lt;Map&amp;gt;数据&lt;/h2&gt;
+    &lt;input type=&quot;button&quot; id=&quot;map2-btn&quot; 
+        value=&quot;Map2&quot;&gt;
+    &lt;p id=&quot;map2-result&quot;&gt;&lt;/p&gt;
+
+    &lt;h2&gt;获取Map数据&lt;/h2&gt;
+    &lt;input type=&quot;button&quot; id=&quot;map-btn&quot; 
+        value=&quot;Map&quot;&gt;
+    &lt;p id=&quot;map-result&quot;&gt;&lt;/p&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试, Good Luck!</p>
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>实现Spring MVC AJAX 功能</li>
+<li>
+windows 用户安装MySQL
+<ul>
+<li>建议安装 MySQL 5.7 版本, 默认就是UTF-8编码.</li>
+<li>注意: 数据库编码一定选择 UTF-8, 否则会中文乱码</li>
+<li>注意: 安装时候不要忘记密码!</li>
+<li>如果有问题, 可以找项目经理老师协助解决.</li>
+</ul>
+</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

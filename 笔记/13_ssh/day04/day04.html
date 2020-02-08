@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>day04</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SSH</h1>
+<h2>SSH 整合应用</h2>
+<p>重构云笔记项目, 将Spring MVC 替换为 Struts2, 将MyBatis替换为Hibernate.</p>
+<h3>1. 创建项目 搭建 SSH 架构</h3>
+<ol>
+<li>
+<p>创建项目, 导入SSH包:</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-core&lt;/artifactId&gt;
+    &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+    &lt;artifactId&gt;struts2-spring-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;jstl&lt;/groupId&gt;
+  &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+  &lt;version&gt;1.2&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.hibernate&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-core&lt;/artifactId&gt;
+  &lt;version&gt;3.6.9.Final&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;mysql&lt;/groupId&gt;
+    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+    &lt;version&gt;5.1.6&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;junit&lt;/groupId&gt;
+    &lt;artifactId&gt;junit&lt;/artifactId&gt;
+    &lt;version&gt;4.12&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-orm&lt;/artifactId&gt;
+  &lt;version&gt;3.0.5.RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;commons-dbcp&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt;
+  &lt;version&gt;1.4&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.struts&lt;/groupId&gt;
+  &lt;artifactId&gt;struts2-json-plugin&lt;/artifactId&gt;
+  &lt;version&gt;2.3.8&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+  &lt;groupId&gt;aspectj&lt;/groupId&gt;
+  &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+  &lt;version&gt;1.5.3&lt;/version&gt;
+&lt;/dependency&gt;
+
+
+&lt;dependency&gt;
+  &lt;groupId&gt;commons-codec&lt;/groupId&gt;
+  &lt;artifactId&gt;commons-codec&lt;/artifactId&gt;
+  &lt;version&gt;1.10&lt;/version&gt;
+&lt;/dependency&gt;   
+</code></pre>
+
+<blockquote>
+<p>还需要导入目标运行环境为: Tomcat Runtime </p>
+</blockquote>
+</li>
+<li>
+<p>添加配置 Struts2 和 Spring 的配置 web.xml</p>
+<pre><code>  &lt;filter&gt;
+    &lt;display-name&gt;StrutsPrepareAndExecuteFilter&lt;/display-name&gt;
+    &lt;filter-name&gt;StrutsPrepareAndExecuteFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter&lt;/filter-class&gt;
+  &lt;/filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;StrutsPrepareAndExecuteFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+  &lt;/filter-mapping&gt;
+  &lt;listener&gt;
+    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+  &lt;context-param&gt;
+     &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+     &lt;param-value&gt;classpath:conf/spring-*.xml&lt;/param-value&gt;
+  &lt;/context-param&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Struts2 配置文件 struts.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE struts PUBLIC
+    &quot;-//Apache Software Foundation//DTD Struts Configuration 2.3//EN&quot;
+    &quot;http://struts.apache.org/dtds/struts-2.3.dtd&quot;&gt;
+&lt;struts&gt;
+
+&lt;/struts&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Spring配置文件:</p>
+<blockquote>
+<p>spring-aop.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd&quot;&gt;
+    &lt;!-- 配置组件扫描 --&gt;
+    &lt;context:component-scan 
+        base-package=&quot;cn.tedu.note.aop&quot;/&gt;
+    &lt;!-- 使 @Aspect 注解生效 --&gt;
+    &lt;aop:aspectj-autoproxy/&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<blockquote>
+<p>spring-service.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd&quot;&gt;
+
+    &lt;context:component-scan 
+        base-package=&quot;cn.tedu.note.service&quot;/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+</li>
+<li>
+<p>添加Spring Hibernate 配置文件:</p>
+<blockquote>
+<p>数据库连接参数文件: conf/jdbc.properties</p>
+</blockquote>
+<pre><code>driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://localhost:3306/cloud_note
+user=root
+password=root
+maxActive=20
+salt=\u4ECA\u5929\u4F60\u5403\u4E86\u5417?
+pageSize=4
+</code></pre>
+
+<blockquote>
+<p>spring-hbm.xml</p>
+</blockquote>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd&quot;&gt;
+
+    &lt;!-- 配置 spring-mybatis.xml --&gt;
+    &lt;!-- 读取配置文件 --&gt;
+    &lt;util:properties id=&quot;jdbc&quot;
+        location=&quot;classpath:conf/jdbc.properties&quot;/&gt; 
+
+    &lt;!-- 配置数据库连接池 --&gt;
+    &lt;bean id=&quot;dataSource&quot;
+        class=&quot;org.apache.commons.dbcp.BasicDataSource&quot;
+        destroy-method=&quot;close&quot;&gt; 
+        &lt;property name=&quot;driverClassName&quot;
+            value=&quot;#{jdbc.driver}&quot;/&gt;
+        &lt;property name=&quot;url&quot;
+            value=&quot;#{jdbc.url}&quot;/&gt;
+        &lt;property name=&quot;username&quot;
+            value=&quot;#{jdbc.user}&quot;/&gt;
+        &lt;property name=&quot;password&quot;
+            value=&quot;#{jdbc.password}&quot;/&gt;
+        &lt;property name=&quot;maxActive&quot;
+            value=&quot;#{jdbc.maxActive}&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;sessionFactory&quot;
+        class=&quot;org.springframework.orm.hibernate3.LocalSessionFactoryBean&quot;&gt;
+        &lt;property name=&quot;dataSource&quot;
+            ref=&quot;dataSource&quot;/&gt; 
+        &lt;property name=&quot;hibernateProperties&quot;&gt;
+            &lt;props&gt;
+                &lt;prop key=&quot;hibernate.dialect&quot;&gt;
+                    org.hibernate.dialect.MySQLDialect
+                &lt;/prop&gt;
+                &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;
+                &lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;
+            &lt;/props&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;mappingLocations&quot;&gt;
+            &lt;list&gt;
+                &lt;!-- 
+                &lt;value&gt;classpath:hbm/User.hbm.xml&lt;/value&gt;
+                --&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+    &lt;bean id=&quot;hibernateTemplate&quot;
+        class=&quot;org.springframework.orm.hibernate3.HibernateTemplate&quot;&gt;
+        &lt;property name=&quot;sessionFactory&quot;
+            ref=&quot;sessionFactory&quot;/&gt; 
+    &lt;/bean&gt;
+
+    &lt;!-- spring-mybatis.xml --&gt;
+    &lt;bean id=&quot;txManager&quot; 
+    class=&quot;org.springframework.orm.hibernate3.HibernateTransactionManager&quot;&gt;
+        &lt;property name=&quot;sessionFactory&quot;
+            ref=&quot;sessionFactory&quot;/&gt;
+    &lt;/bean&gt;
+    &lt;!-- 设置 注解驱动的事务管理  --&gt;
+    &lt;tx:annotation-driven 
+        transaction-manager=&quot;txManager&quot;/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+</li>
+<li>
+<p>部署测试</p>
+<pre><code>...
+</code></pre>
+
+</li>
+</ol>
+<h3>2. 移植云笔记界面组件</h3>
+<p><img src="1.png" /></p>
+<h3>3. 移植云笔业务层, 持久层和测试组件</h3>
+<p><img src="2.png" /></p>
+<blockquote>
+<p>测试组件的作用: 如果能够通过测试组件的回归测试, 则说明持久层和业务层重构成功!</p>
+</blockquote>
+<p>重构 NoteDao, NotebookDao, 删除MyBatis注解 @Param</p>
+<pre><code>public interface NoteDao {
+    List&lt;Map&lt;String,Object&gt;&gt; 
+        findNotesByNotebookId(
+        String notebookId);
+
+    Note findNoteById(String noteId);
+
+    int updateNote(Note note);
+
+    int addNote(Note note);
+
+    List&lt;Map&lt;String, Object&gt;&gt; 
+        findDeleteNotesByUserId(String userId);
+
+    int deleteNoteById(String noteId);
+
+    int deleteNotes(
+        String... ids);
+
+    List&lt;Map&lt;String, Object&gt;&gt; findNotes(
+        String userId, 
+        String notebookId, 
+        String statusId);
+}
+
+public interface NotebookDao {
+
+    List&lt;Map&lt;String, Object&gt;&gt;
+        findNotebooksByUserId(
+        String userId);
+
+    int countNotebookById(String notebookId);
+
+    List&lt;Map&lt;String, Object&gt;&gt;
+        findNotebooksByPage(
+        String userId,
+        int start,
+        int pageSize,
+        String table);
+
+}
+</code></pre>
+
+<h3>4. 实现User的映射</h3>
+<ol>
+<li>
+<p>添加映射文件 hbm/User.hbm.xml:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC 
+ &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
+ &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;&gt;
+&lt;hibernate-mapping&gt;
+    &lt;class name=&quot;cn.tedu.note.entity.User&quot;
+            table=&quot;cn_user&quot;&gt;
+        &lt;id name=&quot;id&quot; column=&quot;cn_user_id&quot;&gt;&lt;/id&gt;
+        &lt;property name=&quot;name&quot; column=&quot;cn_user_name&quot;
+            type=&quot;string&quot;/&gt;
+        &lt;property name=&quot;password&quot; column=&quot;cn_user_password&quot; /&gt;
+        &lt;property name=&quot;token&quot; column=&quot;cn_user_token&quot; /&gt;
+        &lt;property name=&quot;nick&quot; column=&quot;cn_user_nick&quot; /&gt;
+    &lt;/class&gt;
+&lt;/hibernate-mapping&gt;
+</code></pre>
+
+<blockquote>
+<p>将实体User映射到表 cn_user</p>
+</blockquote>
+</li>
+<li>
+<p>实现 UserDao </p>
+<pre><code>@Repository(&quot;userDao&quot;)
+public class UserDaoImpl implements UserDao {
+
+    @Resource
+    private HibernateTemplate hibernateTemplate;
+
+    public User findUserByName(String name) {
+        //HQL Hibernate Query Language
+        // sql:
+        //  select * from cn_note 
+        //  where cn_user_name = #{name} 
+        // HQL:
+        //  from User 
+        //  where name = ?
+        String hql = 
+            &quot;from User where name = ?&quot;;
+        List&lt;User&gt; list=
+            hibernateTemplate.find(hql, name);
+        return list.isEmpty()?null:list.get(0); 
+    }
+
+    public int addUser(User user) {
+        Serializable id=
+            hibernateTemplate.save(user);
+        return id==null ? 0 : 1;
+    }
+
+    public User findUserById(String userId) {
+        return hibernateTemplate.get(User.class, userId);   
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>重构 spring-hbm.xml</p>
+<blockquote>
+<p>配置hbm/User.hbm.xml</p>
+</blockquote>
+<pre><code>&lt;property name=&quot;mappingLocations&quot;&gt;
+    &lt;list&gt;
+        &lt;value&gt;classpath:hbm/User.hbm.xml&lt;/value&gt;
+    &lt;/list&gt;
+&lt;/property&gt;
+</code></pre>
+
+<blockquote>
+<p>打开组件扫描</p>
+</blockquote>
+<pre><code>&lt;context:component-scan base-package=&quot;cn.tedu.note.dao&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>重构 测试案例 基类 BaseTest</p>
+<pre><code>@Before
+public void initCtx() {
+    ctx = new ClassPathXmlApplicationContext(
+            &quot;conf/spring-hbm.xml&quot;,
+            &quot;conf/spring-service.xml&quot;);
+}
+</code></pre>
+
+</li>
+<li>
+<p>执行测试案例 UserDaoTest, 进行回归性测试:</p>
+<pre><code>...
+</code></pre>
+
+</li>
+</ol>
+<h3>5. 测试 Login 功能</h3>
+<p>由于Spring容器初始化期间会扫描创建全部的Bean, 并且注入全部属性, 如果不将dao接口全部实现就会造成Spring容器初始化异常, 故将dao接口全部空实现, 在具体方法的功能实现在日后逐一添加.</p>
+<ol>
+<li>
+<p>实现NoteDao</p>
+<pre><code>@Repository(&quot;noteDao&quot;)
+public class NoteDaoImpl implements NoteDao {
+
+    public List&lt;Map&lt;String, Object&gt;&gt; findNotesByNotebookId(String notebookId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public Note findNoteById(String noteId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public int updateNote(Note note) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public int addNote(Note note) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public List&lt;Map&lt;String, Object&gt;&gt; findDeleteNotesByUserId(String userId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public int deleteNoteById(String noteId) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public int deleteNotes(String... ids) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public List&lt;Map&lt;String, Object&gt;&gt; findNotes(String userId, String notebookId, String statusId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>实现NotebookDao</p>
+<pre><code>@Repository(&quot;notebookDao&quot;)
+public class NotebookDaoImpl implements NotebookDao {
+
+    public List&lt;Map&lt;String, Object&gt;&gt; findNotebooksByUserId(String userId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public int countNotebookById(String notebookId) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public List&lt;Map&lt;String, Object&gt;&gt; findNotebooksByPage(String userId, int start, int pageSize, String table) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>实现StarsDao</p>
+<pre><code>@Repository(&quot;starsDao&quot;)
+public class StarsDaoImpl implements StarsDao  {
+
+    public Stars findStarsByUserId(String userId) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    public int insertStars(Stars stars) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    public int updateStars(Stars stars) {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>测试 UserService 的 Login 方法</p>
+<pre><code>...
+</code></pre>
+
+</li>
+</ol>
+<h3>6. 实现Login功能的控制器</h3>
+<ol>
+<li>
+<p>创建控制器的抽象父类, 封装控制器的公共属性和方法:</p>
+<pre><code>public abstract class AbstractAction 
+    extends ActionSupport
+    implements SessionAware,
+    RequestAware, 
+    ApplicationAware{
+
+    protected static final String JSON=&quot;json&quot;;
+
+    protected Map&lt;String, Object&gt; request;
+    protected Map&lt;String, Object&gt; session;
+    protected Map&lt;String, Object&gt; application;
+    //Json返回值
+    protected JsonResult jsonResult;
+    public JsonResult getJsonResult() {
+        return jsonResult;
+    }
+    public void setJsonResult(JsonResult jsonResult) {
+        this.jsonResult = jsonResult;
+    }
+
+    public void setSession(
+            Map&lt;String, Object&gt; session) {
+        this.session=session;
+    }
+    public void setRequest(
+            Map&lt;String, Object&gt; request) {
+        this.request=request;
+    }
+    public void setApplication(
+            Map&lt;String, Object&gt; application) {
+        this.application=application;
+    }
+
+}
+</code></pre>
+
+<blockquote>
+<p>声明常量 JSON 用于配合JSON返回结果</p>
+</blockquote>
+</li>
+<li>
+<p>创建UserAction</p>
+<pre><code>@Controller
+@Scope(&quot;prototype&quot;)
+public class UserAction extends AbstractAction{
+
+    @Resource
+    private UserService userService; 
+
+    private String name;
+    private String password;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String login(){
+        User user = userService.login(name, password);
+        session.put(&quot;loginUser&quot;, user);
+        jsonResult=new JsonResult(user);
+        return JSON;
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>其中 name, password 来时用户界面提交的参数, jsonResult 是JSON返回值.</p>
+</blockquote>
+</li>
+<li>
+<p>添加配置文件 spring-struts.xml 初始化 Struts 控制器Bean</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; 
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xmlns:context=&quot;http://www.springframework.org/schema/context&quot; 
+    xmlns:jdbc=&quot;http://www.springframework.org/schema/jdbc&quot;  
+    xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot; 
+    xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot;
+    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; 
+    xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+    xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+    xmlns:jpa=&quot;http://www.springframework.org/schema/data/jpa&quot;
+    xsi:schemaLocation=&quot;
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd&quot;&gt;
+
+    &lt;context:component-scan 
+        base-package=&quot;cn.tedu.note.action&quot;/&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+</li>
+<li>
+<p>在 struts.xml 中配置控制器</p>
+<pre><code>&lt;!-- 修改请求扩展名 action改为do --&gt;
+&lt;constant name=&quot;struts.action.extension&quot; 
+    value=&quot;do&quot;&gt;&lt;/constant&gt;
+&lt;package name=&quot;user&quot; namespace=&quot;/user&quot;
+    extends=&quot;json-default&quot;&gt;
+
+    &lt;global-results&gt;
+        &lt;result name=&quot;json&quot; type=&quot;json&quot;&gt;
+            &lt;param name=&quot;root&quot;&gt;jsonResult&lt;/param&gt;
+        &lt;/result&gt;
+    &lt;/global-results&gt;
+
+    &lt;action name=&quot;login&quot; class=&quot;userAction&quot;
+        method=&quot;login&quot;/&gt;
+
+&lt;/package&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试:</p>
+<pre><code>http://localhost:8080/ssh4/user/login.do?name=demo&amp;password=123456
+</code></pre>
+
+</li>
+<li>
+<p>在用户界面中整合测试登录功能.</p>
+</li>
+</ol>
+<h3>7. 实现注册功能</h3>
+<ol>
+<li>
+<p>重构控制器 UserAction, 添加控制器方法:</p>
+<pre><code>private String nick;
+private String confirm;
+
+public String getNick() {
+    return nick;
+}
+
+public void setNick(String nick) {
+    this.nick = nick;
+}
+
+public String getConfirm() {
+    return confirm;
+}
+
+public void setConfirm(String confirm) {
+    this.confirm = confirm;
+}
+
+public String regist(){
+    User user = userService.regist(
+        name, nick, password, confirm);
+
+    jsonResult = new JsonResult(user);
+    return JSON;
+}
+</code></pre>
+
+<blockquote>
+<p>其中扩展了两个表单参数 nick 和 conform</p>
+</blockquote>
+</li>
+<li>
+<p>配置 struts.xml:</p>
+<pre><code>&lt;action name=&quot;regist&quot; class=&quot;userAction&quot;
+    method=&quot;regist&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>测试</p>
+<pre><code>...
+</code></pre>
+
+</li>
+</ol>
+<h2>Struts 拦截器</h2>
+<p>Struts 提供了默认的异常拦截功能, 但是不适合将异常转换为JSON, 可以利用拦截器处理Struts2 异常, 转换为JSON消息.</p>
+<p>Struts2 拦截器工作原理:</p>
+<p><img src="3.png" /></p>
+<h3>编写简单的拦截器</h3>
+<ol>
+<li>
+<p>编写拦截器类:</p>
+<pre><code>@Component
+public class MyInterceptor 
+    implements Interceptor {
+
+    public void destroy() {}
+
+    public void init() {}
+
+    public String intercept(
+            ActionInvocation invocation) 
+            throws Exception {
+        System.out.println(&quot;控制器之前&quot;);
+        String val = invocation.invoke();
+        System.out.println(&quot;控制器之后&quot;); 
+        return val;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>设置组件扫描 spring-struts.xml</p>
+<pre><code>&lt;context:component-scan 
+    base-package=&quot;cn.tedu.note.web&quot;/&gt;
+</code></pre>
+
+</li>
+<li>
+<p>配置拦截器:</p>
+<pre><code>&lt;interceptors&gt;
+    &lt;interceptor name=&quot;demo&quot; 
+        class=&quot;myInterceptor&quot;/&gt;
+
+    &lt;interceptor-stack name=&quot;demoStack&quot;&gt;
+        &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;
+        &lt;interceptor-ref name=&quot;demo&quot;&gt;&lt;/interceptor-ref&gt;
+    &lt;/interceptor-stack&gt;
+&lt;/interceptors&gt;
+
+&lt;action name=&quot;login&quot; class=&quot;userAction&quot;
+    method=&quot;login&quot;&gt;
+    &lt;interceptor-ref name=&quot;demoStack&quot;&gt;&lt;/interceptor-ref&gt;
+&lt;/action&gt;
+</code></pre>
+
+<blockquote>
+<p>必须将用户拦截器demo和系统拦截器栈defaultStack组合为一个新的拦截器栈 demoStack, 这样才能保留系统提供的功能!!</p>
+</blockquote>
+<p><img src="4.png" /></p>
+</li>
+<li>
+<p>测试: 在登录时候输出拦截器的内容</p>
+</li>
+</ol>
+<h3>利用拦截器处理 异常</h3>
+<p>异常原因分析:</p>
+<p><img src="6.png" /></p>
+<p>原理:</p>
+<p><img src="5.png" /></p>
+<ol>
+<li>
+<p>重构 AbstractAction 添加异常处理方法</p>
+<pre><code>//AbstractAction 中约定控制器处理异的方法
+public String handleException(Exception e) {
+    e.printStackTrace();
+    jsonResult = new JsonResult(e);
+    return JSON;
+}
+</code></pre>
+
+<blockquote>
+<p>这样全部的控制器都有异常处理方法了.</p>
+</blockquote>
+</li>
+<li>
+<p>添加拦截器拦截异常:</p>
+<pre><code>@Component
+public class ExceptionInterceptor implements Interceptor {
+
+    public void destroy() {
+    }
+
+    public void init() {
+    }
+
+    public String intercept(
+            ActionInvocation invocation) 
+                    throws Exception {
+        //得到目标控制器 
+        AbstractAction action  = 
+                (AbstractAction)invocation.getAction();
+        //调用目标控制器的方法
+        String val = null;
+        try {
+            val = invocation.invoke();
+        } catch (Exception e) {
+            val = action.handleException(e);
+        }
+        if(val == null){
+            throw new NullPointerException();
+        }
+        return val;
+    }
+
+}
+</code></pre>
+
+</li>
+<li>
+<p>配置异常拦截器 struts.xml</p>
+<pre><code>&lt;interceptors&gt;
+
+    &lt;interceptor name=&quot;execInte&quot; 
+        class=&quot;exceptionInterceptor&quot;/&gt;
+
+    &lt;interceptor-stack name=&quot;noteStack&quot;&gt;
+        &lt;interceptor-ref name=&quot;defaultStack&quot;/&gt;
+        &lt;interceptor-ref name=&quot;execInte&quot;&gt;&lt;/interceptor-ref&gt;
+    &lt;/interceptor-stack&gt;
+
+&lt;/interceptors&gt;
+
+&lt;default-interceptor-ref name=&quot;noteStack&quot;/&gt;
+</code></pre>
+
+<blockquote>
+<p>配置 default-interceptor-ref 元素以后, 所有控制器就都被异常处理拦截器拦截了!</p>
+</blockquote>
+</li>
+<li>
+<p>测试...</p>
+</li>
+</ol>
+<hr />
+<h2>作业</h2>
+<ol>
+<li>
+构建SSH项目
+<ul>
+<li>重构登录功能</li>
+<li>重构注册功能</li>
+</ul>
+</li>
+<li>实现拦截器异常处理</li>
+</ol>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

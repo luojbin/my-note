@@ -1,0 +1,306 @@
+回顾:
+1.方法:
+    封装一段特定的业务逻辑功能
+	尽可能独立，只干一件事
+	可以被反复调用多次
+	避免代码复用，有利于代码维护，有利于团队协作
+2.定义:
+    修饰词 返回值类型 方法名(参数列表){
+	  方法体
+	}
+3.调用:
+  1)无返回值: 方法名(有参传参);
+  2)有返回值: 数据类型 变量 = 方法名(有参传参);
+              方法名(有参传参);---------不建议
+4.return:
+  1)return 值; //结束方法 返回结果给调用方
+  2)return;    //结束方法
+
+
+
+笔记:
+1.什么是类？什么是对象？
+  1)现实世界是由很多很多对象组成的
+    基于对象抽出了类
+  2)对象:真实存在的单个的个体
+    类:类型/类别，代表一类个体
+  3)类中可以包含:
+    3.1)所有对象所共有的属性/特征(静)-----成员变量
+	3.2)所有对象所共有的行为(动)----------方法
+  4)一个类可以创建多个对象
+    同一类型的多个对象，结构相同，数据不同
+  5)类是对象的模板，对象是类的具体的实例
+2.如何创建类？如何创建对象？如何访问成员？
+3.引用类型之间画等号:
+  1)指向同一个对象
+  2)对其中一个引用的修改会影响另一个引用
+    eg:房子钥匙
+  基本类型之间画等号:
+  1)赋值
+  2)对其中一个变量的修改不会影响另一个变量
+    eg:身份证复印件
+4.null:空，没有指向任何对象
+       若引用的值为null，则不能再进行任何操作了
+	   若操作则NullPointerException空指针异常
+
+
+
+练习:
+1)完成RefNullDemo，
+  ------练习引用之间等号及null
+2)完成Emp与EmpTest类
+3)完成Cell类，包含:-----oo.day01一次,oo.day02一次
+  3.1)成员变量: row,col
+  3.2)方法:drop(),moveLeft(),getCellInfo()
+  完成CellTest类，包含:
+  3.3)main()--调用printWall()测试
+  3.4)printWall(Cell c)--实现打墙+打格
+
+引用类型默认值都是null
+
+房子:对象
+房子钥匙:引用
+配了钥匙:引用
+
+内存管理(堆、栈、方法区)
+
+Cell cc = c;
+
+
+
+new Student();
+new Student();
+
+       变量
+Student zs  = new Student();
+zs.name = "zhangsan";
+zs.age = 25;
+zs.address = "";
+
+
+
+
+          引用
+数据类型  引用类型变量   指向     对象
+Cell       c              =       new Cell();
+
+c
+
+引用
+数据类型  引用类型变量  指向   对象
+Student      zs           =    new Student();
+
+基本类型变量(变量)
+int   a;
+
+Cell c = new Cell();
+new Cell();
+new Cell();
+new Cell();
+
+1)找对象:很多很多的小格子
+2)抽类:格子类Cell
+3)设计类的成员变量和方法:
+4)创建对象并测试:
+
+
+Cell
+CellTest
+
+
+class Cell{ //格子类
+  int row; //行号
+  int col; //列号
+  void drop(){ //下落一格
+    row++;
+  }
+  void moveLeft(int n){ //左移n格
+    col-=n;
+  }
+  String getCellInfo(){ //获取行号和列号
+    return row+","+col;
+  }
+}
+
+Student
+StudentTest
+
+
+类            对象
+月饼模子      月饼
+
+Student zs = new Student();
+zs.name = "zhangsan";
+zs.age = 25;
+zs.address = "河北廊坊";
+zs.stuId = "001";
+zs.eat();
+zs.sleep();
+zs.study();
+zs.abc = 123; //编译错误
+
+Student ls = new Student();
+ls.name = "lisi";
+ls.age = 26;
+ls.address = "黑龙江佳木斯";
+ls.stuId = "002";
+ls.eat();
+ls.sleep();
+ls.study();
+
+class Student{
+  String name;
+  int age;
+  String address;
+  String stuId;
+  void eat(){}
+  void sleep(){}
+  void study(){}
+}
+
+Student zs = new Student();
+Student ls = new Student();
+Student ww = new Student();
+Student zl = new Student();
+
+class Teacher{
+  String name;
+  int age;
+  String address;
+  double salary;
+  void eat(){}
+  void sleep(){}
+  void teach(){}
+}
+
+class Dog{
+  String kind;
+  String color;
+  void 叫(){}
+  void 看门(){}
+}
+
+class Car{
+  String type;
+  String color;
+  double price;
+  void run(){}
+  void stop(){}
+  void back(){}
+}
+
+对象                类
+WKJ                 老师
+ZWC
+NYH
+
+张三                学生
+李四
+王五
+
+小花                狗
+小黑
+小强
+
+奥迪                汽车
+奥拓
+马六
+
+基本数据类型-----------------不能装多个
+数组-------------------------必须相同数据类型
+自己造个数据类型-------------想装什么就装什么
+
+面向过程的结构化设计弊端:
+1)缺乏对数据的封装
+2)数据与方法(操作数据的)的分离
+
+
+class Emp{ //Emp就是你自己造的那个数据类型
+  String name;
+  int age;
+  double salary;
+  void print(){
+    System.out.println("姓名:"+name);
+	System.out.println("年龄:"+age);
+	System.out.println("工资:"+salary);
+  }
+}
+
+class Test{ //测试类
+  public static void main(String[] args){
+    Emp e = new Emp(); //创建了一个雇员对象
+    e.name = "zhangsan";
+	e.age = 25;
+	e.salary = 5000;
+    e.print();
+  }
+}
+
+请输入游戏等级(5、7、9):4
+请输入游戏等级(5、7、9):2
+请输入游戏等级(5、7、9):6
+请输入游戏等级(5、7、9):8
+请输入游戏等级(5、7、9):7
+ABCDEFG
+
+public static int[] generateArray(int len,int max){
+  int[] arr = new int[len];
+  for(int i=0;i<arr.length;i++){
+    arr[i] = (int)(Math.random()*(max+1));
+  }
+  return arr;
+}
+
+高质量的代码:
+  复用性好、扩展性好、维护性好、
+  可移植性好、健壮性好、可读性好、效率好......
+
+只有我一个人，每天花费最多1个小时，干了5天
+---------------------30万
+
+项目------特别特别多
+抽出了4个人--------------开发一套框架
+
+OA
+
+JH---------OA(.net)
+
+招了一批人(Java)
+
+大概就用着
+
+A公司的---改一点
+B公司的---改一点
+C公司的---改一点
+
+
+
+产品:做一个东西出来，大家都能用
+项目:只能适应一个公司的需求
+
+C语言:面向过程
+
+面向过程
+面向对象(OO)
+面向接口
+
+语言基础:固定
+1)画一个圆形
+2)去银行取钱
+3)猜字符游戏
+
+面向对象:因抽象而难
+1)画一个图形
+2)向着社会主义社会发展
+3)射击游戏
+
+这6天都是晕乎乎的过来的--------正常的状态
+
+
+不晕不正常:
+1)什么也不懂
+2)自以为不晕-------------很不错很不错
+
+前四天-----贯穿一个案例(俄罗斯方块)
+
+代码量与你的工资一定是成正比的

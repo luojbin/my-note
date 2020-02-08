@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<package name="demo" namespace="/demo"
+		extends="struts-default">
+		<action name="session"
+			class="cn.tedu.controller.SessionAction"
+			method="demo">
+			<result name="success">
+				/WEB-INF/jsp/session.jsp
+			</result>
+		</action>
+		
+		<action name="demo" 
+			class="cn.tedu.controller.DemoAction">
+			<result name="success">
+				/WEB-INF/jsp/session.jsp
+			</result>
+		</action>
+		
+		<!-- 利用Spring作为控制器Action的容器 
+			只需要使用class="Bean ID"-->
+		<action name="hello"	
+			class="helloAction">
+			<result type="dispatcher" name="success">
+				/WEB-INF/jsp/ok.jsp
+			</result>
+		</action>
+		
+		<!-- 重定向演示 -->
+		<action name="doc"
+			class="redirectDemoAction">
+			<result type="redirect" name="success">
+				<param name="location">
+					http://doc.tedu.cn
+				</param>
+			</result>
+		</action>
+		
+		<!-- 重定向到其他的控制器 -->
+		<action name="redirect"
+			class="redirectActionDemoAction">
+			<result type="redirectAction"
+				name="success">
+				<param name="actionName">hello</param>			
+				<param name="namespace">/demo</param>
+			</result>
+		</action>
+	
+		<!-- 一个控制器可以根据返回结果, 转向
+		不同的Result -->
+		<action name="fork" class="forkAction">
+			<result name="success" >
+				/WEB-INF/jsp/ok.jsp
+			</result>
+			<result name="error" 
+				type="redirectAction">
+				<param name="actionName">hello</param>
+			</result>
+			<result name="doc" type="redirect">
+				<param name="location">
+					http://doc.tedu.cn
+				</param>
+			</result>
+		</action>
+		
+		<!-- 将图片发送到浏览器 -->
+		<action name="img"
+			class="imgAction">
+			<result name="success" type="stream">
+				<param name="inputName">img</param>
+				<param name="contentType">image/png</param>
+			</result>	
+		</action>
+		
+		<!-- 浏览器端自动下载图片 -->
+		<action name="download"
+			class="imgAction">
+			<result name="success" type="stream">
+				<param name="inputName">img</param>
+				<param name="contentType">
+					application/octet-stream
+				</param>
+				<param name="contentDisposition">
+					attachment; filename="demo.png"
+				</param>
+			</result>	
+		</action>
+		
+		<!-- 浏览器端自动下载Excel -->
+		<action name="excel"
+			class="excelAction">
+			<result name="success" type="stream">
+				<param name="inputName">excel</param>
+				<param name="contentType">
+					application/octet-stream
+				</param>
+				<param name="contentDisposition">
+					attachment; filename="demo.xls"
+				</param>
+			</result>	
+		</action>
+	</package>
+	
+	<!-- 从json-default 继承才能使用 json类型的
+	result, 并且json-default继承于struts-default
+	这样还可以使用 struts-default中定义的result类型-->
+	<package name="json" namespace="/json"
+		extends="json-default">
+		<action name="jsonDemo" 
+			class="jsonDemoAction">
+			<!-- 将jsonDemoAction的整体作为Java 
+			Bean 转换为json字符串发送到浏览器
+			jsonDemoAction中的Bean属性会转换为
+			json字符串中的属性 -->
+			<result name="success" type="json">
+			</result>
+		</action>
+		
+		<!-- 指定Action中的一个Bean属性, 转换为
+		json字符串, 发送到客户端, jsonResult 
+		是Action中的Bean属性名 -->
+		<action name="rootDemo"
+			class="rootDemoAction">
+			<result name="success" type="json">
+				<param name="root">jsonResult</param>
+			</result>	
+		</action>
+	</package>
+</struts>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

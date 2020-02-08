@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.tedu.note.entity.Notebook"
+			table="cn_notebook">
+		<id name="id" column="cn_notebook_id"></id>
+		<property name="name" column="cn_notebook_name"></property>
+		<property name="typeId" column="cn_notebook_type_id"></property>
+		<property name="userId" column="cn_user_id"></property>
+		<property name="desc" column="cn_notebook_desc"></property>
+		<property name="createtime" 
+			column="cn_notebook_createtime"
+			type="java.sql.Timestamp"></property> 
+	</class> 
+</hibernate-mapping>
+
+
+
+
+
+
