@@ -145,7 +145,7 @@ Font song = new Font(bfSong);
 
 ### 4) Phrase 短语对象
 
-### 5) **Paragraph** 段落对象
+### 5) **Paragraph**段落对象
 
 ### 6) Image 图像对象
 
