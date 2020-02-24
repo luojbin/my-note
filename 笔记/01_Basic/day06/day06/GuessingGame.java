@@ -3,42 +3,42 @@ import java.util.Scanner;
 
 public class GuessingGame {
 	public static void main(String[] args) {
-		// ╠Мй╬мФ╪р╡б╡Б╣д╢нйЩ
+		// О©╫О©╫й╬О©╫О©╫р╡б╡О©╫д╢О©╫О©╫О©╫
 		int count = 0;
-		// сцсз╠ё╢Феп╤о╣д╫А╧Ш
+		// О©╫О©╫О©╫з╠О©╫О©╫О©╫О©╫п╤о╣д╫О©╫О©╫
 		int[] result = new int[2];
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("GuessingGame>╩╤с╜Ё╒йт╡бвжд╦сно╥ё║");
-		// ╠Мй╬╡б╡Б╣двж╥Ш╢╝
+		System.out.println("GuessingGame>О©╫О©╫с╜О©╫О©╫О©╫т╡О©╫О©╫О©╫д╦О©╫О©╫о╥О©╫О©╫");
+		// О©╫О©╫й╬О©╫б╡О©╫О©╫О©╫ж╥О©╫О©╫О©╫
 		char[] chs = generate();
 		System.out.println(chs);
-		System.out.println("GuessingGame>сно╥©╙й╪ё╛гКйДхКдЦкЫ╡б╣д5╦Жвжд╦пРапё╨ё╗exit║╙║╙мкЁЖё╘");
+		System.out.println("GuessingGame>О©╫О©╫о╥О©╫О©╫й╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫б╣О©╫5О©╫О©╫О©╫О©╫д╦О©╫О©╫О©╫пёО©╫О©╫О©╫exitО©╫О©╫О©╫О©╫О©╫кЁО©╫О©╫О©╫");
 		while (true) {
 			String inputStr = scanner.next().trim().toUpperCase();
 			if ("EXIT".equals(inputStr)) {
-				System.out.println("GuessingGame>п╩п╩дЦ╣дЁ╒йтё╛ты╪Шё║");
+				System.out.println("GuessingGame>п╩п╩О©╫О©╫дЁО©╫О©╫тёО©╫О©╫ы╪О©╫О©╫О©╫");
 				break;
 			}
 
 			char[] input = inputStr.toCharArray();
 			result = check(chs, input);
-			if (result[0] == chs.length) {// мЙх╚╡б╤т╣дгИ©Ж
+			if (result[0] == chs.length) {// О©╫О©╫х╚О©╫б╤т╣О©╫О©╫О©╫О©╫
 				int score = 100 * chs.length - count * 10;
-				System.out.println("GuessingGame>╧╖о╡дЦ╡б╤такё║дЦ╣д╣ц╥жйгё╨" + score);
+				System.out.println("GuessingGame>О©╫О©╫о╡О©╫О©╫б╤О©╫О©╫кёО©╫О©╫О©╫д╣ц╥О©╫О©╫гёО©╫" + score);
 				break;
 			} else {
 				count++;
-				System.out.println("GuessingGame>дЦ╡б╤т" + result[1] + "╦Жвж╥Шё╛фДжп"
-						+ result[0] + "╦Жвж╥Ш╣дн╩жцуЩх╥ё║ё╗вэ╢нйЩ=" + count + "ё╛exit║╙║╙мкЁЖё╘");
+				System.out.println("GuessingGame>О©╫О©╫б╤О©╫" + result[1] + "О©╫О©╫О©╫ж╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫"
+						+ result[0] + "О©╫О©╫О©╫ж╥О©╫О©╫О©╫н╩О©╫О©╫О©╫О©╫х╥О©╫О©╫О©╫О©╫О©╫э╢О©╫О©╫О©╫=" + count + "О©╫О©╫exitО©╫О©╫О©╫О©╫О©╫кЁО©╫О©╫О©╫");
 			}
 		}
 		scanner.close();
 	}
 
 	/**
-	 * кФ╩ЗиЗЁипХр╙╡б╡Б╣двжд╦пРап
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╙О©╫б╡О©╫О©╫О©╫О©╫д╦О©╫О©╫О©╫О©╫
 	 * 
-	 * @return ╢Ф╢╒кФ╩Звж╥Ш╣дйЩвИ
+	 * @return О©╫Ф╢╒О©╫О©╫О©╫О©╫ж╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫
 	 */
 	public static char[] generate() {
 		
@@ -51,7 +51,7 @@ public class GuessingGame {
 			int index;
 			do {
 				index = (int) (Math.random() * (letters.length));
-			} while (flags[index]);// еп╤оиЗЁи╣двж╥Шйг╥Яжь╦╢
+			} while (flags[index]);// О©╫п╤О©╫О©╫О©╫О©╫и╣О©╫О©╫ж╥О©╫О©╫г╥О©╫О©╫ь╦О©╫
 			chs[i] = letters[index];
 			flags[index] = true;
 		}
@@ -59,22 +59,22 @@ public class GuessingGame {
 	}
 
 	/**
-	 * ╠х╫омФ╪рйДхК╣двжд╦пРап╨мЁлпРкЫиЗЁи╣двжд╦пРапё╛жПр╩╠х╫овж╥Ш╪╟фДн╩жцё╛╡╒╪гть╠х╫о╫А╧Ш
+	 * О©╫х╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╦О©╫О©╫О©╫п╨мЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫и╣О©╫О©╫О©╫д╦О©╫О©╫О©╫пёО©╫О©╫О©╫р╩О©╫х╫О©╫О©╫ж╥О©╫О©╫О©╫О©╫О©╫н╩О©╫цёО©╫О©╫О©╫О©╫О©╫О©╫ь╠х╫о╫О©╫О©╫
 	 * 
 	 * @param chs
-	 *            ЁлпРиЗЁи╣двж╥ШпРап
+	 *            О©╫О©╫О©╫О©╫О©╫О©╫О©╫и╣О©╫О©╫ж╥О©╫О©╫О©╫О©╫О©╫
 	 * @param input
-	 *            мФ╪рйДхК╣двж╥ШпРап
-	 * @return ╢Ф╢╒╠х╫о╣д╫А╧Ш║ё╥╣╩ьж╣intйЩвИ ╣дЁ╓╤хн╙2ё╛фДжпё╛кВрЩн╙0╣дн╩жц
-	 *         сцсз╢Ф╥емЙх╚╡б╤т╣двжд╦╦ЖйЩ(вж╥Ш╨мн╩жц╬ЫуЩх╥)ё╛кВрЩн╙1╣дн╩жцсцсз╢Ф╥е╡б╤т╣двжд╦╦ЖйЩ(вж╥ШуЩх╥ё╛╣╚йгн╩жц╡╩уЩх╥)║ё
+	 *            О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╥О©╫О©╫О©╫О©╫О©╫
+	 * @return О©╫Ф╢╒О©╫х╫о╣д╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ж╣intО©╫О©╫О©╫О©╫ О©╫дЁО©╫О©╫О©╫н╙2О©╫О©╫О©╫О©╫О©╫пёО©╫О©╫О©╫О©╫О©╫н╙0О©╫О©╫н╩О©╫О©╫
+	 *         О©╫О©╫О©╫з╢О©╫О©╫О©╫О©╫х╚О©╫б╤т╣О©╫О©╫О©╫д╦О©╫О©╫О©╫О©╫(О©╫ж╥О©╫О©╫О©╫н╩О©╫ц╬О©╫О©╫О©╫х╥)О©╫О©╫О©╫О©╫О©╫О©╫н╙1О©╫О©╫н╩О©╫О©╫О©╫О©╫О©╫з╢О©╫е╡б╤т╣О©╫О©╫О©╫д╦О©╫О©╫О©╫О©╫(О©╫ж╥О©╫О©╫О©╫х╥О©╫О©╫О©╫О©╫О©╫О©╫н╩О©╫ц╡О©╫О©╫О©╫х╥)О©╫О©╫
 	 */
 	public static int[] check(char[] chs, char[] input) {
 		int[] result = new int[2];
 		for (int i = 0; i < input.length; i++) {
 			for (int j = 0; j < chs.length; j++) {
-				if (input[i] == chs[j]) {// еп╤овж╥Шйг╥ЯуЩх╥
+				if (input[i] == chs[j]) {// О©╫п╤О©╫О©╫ж╥О©╫О©╫г╥О©╫О©╫О©╫х╥
 					result[1]++;
-					if (i == j) {// еп╤он╩жцйг╥ЯуЩх╥
+					if (i == j) {// О©╫п╤О©╫н╩О©╫О©╫О©╫г╥О©╫О©╫О©╫х╥
 						result[0]++;
 					}
 					break;
