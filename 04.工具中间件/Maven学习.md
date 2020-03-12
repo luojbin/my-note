@@ -1672,6 +1672,19 @@ mirror_central > global_set_alimaven > **central**
 
 
 
+### 可用仓库测试
+
+| 仓库名          | 地址                                                 | 结果       |
+| --------------- | ---------------------------------------------------- | ---------- |
+| http_ali_nexus  | http://maven.aliyun.com/nexus/content/groups/public  | ok         |
+| http_aliyun     | http://maven.aliyun.com/repository/public            | ok         |
+| http_spring     | http://repo.spring.io/libs-release                   | **denied** |
+| https_ali_nexus | https://maven.aliyun.com/nexus/content/groups/public | ok         |
+| https_aliyun    | https://maven.aliyun.com/repository/public           | ok         |
+| https_spring    | https://repo.spring.io/libs-release                  | 可用但好慢 |
+
+
+
 ### 理想顺序
 
 本地 > 阿里云 > spring > central
@@ -1685,3 +1698,114 @@ https://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html
 ![1571901807530](Maven学习.assets/1571901807530.png)
 
 ![1571901814244](Maven学习.assets/1571901814244.png)
+
+
+
+证书已全部添加
+
+无额外参数时能否下载成功? **失败, 依旧找不到证书**
+
+指定证书路径? **失败, 依旧提示找不到证书**
+
+```shell
+-Djavax.net.ssl.trustStore=D:\Java\jdk1.8.0_181\jre\lib\security\cacerts
+-Djavax.net.ssl.trustAnchors=D:\Java\jdk1.8.0_181\jre\lib\security\cacerts
+```
+
+在 runner 忽略证书校验, **有效, 能够正常下载jar包, 但无法下载源码**
+
+```shell
+-Dmaven.wagon.http.ssl.insecure=true
+-Dmaven.wagon.http.ssl.allowall=true
+```
+
+在 importer 忽略证书校验, **有效, 能够正常下载源码**
+
+
+
+忽略 ignore.validity.dates , 无效果, 不知道起什么作用
+
+```shell
+-Dmaven.wagon.http.ssl.ignore.validity.dates=true
+```
+
+
+
+## 结论
+
+添加参数
+
+```shell
+-Dmaven.wagon.http.ssl.insecure=true
+-Dmaven.wagon.http.ssl.allowall=true
+```
+
+现有无法下载源码是因为 .lastupdated 文件记录了最近一次的失败, 不重复尝试
+
+实际上是可以下载的, **删除目录下的 .last updated 文件再重新下载**
+
+
+
+`_remote.repositories`文件说明
+
+```shell
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Thu Feb 27 22:24:50 CST 2020
+aopalliance-1.0-sources.jar>aliyun=
+aopalliance-1.0.pom>aliyun=
+aopalliance-1.0.pom>aliyun_mirror=
+aopalliance-1.0.jar>aliyun_mirror=
+aopalliance-1.0.jar>aliyun=
+```
+
+##### 新增文件
+
+maven从远程仓库(仓库A)获取jar后, 会在这个文件中记录jar的来源仓库, 增加一条记录, 
+
+形如 `xx文件>来源仓库A=`
+
+##### 替换远程库后校验
+
+每次构建项目时, maven会检查当前使用的仓库是什么, 比如当前使用 仓库B
+
+如果本地的jar不是从仓库B获取的, 则会尝试从仓库B获取jar包. 
+
+若仓库B的jar 与本地仓库的一致, 则在该文件中增加一条, `xx文件>来源仓库B=`
+
+​	表示仓库A和仓库B中的这个文件是一样的.
+
+若仓库B的jar 与本地仓库的不一致, 则替换该jar 文件, 并清除`xx文件>来源仓库A=`的记录, 仅记录 `xx文件>来源仓库B=`
+
+
+
+如果是本地添加的jar, 则简单记录 `xx文件>=`
+
+### 综上, 对于常见的问题, 可以采用以下方式解决
+
+#### 本地有jar, 但新的远程仓库没有, maven报错
+
+修改 `_remote.repositories`文件, 
+
+手动增加`xx文件>新仓库=`, 假装新仓库中也有该文件
+
+或手动增加 `xx文件>=`, 假装是从本地安装的
+
+#### 手动添加jar包到本地仓库
+
+1. 将 jar 包按正确的 GAV 路径复制到本地仓库中
+
+2. 添加空的 pom 文件, 指定 gav, 不需要添加任何依赖
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8"?>
+   <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <modelVersion>4.0.0</modelVersion>
+     <groupId>snakeyaml</groupId>
+     <artifactId>gateway-client</artifactId>
+     <version>4.1.3</version>
+     <description>POM was created by Sonatype Nexus</description>
+   </project>
+   ```
+
+   
