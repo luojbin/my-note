@@ -1,0 +1,162 @@
+业务概要视图
+../../../../webviewer/26.jpg
+dgm467949640222.htm
+
+
+
+(
+)
+<<business use case>> 录入考核成绩
+../../../../webviewer/105.jpg
+uc46794a550271.htm
+
+
+
+(
+the电费班长 ( 电费班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a6c02de.htm
+
+
+
+the资产班长 ( 资产班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a6e0271.htm
+
+
+
+the业务班长 ( 业务班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a70035b.htm
+
+
+
+the抄表班长 ( 抄表班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a730177.htm
+
+
+
+the检查班长 ( 检查班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a76002e.htm
+
+
+
+the现场施工班长 ( 现场施工班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a780280.htm
+
+
+
+the用电主任 ( 用电主任 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a7b000f.htm
+
+
+
+the财务主任 ( 财务主任 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794a7d02de.htm
+
+
+
+)
+(
+)
+<<business use case>> 设置人员权限
+../../../../webviewer/105.jpg
+uc46794ad4036b.htm
+
+
+
+(
+the系统管理员 ( 系统管理员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794ae2002e.htm
+
+
+
+)
+(
+)
+<<business use case>> 制定考核标准
+../../../../webviewer/105.jpg
+uc46794af401b5.htm
+
+
+
+(
+the用电主任 ( 用电主任 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794b1003b9.htm
+
+
+
+)
+(
+)
+<<business use case>> 管理人员档案
+../../../../webviewer/105.jpg
+uc46794b3d0280.htm
+
+
+
+(
+the系统管理员 ( 系统管理员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role46794b450271.htm
+
+
+
+)
+(
+)
+<<business use case>> 提供超时说明
+../../../../webviewer/105.jpg
+uc467bfaf500ea.htm
+
+
+
+(
+the业务员 ( 业务员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467bfb810148.htm
+
+
+
+)
+(
+)
+<<business use case>> 监控业务流程
+../../../../webviewer/105.jpg
+uc467bfb45008c.htm
+
+
+
+(
+the用电主任 ( 用电主任 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467bfb65008c.htm
+
+
+
+)
+(
+)
+<<business use case>> 设定流程规则
+../../../../webviewer/105.jpg
+uc467bfb55000f.htm
+
+
+
+(
+the用电主任 ( 用电主任 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467bfb62000f.htm
+
+
+
+)
+(
+)

@@ -1,0 +1,140 @@
+申请永久用电分析对象
+../../../webviewer/18.jpg
+dgm471231b402fd.htm
+
+
+
+(
+)
+<<entity>> 电表资料
+../../../webviewer/110.jpg
+class4712465803c8.htm
+
+
+
+(
+the用电申请单 ( 用电申请单 )
+../../../webviewer/82.jpg
+../../../looseends/role471246c60399.htm
+
+
+
+)
+<<entity>> 电气资料
+../../../webviewer/110.jpg
+class4712464601c5.htm
+
+
+
+(
+the用电申请单 ( 用电申请单 )
+../../../webviewer/82.jpg
+../../../looseends/role471246b001f4.htm
+
+
+
+)
+<<entity>> 供电变压器资料
+../../../webviewer/110.jpg
+class4712462c002e.htm
+
+
+
+(
+the用电申请单 ( 用电申请单 )
+../../../webviewer/82.jpg
+../../../looseends/role471246a60128.htm
+
+
+
+)
+<<entity>> 供电方式资料
+../../../webviewer/110.jpg
+class47124618003e.htm
+
+
+
+(
+the用电申请单 ( 用电申请单 )
+../../../webviewer/82.jpg
+../../../looseends/role471246910109.htm
+
+
+
+)
+<<entity>> 计费资料
+../../../webviewer/110.jpg
+class4712466e00fa.htm
+
+
+
+(
+the用电申请单 ( 用电申请单 )
+../../../webviewer/82.jpg
+../../../looseends/role471246d2038a.htm
+
+
+
+)
+<<entity>> 用电申请单
+../../../webviewer/110.jpg
+class471245eb0222.htm
+
+
+
+(
+the供电方式资料 ( 供电方式资料 )
+../../../webviewer/82.jpg
+../../../looseends/role47124691010b.htm
+
+
+
+the供电变压器资料 ( 供电变压器资料 )
+../../../webviewer/82.jpg
+../../../looseends/role471246a6012a.htm
+
+
+
+the电气资料 ( 电气资料 )
+../../../webviewer/82.jpg
+../../../looseends/role471246b001f6.htm
+
+
+
+the电表资料 ( 电表资料 )
+../../../webviewer/82.jpg
+../../../looseends/role471246c6039b.htm
+
+
+
+the计费资料 ( 计费资料 )
+../../../webviewer/82.jpg
+../../../looseends/role471246d2038c.htm
+
+
+
+)
+<<boundary>> 业务申请界面
+../../../webviewer/109.jpg
+class47136fba0280.htm
+
+
+
+(
+)
+<<control>> 申请单对象控制器
+../../../webviewer/108.jpg
+class471371d202ce.htm
+
+
+
+(
+)
+<<control>> 工作流控制器
+../../../webviewer/108.jpg
+class471384ac0290.htm
+
+
+
+(
+)

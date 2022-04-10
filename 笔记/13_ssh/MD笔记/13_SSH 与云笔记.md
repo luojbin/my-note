@@ -49,7 +49,7 @@
 
 ### 2.1. 创建项目, 导入 Struts2 依赖包
 
-	org.apache.struts : struts2-core : 2.3.8
+`org.apache.struts : struts2-core : 2.3.8`
 
 ### 2.2. Struts2 主控制器
 #### 1) 默认配置
@@ -59,28 +59,33 @@
 
 - 主控制器需要在项目的部署描述文件, 即 **web.xml** 中进行配置.
 
-  > < filter>
-  > 　　< display-name> StrutsPrepareAndExecuteFilter < /display-name>
-  > 　　< filter-name> StrutsPrepareAndExecuteFilter < /filter-name>
-  > 　　< filter-class>
-  > 　　　　org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
-  > 　　< /filter-class>
-  > < /filter>
-  > < filter-mapping>
-  > 　　< filter-name> StrutsPrepareAndExecuteFilter < /filter-name>
-  > 　　< url-pattern> /* < /url-pattern>
-  > < /filter-mapping>
+  ```xml
+  <filter>
+      <display-name>StrutsPrepareAndExecuteFilter</display-name>
+      <filter-name>StrutsPrepareAndExecuteFilter</filter-name>
+      <filter-class>
+          org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+      </filter-class>
+  </filter>
+  <filter-mapping>
+      <filter-name>StrutsPrepareAndExecuteFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  ```
 
 #### 2) 自定义配置
 - StrutsPrepareAndExecuteFilter 启动时会加载主配置文件, 默认文件名为 **src/struts.xml**.
+
 - 若使用其他文件名, 需要在 < filter> 元素下的 < init-param> 进行配置.
 
-  > < filter>
-  > 　　< init-param> 
-  > 　　　　< param-name>filterConfig < /param-name> 
-  > 　　　　< param-value>classpath: 主配置文件路径< /param-value> 
-  > 　　< /init-param> 
-  > < /filter>
+  ```xml
+  <filter>
+  　　<init-param> 
+  　　　　<param-name>filterConfig</param-name> 
+  　　　　<param-value>classpath: 主配置文件路径</param-value> 
+  　　</init-param> 
+  </filter>
+  ```
 
 ### 2.3. Struts2 主配置文件
 #### 1) DTD 校验信息
@@ -145,38 +150,39 @@
   - Struts2 控制器中的默认处理方法名为 execute, 若使用其他方法名, 需要在 struts.xml 中指定
   - return 返回视图的名称
 
-  ```java
-  public class DemoAction {
-  	public String execute(){
-  		System.out.println("Hello World!");
-  		return "success";
-  	}
-  }
-  ```
+    ```java
+    public class DemoAction {
+        public String execute(){
+            System.out.println("Hello World!");
+            return "success";
+        }
+    }
+    ```
 
 2. 编写jsp: 
 
   - 该视图页面处理业务方法后的数据, 不能让用户直接访问, 存放在/WEB-INF/jsp/ok.jsp
 
-	```
-      <body>
-      		<h1>Struts2</h1>
-      		<p>Hello World!</p>
-      	</body>
+	```html
+    <body>
+        <h1>Struts2</h1>
+        <p>Hello World!</p>
+    </body>
     ```
 
 3. 编写配置文件
 
   - 指定使用的控制器类与控制器方法
 
-	```
-      <struts>
-      		<package name="demo" namespace="/demo" extends="struts-default" >
-      			<action name="hello" class="cn.tedu.controller.DemoAction">
-      				<result name="success"> /WEB-INF/jsp/ok.jsp </result>
-      			</action>
-      		</package>
-      	</struts>
+	```xml
+    <struts>
+        <package name="demo" namespace="/demo" extends="struts-default" >
+            <action name="hello" class="cn.tedu.controller.DemoAction">
+                <result name="success"> /WEB-INF/jsp/ok.jsp </result>
+            </action>
+        </package>
+    </struts>
+    ```
 
 
 ## 3. 接收用户提交的数据
@@ -198,7 +204,7 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
 #### 2) 案例: 直接接收参数
 
 1. 声明控制器 
-  控制器中添加了 name, age 两个属性, 并将接收到的用户数据输出到控制台.
+    控制器中添加了 name, age 两个属性, 并将接收到的用户数据输出到控制台.
 
     ```java
     public class ParamAction {
@@ -214,23 +220,23 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
     ```
 
 2. 编写JSP: param.jsp
-  显示欢迎信息
-
-  ```html
+    显示欢迎信息
+    
+    ```html
     <body>
         <h1>Struts2</h1>
         <p>接收参数</p>
     </body>
-  ```
+    ```
 
 3. 配置控制器:
 
-  ```html
-   	<!-- 请求路径: /demo/param.action?name=Tom&age=5 -->
-   	<action name="param" class="cn.tedu.controller.ParamAction">
-        <result name="success"> /WEB-INF/jsp/param.jsp </result>
-   	</action>
-  ```
+   ```xml
+   <!-- 请求路径: /demo/param.action?name=Tom&age=5 -->
+   <action name="param" class="cn.tedu.controller.ParamAction">
+       <result name="success"> /WEB-INF/jsp/param.jsp </result>
+   </action>
+   ```
 
 ### 3.2. 利用领域模型(值对象)封装用户提交的大量参数
 #### 1) 工作原理
@@ -264,7 +270,9 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
 #### 4) 案例: 利用值对象接收参数
 
 1. 声明领域模型(值对象)
-  值对象用于数据打包, 不一定是业务实体.
+    值对象用于数据打包, 不一定是业务实体.
+
+	```java
 
   	public class UserValue implements Serializable {
   		private static final long serialVersionUID = 232L;
@@ -274,9 +282,11 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
   		private String address;
   		// 构造器, get, set, toString 方法略
   	}
+  	```
 
 2. 定义控制器, 添加属性, 用以接收领域模型参数:
 
+	```java
    public class UserAction {
    		private UserValue userValue;
    		public String execute(){
@@ -285,9 +295,11 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
    		}
    		// get, set, toString, hashCode 等方法略
    	}
+   ```
 
 3. 开发JSP页面, 用于提交表单参数:
 
+	```html
    <body>
    		<h1>提交用户信息</h1>
    		<form action="demo/user.action" method="post"> <br/>
@@ -298,12 +310,15 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
    				<input type="submit" value="保存"> <br/>
    		</form>
    	</body>
+   ```
 
 4. 配置控制器 struts.xml
 
+	```xml
    <action name="user"class="cn.tedu.controller.UserAction">
    		<result name="success"> /WEB-INF/jsp/ok.jsp </result>
    	</action>
+   ```
 
 ## 4. 发送数据到浏览器
 
@@ -319,9 +334,11 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
 
 ### 4.2. 案例: 通过 Bean 属性发送数据
 1. 重构 UserAction, 添加 bean 属性 message:
-  转发的目标 JSP 收到两个 Bean对象: message 和 userValue
-  对应着 Action 对象的 get 方法, 在 JSP 中可以使用 EL 表达式访问这些属性
-  ​		
+    转发的目标 JSP 收到两个 Bean对象: message 和 userValue
+    对应着 Action 对象的 get 方法, 在 JSP 中可以使用 EL 表达式访问这些属性
+
+	```java
+
   	private String message;
   	public String execute(){
   		System.out.println(userValue);
@@ -329,10 +346,13 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
   		return "success";
   	}
   	// get, set, toString, hashCode 等方法略
+  	```
 
 2. 编写数据展示页面 success.jsp
-  在JSP中可以利用EL表达式和 JSTL 配合显示控制器传递来的属性.
-  参数传递依赖于 request, 即可通过 requestScope 指定搜索范围.
+    在JSP中可以利用EL表达式和 JSTL 配合显示控制器传递来的属性.
+    参数传递依赖于 request, 即可通过 requestScope 指定搜索范围.
+
+	```html
 
   	<body>
   		<h1>表单结果</h1>
@@ -343,13 +363,16 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
   		<p>年龄: ${userValue.age}</p>
   		<p>地址: ${requestScope.userValue.address}</p>
   	</body>
+  	```
 
 3. 重构配置文件, UserAction 控制器处理结束后转发到 success.jsp
 
+	```xml
    <action name="user"
    		class="cn.tedu.controller.UserAction">
    		<result name="success">  /WEB-INF/jsp/success.jsp  </result>
    	</action>
+   ```
 
 ## 5. 访问 session 对象
 - 在 struts2 中, session 是一种 Map 类型, org.apache.struts2.dispatcher.SessionMap.
@@ -364,7 +387,7 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
 - ActionContext 代表当前控制器的工作环境: 被哪个主控制器调用, 当前的request, 当前的resopnse, 当前session 等信息, 都可以从 ActionContext 获得.
 
   > ActionContent.getSession()
-    
+  
       	ActionContext ctx = ActionContent.getContext();
       	Map<String, Object> session = ctx.getSession();
       	session.put("loginUser", "Tom");
@@ -373,6 +396,7 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
 
 1. 重构UserAction, 转发到 JSP 之前在 session 中添加属性:
 
+	```java
         public String execute(){
         		System.out.println(userValue);
         		message = "成功!";
@@ -381,6 +405,7 @@ Struts2 框架, 利用 Action 控制器类的 "Bean属性" 接收用户提交的
         		session.put("loginUser", "Tom");
         		return "success";
         }
+	```
 
 2. 重构 success.jsp 利用EL 显示session中的属性:
 
@@ -400,14 +425,14 @@ Struts2 主控制器就会在执行控制器方法之前调用 setSession 方法
 1. 声明控制器, 实现 SessionAware 接口:
 
         public class SessionAction implements SessionAware{
-    		private Map<String, Object> session;
-    		public void setSession(Map<String, Object> session) {
-    			this.session=session;
-    		}
-    		public String demo(){
-    			session.put("name", "Tom");
-    			return "success";
-    		}
+        	private Map<String, Object> session;
+        	public void setSession(Map<String, Object> session) {
+        		this.session=session;
+        	}
+        	public String demo(){
+        		session.put("name", "Tom");
+        		return "success";
+        	}
         }
 
 2. 编写 success.jsp 测试, 获取 session 中存储的数据:
@@ -436,48 +461,48 @@ Struts2 主控制器就会在执行控制器方法之前调用 setSession 方法
 1. 编写 AbstractAction, 继承 ActionSupport, 实现 SessionAware, RequestAware, ApplicationAware
         
         public abstract class AbstractAction extends ActionSupport
-    		implements SessionAware, RequestAware, ApplicationAware{
-    
-    		protected Map<String, Object> request;
-    		protected Map<String, Object> session;
-    		protected Map<String, Object> application;
-    		
-    		public void setSession(Map<String, Object> session) {
-    			this.session=session;
-    		}
-    		public void setRequest(Map<String, Object> request) {
-    			this.request=request;
-    		}
-    		public void setApplication(Map<String, Object> application) {
-    			this.application=application;
-    		}
-    	}
+        	implements SessionAware, RequestAware, ApplicationAware{
+        
+        	protected Map<String, Object> request;
+        	protected Map<String, Object> session;
+        	protected Map<String, Object> application;
+        	
+        	public void setSession(Map<String, Object> session) {
+        		this.session=session;
+        	}
+        	public void setRequest(Map<String, Object> request) {
+        		this.request=request;
+        	}
+        	public void setApplication(Map<String, Object> application) {
+        		this.application=application;
+        	}
+        }
 
 2. 控制器可以简化为:
 
         public class DemoAction extends AbstractAction{
-    		public String execute(){
-    			request.put("myName", "Wang");
-    			session.put("name", "Andy");
-    			application.put("test", "熊大");
-    			return SUCCESS;
-    		}
-    	}	
+        	public String execute(){
+        		request.put("myName", "Wang");
+        		session.put("name", "Andy");
+        		application.put("test", "熊大");
+        		return SUCCESS;
+        	}
+        }	
 
 3. 配置控制器:
 
         <action name="demo" class="cn.tedu.controller.DemoAction">
-       		<result name="success"> /WEB-INF/jsp/session.jsp </result>
-       	</action>
+        	<result name="success"> /WEB-INF/jsp/session.jsp </result>
+        </action>
 
 4. session.jsp
 
         <body>
-       		<h1>Session</h1>
-       		<p>session数据: ${sessionScope.name}</p>
-       		<p>request数据: ${requestScope.name}</p>
-       		<p>application数据: ${applicationScope.test}</p>
-       	</body>
+        	<h1>Session</h1>
+        	<p>session数据: ${sessionScope.name}</p>
+        	<p>request数据: ${requestScope.name}</p>
+        	<p>application数据: ${applicationScope.test}</p>
+        </body>
 
 
 
@@ -510,13 +535,13 @@ Spring MVC 的控制器是单例的, 它采用方法处理用户请求, 通过�
 ### 2.2. 整合步骤:
 
 1. 导入包 Struts 2 提供的整合包
-  导入以后, 无需额外配置, 两者能自动协调工作!
+    导入以后, 无需额外配置, 两者能自动协调工作!
 
   	org.apache.struts : struts2-spring-plugin : 2.3.8
 
 2. 导入Spring包, 和配置Spring容器.
-  Spring 包已经自动依赖, 无需再次导入
-  配置 ContextLoaderListener, 要求配置参数 contextConfigLocation, 指定 spring 配置文件路径
+    Spring 包已经自动依赖, 无需再次导入
+    配置 ContextLoaderListener, 要求配置参数 contextConfigLocation, 指定 spring 配置文件路径
 
       	<listener>
       		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -527,7 +552,7 @@ Spring MVC 的控制器是单例的, 它采用方法处理用户请求, 通过�
       	</context-param> 	
 
 3. 添加 Spring 配置文件 spring-web.xml
-  自动导入的 Spring 版本是 3.0 版本, 配置文件中的 Schema 文件版本也要改成 3.0 版本的! 否则无法使用.
+    自动导入的 Spring 版本是 3.0 版本, 配置文件中的 Schema 文件版本也要改成 3.0 版本的! 否则无法使用.
 
       	< ?xml version="1.0" encoding="UTF-8"?>
       	< beans xmlns="http://www.springframework.org/schema/beans" 
@@ -563,7 +588,7 @@ Spring MVC 的控制器是单例的, 它采用方法处理用户请求, 通过�
       	</beans>
 
 4. 利用 Spring 管理 控制器Bean组件, 注意这些 bean 不能是单例的, 否则有线程安全问题!!
-  Spring 默认采取单例模式管理对象, 而 Struts2 为了解决线程安全问题需要多个控制器对象, 需要声明为 **prototype** 模式
+    Spring 默认采取单例模式管理对象, 而 Struts2 为了解决线程安全问题需要多个控制器对象, 需要声明为 **prototype** 模式
 
       > @Controller
       > @Scope("prototype")
@@ -602,20 +627,20 @@ Spring MVC 的控制器是单例的, 它采用方法处理用户请求, 通过�
 2. 创建业务层:
 
         @Service
-    	public class ProductService {
-    		List<Product> products;
-       		
-       		@PostConstruct
-       		private void init(){
-       			products = new ArrayList<Product>();
-       			products.add(new Product(1,"大黄蜂",24.5,"变形金刚经典系列"));
-       			products.add(new Product(2,"擎天柱",88.5,"变形金刚经典系列"));
-       			products.add(new Product(3,"光头强",12.5,"大笨熊你粗来!"));
-       			products.add(new Product(4,"李老师",22.5,"胡说派诗人!"));
-       			products.add(new Product(5,"范传奇",23.5,"变形金刚消费者!"));
-       		}
-       		// get, set, toString, hashCode 等方法略
-       	}
+        public class ProductService {
+        	List<Product> products;
+        	
+        	@PostConstruct
+        	private void init(){
+        		products = new ArrayList<Product>();
+        		products.add(new Product(1,"大黄蜂",24.5,"变形金刚经典系列"));
+        		products.add(new Product(2,"擎天柱",88.5,"变形金刚经典系列"));
+        		products.add(new Product(3,"光头强",12.5,"大笨熊你粗来!"));
+        		products.add(new Product(4,"李老师",22.5,"胡说派诗人!"));
+        		products.add(new Product(5,"范传奇",23.5,"变形金刚消费者!"));
+        	}
+        	// get, set, toString, hashCode 等方法略
+        }
 
 3. 创建控制器
 
@@ -639,7 +664,7 @@ Spring MVC 的控制器是单例的, 它采用方法处理用户请求, 通过�
         }
 
 4. 创建 list.jsp
-  使用 jstl 进行表格数据的迭代显示
+    使用 jstl 进行表格数据的迭代显示
 
   	<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
   	<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
@@ -744,46 +769,46 @@ Spring MVC 的控制器是单例的, 它采用方法处理用户请求, 通过�
 2. 创建vs.jsp
 
         <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-       	<%@ taglib prefix="s" uri="/struts-tags"%>
-       	<!DOCTYPE html>
-       	<html>
-       	<head>
-       		<meta charset="utf-8">
-       		<title>产品管理</title>
-       		<style type=" border-collapse: collapse; }
-       			td, th{ padding: 5px 10px;  }
-       			th{ border-bottom: 2px solid #ddd; }
-       			td{ border-top: 1px solid #ccc; }
-       		</style>
-       	</head>
-       	<body>
-       		<h2>ValueStack</h2>
-       		<s:debug></s:debug>
-       	
-       		<h2>利用 OGNL 表的式读取 ValueStack 中的数据</h2>
-       		<p>读取 ValueStack 中的 Action 对象的数据</p>
-       		<s:property value="products[0].name"/> 
-       	
-       		<h3>利用 ValueStack 和 OGNL 显示商品列表</h3>
-       		<table>
-       			<thead>
-       				<tr>
-       					<th>ID</th> <th>名称</th> <th>价格</th> <th>描述</th>
-       				</tr>
-       			</thead>
-       			<tbody>
-       				<s:iterator value="products" var="p">
-       					<tr>
-       						<td><s:property value="id"/></td>
-       						<td><s:property value="name"/></td>
-       						<td><s:property value="price"/></td>
-       						<td><s:property value="description"/></td>
-       					</tr>
-       				</s:iterator>
-       			</tbody>
-       		</table>
-       	</body>
-       	</html>
+        <%@ taglib prefix="s" uri="/struts-tags"%>
+        <!DOCTYPE html>
+        <html>
+        <head>
+        	<meta charset="utf-8">
+        	<title>产品管理</title>
+        	<style type=" border-collapse: collapse; }
+        		td, th{ padding: 5px 10px;  }
+        		th{ border-bottom: 2px solid #ddd; }
+        		td{ border-top: 1px solid #ccc; }
+        	</style>
+        </head>
+        <body>
+        	<h2>ValueStack</h2>
+        	<s:debug></s:debug>
+        
+        	<h2>利用 OGNL 表的式读取 ValueStack 中的数据</h2>
+        	<p>读取 ValueStack 中的 Action 对象的数据</p>
+        	<s:property value="products[0].name"/> 
+        
+        	<h3>利用 ValueStack 和 OGNL 显示商品列表</h3>
+        	<table>
+        		<thead>
+        			<tr>
+        				<th>ID</th> <th>名称</th> <th>价格</th> <th>描述</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        			<s:iterator value="products" var="p">
+        				<tr>
+        					<td><s:property value="id"/></td>
+        					<td><s:property value="name"/></td>
+        					<td><s:property value="price"/></td>
+        					<td><s:property value="description"/></td>
+        				</tr>
+        			</s:iterator>
+        		</tbody>
+        	</table>
+        </body>
+        </html>
 
 3. 配置struts.xml
 
@@ -861,7 +886,7 @@ ValueStack 分为 Content 内容区和 Context 环境信息区
    	</html>
 
 3. 配置 struts.xml
-  其中表达式 ${target} 就是利用 ValueStack 从控制器读取了属性值. 
+    其中表达式 ${target} 就是利用 ValueStack 从控制器读取了属性值. 
 
   	<action name="data" class="dataAction">
   		<result>
@@ -1143,22 +1168,22 @@ ValueStack 分为 Content 内容区和 Context 环境信息区
 #### 5) json
 ##### 工作原理
 1. 导入 json 支持包
-  json Result 不是Struts2 内嵌结果类型, 需要导入 struts2-json-plugin:
+    json Result 不是Struts2 内嵌结果类型, 需要导入 struts2-json-plugin:
 
   	org.apache.struts : struts2-json-plugin : 2.3.8
 
 2. 继承 json-default 包
-  在 struts2-json-plugin-2.3.8.jar 包中的 struts-plugin.xml 文件中声明了 json类型的result
-  由于 json-default 继承于 struts-default, 又定义了自己的 json Result,
-  让包继承于 json-default, 既可以使用 json result, 也可以使用 struts-default 中定义的 result.
+    在 struts2-json-plugin-2.3.8.jar 包中的 struts-plugin.xml 文件中声明了 json类型的result
+    由于 json-default 继承于 struts-default, 又定义了自己的 json Result,
+    让包继承于 json-default, 既可以使用 json result, 也可以使用 struts-default 中定义的 result.
 
       <result-types>
           <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
       </result-types>
 
 3. Json Result 原理:
-  将 Action 类的整体作为 JavaBean, 转换为 json 字符串, 再发送到浏览器 .
-  jsonDemoAction 中的所有 Bean 属性都会转换为 json 字符串中的属性
+    将 Action 类的整体作为 JavaBean, 转换为 json 字符串, 再发送到浏览器 .
+    jsonDemoAction 中的所有 Bean 属性都会转换为 json 字符串中的属性
 
 ![](day02_7.png)
 
@@ -1369,7 +1394,7 @@ Struts 提供了默认的异常拦截功能, 但是不适合将异常转换为JS
    	</action>
 
 4. 测试
-  尝试通过网页登录, 结果如下:
+    尝试通过网页登录, 结果如下:
 
   - "控制器之前"字样出现, 说明拦截器已正常工作, 但"控制器之后"字样并未出现.
   - 原因是控制器方法在执行过程中抛出了异常, 且异常类型为"密码空", 程序中止.
@@ -1400,7 +1425,7 @@ Struts 提供了默认的异常拦截功能, 但是不适合将异常转换为JS
    	</action>
 
 7. 测试
-  尝试通过网页登录, 拦截器正常工作了.
+    尝试通过网页登录, 拦截器正常工作了.
 
 ![](day04_4_2.png)
 
@@ -1541,23 +1566,27 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
 
 2. 配置Hibernate主配置文件 hibernate.cfg.xml:
 
+   ```xml
    <?xml version='1.0' encoding='UTF-8'?>
-   	<!DOCTYPE hibernate-configuration PUBLIC
-   		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-   		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-   	
-   	<hibernate-configuration>
-   		<session-factory>
-   			<property name="dialect"> org.hibernate.dialect.MySQLDialect </property>
-   			<property name="connection.username">root</property>
-   			<property name="connection.password">root</property>
-   			<property name="connection.url"> jdbc:mysql://localhost:3306/cloud_note </property>
-   			<property name="connection.driver_class"> com.mysql.jdbc.Driver </property>
-   			<property name="show_sql">true</property>
-   			<property name="format_sql">true</property>
-   			<mapping resource="Person.hbm.xml"/>
-   		</session-factory>
-   	</hibernate-configuration>
+   <!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+   
+   <hibernate-configuration>
+       <session-factory>
+           <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+           <property name="connection.username">root</property>
+           <property name="connection.password">root</property>
+           <property name="connection.url"> jdbc:mysql://localhost:3306/cloud_note </property>
+           <property name="connection.driver_class"> com.mysql.jdbc.Driver </property>
+           <property name="show_sql">true</property>
+           <property name="format_sql">true</property>
+           <mapping resource="Person.hbm.xml"/>
+       </session-factory>
+   </hibernate-configuration>
+   ```
+
+
 
 3. 创建表:
 
@@ -1567,6 +1596,7 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
    	    primary key(id)
    	);
    	
+
    	insert into p_person (name) values ('李老师');
    	insert into p_person (id, name) values (null,'李老师');
 
@@ -1585,8 +1615,8 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
    	}
 
    5. 编写映射文件	
-     ​	
-     <?xml version="1.0" encoding="utf-8"?>
+       ​	
+       <?xml version="1.0" encoding="utf-8"?>
      <!DOCTYPE hibernate-mapping PUBLIC 
      	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
       	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
@@ -1601,7 +1631,8 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
      </hibernate-mapping>
 
 5. 编写测试案例: 
-  1. 准备测试类
+
+  6. 准备测试类
 
      public class HibernateTest {
      ​		
@@ -1621,7 +1652,7 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
      			factory.close();
      		}
 
-  2. 查询记录
+  7. 查询记录
 
      @Test
      	public void testGet(){
@@ -1629,7 +1660,7 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
      		System.out.println(p);
      	}
 
-  3. 新增记录
+  8. 新增记录
 
      @Test
      	public void testAdd(){
@@ -1641,7 +1672,7 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
      		System.out.println(one);
      	}
 
-  4. 修改记录
+  9. 修改记录
 
      @Test
      	public void testUpdate(){
@@ -1653,7 +1684,7 @@ hibernate 通过 session 与数据库建立连接会话, 进行 crud 操作.
      		tx.commit();
      	}
 
-  5. 删除记录
+  10. 删除记录
 
      @Test
      	public void testDelete(){
@@ -1911,8 +1942,9 @@ Session 除了提供了CRUD 功能, 还提供以下状态管理相关方法:
    	}
 
 12. 执行
-   ​	
-   @Test
+      ​	
+      @Test
+
    	public void testFindPerson(){
    		String hql = "from Person";
    		Query query = session.createQuery(hql);
@@ -2160,6 +2192,7 @@ Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:
    		"http://struts.apache.org/dtds/struts-2.3.dtd">
    	<struts>
    		
+
    	</struts>
 
 4. 添加 Spring 配置文件:
@@ -2331,14 +2364,14 @@ Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:
        			<value>classpath:hbm/User.hbm.xml</value>
        		</list>
        	</property>
-    
+
 
 	> 添加组件扫描
-
+	
 		<context:component-scan base-package="cn.tedu.note.dao"/>
 
 4. 重构 测试案例 基类 BaseTest
-    
+   
        @Before
        	public void initCtx() {
        		ctx = new ClassPathXmlApplicationContext(
@@ -2506,7 +2539,7 @@ Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:
    	<beans xmlns=略>
 
    		<context:component-scan base-package="cn.tedu.note.action"/>
-
+		
    	</beans>
 
 4. 在 struts.xml 中配置控制器
@@ -2564,8 +2597,8 @@ Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:
 
 ### 8.2. 添加异常处理拦截器
 1. 重构 AbstractAction 添加异常处理方法
-  由于不同的控制器具有不同的异常类型, 若全部异常都在拦截器中直接处理, 会令拦截器非常冗长且不易维护.
-  通常采取的办法是在控制器的公共父类中定义异常处理办法, 然后在各个子类中, 定义具体的异常处理方法.
+    由于不同的控制器具有不同的异常类型, 若全部异常都在拦截器中直接处理, 会令拦截器非常冗长且不易维护.
+    通常采取的办法是在控制器的公共父类中定义异常处理办法, 然后在各个子类中, 定义具体的异常处理方法.
 
   	//AbstractAction 中约定控制器处理异的方法
   	public String handleException(Exception e) {
@@ -2575,7 +2608,7 @@ Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:
   	}
 
 2. 添加拦截器拦截异常:
-  拦截器中的 invocation 代表了后面的控制器, 通过它也可以获取到控制器 Action 类本身.
+    拦截器中的 invocation 代表了后面的控制器, 通过它也可以获取到控制器 Action 类本身.
 
   > invocation.getAction()
 
@@ -2735,74 +2768,79 @@ Spring 提供了整合Hibernate功能, 使Hibernate的使用更加简洁方便:
    	public class NotebookAction 
    		extends AbstractAction {
    		
-   		@Resource
-   		private NotebookService notebookService;
-   	
-   		private String userId;
-   		private Integer page;
-   	
-   		public String page(){
-   			List<Map<String, Object>> list=
-   			notebookService.listNotebooks(userId, page);
-   			jsonResult = new JsonResult(list);
-   			return JSON;
-   		}
-   		 
-   		public String list(){
-   			List<Map<String, Object>> list=
-   			notebookService.listNotebooks(userId);
-   			jsonResult = new JsonResult(list);
-   			return JSON;
-   		}
-   		// get, set, toString, hashCode 等方法略
+
+   ```java
+   	@Resource
+   	private NotebookService notebookService;
+   
+   	private String userId;
+   	private Integer page;
+   
+   	public String page(){
+   		List<Map<String, Object>> list=
+   		notebookService.listNotebooks(userId, page);
+   		jsonResult = new JsonResult(list);
+   		return JSON;
    	}
+   	 
+   	public String list(){
+   		List<Map<String, Object>> list=
+   		notebookService.listNotebooks(userId);
+   		jsonResult = new JsonResult(list);
+   		return JSON;
+   	}
+   	// get, set, toString, hashCode 等方法略
+   }
+   ```
 
 6. 配置控制器:
-  配置文件内容重构: struts.xml
-  使用配置文件的继承, 将拦截器栈, 默认result 等使用 basepackage 封装 
+    配置文件内容重构: struts.xml
+    使用配置文件的继承, 将拦截器栈, 默认result 等使用 basepackage 封装 
 
-  	<?xml version="1.0" encoding="UTF-8"?>
-  	<!DOCTYPE struts PUBLIC
-  		"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-  		"http://struts.apache.org/dtds/struts-2.3.dtd">
-  	<struts>
-  		<!-- 修改请求扩展名 action改为do -->
-  		<constant name="struts.action.extension" value="do"></constant>
-  		
-  		<package name="basepkg" extends="json-default">
-  			<interceptors>
-  				<interceptor name="demo" class="myInterceptor"/>
-  				<interceptor name="execInte" class="exceptionInterceptor"/>
-  				
-  				<interceptor-stack name="noteStack">
-  					<interceptor-ref name="defaultStack"/>
-  					<interceptor-ref name="execInte"></interceptor-ref>
-  				</interceptor-stack>
-  				
-  				<interceptor-stack name="demoStack">
-  					<interceptor-ref name="defaultStack"/>
-  					<interceptor-ref name="demo"></interceptor-ref>
-  				</interceptor-stack>
-  			</interceptors>
-  			
-  			<default-interceptor-ref name="noteStack"/>
-  			
-  			<global-results>
-  				<result name="json" type="json">
-  					<param name="root">jsonResult</param>
-  				</result>
-  			</global-results>
-  		</package>
-  			
-  		<package name="user" namespace="/user" extends="basepkg">
-  			<action name="login" class="userAction" method="login"/>
-  			<action name="regist" class="userAction" method="regist"/>
-  		</package>
-  		
-  		<package name="notebook" extends="basepkg" namespace="/notebook">
-  			<action name="page" class="notebookAction" method="page"/>
-  			<action name="list" class="notebookAction" method="list"/>
-  		</package>
-  	</struts>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 修改请求扩展名 action改为do -->
+	<constant name="struts.action.extension" value="do"></constant>
+	
+	<package name="basepkg" extends="json-default">
+		<interceptors>
+			<interceptor name="demo" class="myInterceptor"/>
+			<interceptor name="execInte" class="exceptionInterceptor"/>
+			
+			<interceptor-stack name="noteStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="execInte"></interceptor-ref>
+			</interceptor-stack>
+			
+			<interceptor-stack name="demoStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="demo"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="noteStack"/>
+		
+		<global-results>
+			<result name="json" type="json">
+				<param name="root">jsonResult</param>
+			</result>
+		</global-results>
+	</package>
+		
+	<package name="user" namespace="/user" extends="basepkg">
+		<action name="login" class="userAction" method="login"/>
+		<action name="regist" class="userAction" method="regist"/>
+	</package>
+	
+	<package name="notebook" extends="basepkg" namespace="/notebook">
+		<action name="page" class="notebookAction" method="page"/>
+		<action name="list" class="notebookAction" method="list"/>
+	</package>
+</struts>
+```
 
 7. 对控制器进行测试, 对页面功能进行测试

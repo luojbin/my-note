@@ -1,0 +1,470 @@
+<<organization unit>> 客户服务业务主角
+../../../webviewer/115.jpg
+cat4675749e030d/cat4675749e030d.htm
+
+cat4675749e030d/contents.cnt
+cat4675749e030d/
+<<organization unit>> 内部管理业务主角
+../../../webviewer/115.jpg
+cat467574af033c/cat467574af033c.htm
+
+cat467574af033c/contents.cnt
+cat467574af033c/
+<<organization unit>> 资产管理业务主角
+../../../webviewer/115.jpg
+cat467574bd034b/cat467574bd034b.htm
+
+cat467574bd034b/contents.cnt
+cat467574bd034b/
+<<organization unit>> 财务和电费管理业务主角
+../../../webviewer/115.jpg
+cat467574c70138/cat467574c70138.htm
+
+cat467574c70138/contents.cnt
+cat467574c70138/
+<<organization unit>> 用电检查业务主角
+../../../webviewer/115.jpg
+cat467574d60177/cat467574d60177.htm
+
+cat467574d60177/contents.cnt
+cat467574d60177/
+Main
+../../../webviewer/26.jpg
+dgm46757533036b.htm
+
+
+
+(
+)
+<<business actor>> 业务员
+../../../webviewer/111.jpg
+class46755b53004e.htm
+
+
+
+(
+thebu_申请永久用电 ( bu_申请永久用电 )
+../../../webviewer/82.jpg
+../../../looseends/role467945ee0169.htm
+
+
+
+thebu_申请临时用电 ( bu_申请临时用电 )
+../../../webviewer/82.jpg
+../../../looseends/role467945f103da.htm
+
+
+
+thebu_申请变更用电 ( bu_申请变更用电 )
+../../../webviewer/82.jpg
+../../../looseends/role467945f40292.htm
+
+
+
+thebu_申请暂停用电 ( bu_申请暂停用电 )
+../../../webviewer/82.jpg
+../../../looseends/role467945f6038c.htm
+
+
+
+thebu_申请销户 ( bu_申请销户 )
+../../../webviewer/82.jpg
+../../../looseends/role467945f9008e.htm
+
+
+
+thebu_故障报修 ( bu_故障报修 )
+../../../webviewer/82.jpg
+../../../looseends/role467945fb036b.htm
+
+
+
+the提供超时说明 ( 提供超时说明 )
+../../../webviewer/82.jpg
+../../../looseends/role467bfb81014a.htm
+
+
+
+)
+<<business actor>> 营业出纳
+../../../webviewer/111.jpg
+class46755beb00cb.htm
+
+
+
+(
+thebu_交纳业务费用 ( bu_交纳业务费用 )
+../../../webviewer/82.jpg
+../../../looseends/role467946060040.htm
+
+
+
+the制作日记帐 ( 制作日记帐 )
+../../../webviewer/82.jpg
+../../../looseends/role467c022e01f6.htm
+
+
+
+the管理对帐单 ( 管理对帐单 )
+../../../webviewer/82.jpg
+../../../looseends/role467c02310002.htm
+
+
+
+the调节平衡报表 ( 调节平衡报表 )
+../../../webviewer/82.jpg
+../../../looseends/role467c023302b1.htm
+
+
+
+)
+<<business actor>> 专职检查员
+../../../webviewer/111.jpg
+class46755d480000.htm
+
+
+
+(
+thebu_申请临时用电 ( bu_申请临时用电 )
+../../../webviewer/82.jpg
+../../../looseends/role467945ae0282.htm
+
+
+
+the管理电气资料档案 ( 管理电气资料档案 )
+../../../webviewer/82.jpg
+../../../looseends/role467c05260215.htm
+
+
+
+the维护专户检查记录 ( 维护专户检查记录 )
+../../../webviewer/82.jpg
+../../../looseends/role467c053d01a7.htm
+
+
+
+)
+<<business actor>> 用电检查员
+../../../webviewer/111.jpg
+class46755d6900fa.htm
+
+
+
+(
+)
+<<business actor>> 业务班长
+../../../webviewer/111.jpg
+class46757187005d.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a70035d.htm
+
+
+
+)
+<<business actor>> 财务主任
+../../../webviewer/111.jpg
+class467571a2002e.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a7d02ee.htm
+
+
+
+)
+<<business actor>> 抄表班长
+../../../webviewer/111.jpg
+class467571aa0157.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a730179.htm
+
+
+
+the分配抄表任务 ( 分配抄表任务 )
+../../../webviewer/82.jpg
+../../../looseends/role467c029e01d6.htm
+
+
+
+)
+<<business actor>> 电费班长
+../../../webviewer/111.jpg
+class467571b20177.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a6c02e0.htm
+
+
+
+the审批特殊计算 ( 审批特殊计算 )
+../../../webviewer/82.jpg
+../../../looseends/role467c02a7006f.htm
+
+
+
+)
+<<business actor>> 资产班长
+../../../webviewer/111.jpg
+class467571be0119.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a6e0273.htm
+
+
+
+the制定设备轮换计划 ( 制定设备轮换计划 )
+../../../webviewer/82.jpg
+../../../looseends/role467c041502e0.htm
+
+
+
+)
+<<business actor>> 现场施工班长
+../../../webviewer/111.jpg
+class467571c600cb.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a780282.htm
+
+
+
+)
+<<business actor>> 检查班长
+../../../webviewer/111.jpg
+class467571d1007d.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a760030.htm
+
+
+
+the制定用电普查计划 ( 制定用电普查计划 )
+../../../webviewer/82.jpg
+../../../looseends/role467c04bd00fc.htm
+
+
+
+the制定专项检查计划 ( 制定专项检查计划 )
+../../../webviewer/82.jpg
+../../../looseends/role467c04bf01f6.htm
+
+
+
+)
+<<business actor>> 用电主任
+../../../webviewer/111.jpg
+class467571d801c5.htm
+
+
+
+(
+the录入考核成绩 ( 录入考核成绩 )
+../../../webviewer/82.jpg
+../../../looseends/role46794a7b0011.htm
+
+
+
+the制定考核标准 ( 制定考核标准 )
+../../../webviewer/82.jpg
+../../../looseends/role46794b1003bb.htm
+
+
+
+the设定流程规则 ( 设定流程规则 )
+../../../webviewer/82.jpg
+../../../looseends/role467bfb620011.htm
+
+
+
+the监控业务流程 ( 监控业务流程 )
+../../../webviewer/82.jpg
+../../../looseends/role467bfb65008e.htm
+
+
+
+)
+<<business actor>> 系统管理员
+../../../webviewer/111.jpg
+class467571ee01f4.htm
+
+
+
+(
+the设置人员权限 ( 设置人员权限 )
+../../../webviewer/82.jpg
+../../../looseends/role46794ae20030.htm
+
+
+
+the管理人员档案 ( 管理人员档案 )
+../../../webviewer/82.jpg
+../../../looseends/role46794b450273.htm
+
+
+
+)
+<<business actor>> 抄表内勤
+../../../webviewer/111.jpg
+class467575bc037a.htm
+
+
+
+(
+the导出上月表示数 ( 导出上月表示数 )
+../../../webviewer/82.jpg
+../../../looseends/role467c028d02f0.htm
+
+
+
+the录入本月抄表示数 ( 录入本月抄表示数 )
+../../../webviewer/82.jpg
+../../../looseends/role467c0290011b.htm
+
+
+
+)
+<<business actor>> 电费发行员
+../../../webviewer/111.jpg
+class467575b5038a.htm
+
+
+
+(
+the计算电费 ( 计算电费 )
+../../../webviewer/82.jpg
+../../../looseends/role467c02660253.htm
+
+
+
+)
+<<business actor>> 电费收费员
+../../../webviewer/111.jpg
+class467575a80290.htm
+
+
+
+(
+the收取电费 ( 收取电费 )
+../../../webviewer/82.jpg
+../../../looseends/role467c022901f6.htm
+
+
+
+)
+<<business actor>> 营业会计
+../../../webviewer/111.jpg
+class4675758d02fd.htm
+
+
+
+(
+the制作营业报表 ( 制作营业报表 )
+../../../webviewer/82.jpg
+../../../looseends/role467c020d0030.htm
+
+
+
+the统计欠费明细 ( 统计欠费明细 )
+../../../webviewer/82.jpg
+../../../looseends/role467c023600ec.htm
+
+
+
+the制作收费明细 ( 制作收费明细 )
+../../../webviewer/82.jpg
+../../../looseends/role467c0238030f.htm
+
+
+
+)
+<<business actor>> 检查内勤
+../../../webviewer/111.jpg
+class467576d500bb.htm
+
+
+
+(
+the录入用电检查结果 ( 录入用电检查结果 )
+../../../webviewer/82.jpg
+../../../looseends/role467c04640224.htm
+
+
+
+the录入违章窃电记录 ( 录入违章窃电记录 )
+../../../webviewer/82.jpg
+../../../looseends/role467c04ab0002.htm
+
+
+
+)
+<<business actor>> 检查员
+../../../webviewer/111.jpg
+class467576c4030d.htm
+
+
+
+(
+)
+<<business actor>> 资产校修员
+../../../webviewer/111.jpg
+class4675783002ce.htm
+
+
+
+(
+the较验设备误差 ( 较验设备误差 )
+../../../webviewer/82.jpg
+../../../looseends/role467c041102e0.htm
+
+
+
+the维修设备 ( 维修设备 )
+../../../webviewer/82.jpg
+../../../looseends/role467c0413030f.htm
+
+
+
+)
+<<business actor>> 资产管理员
+../../../webviewer/111.jpg
+class46757829036b.htm
+
+
+
+(
+the管理资产 ( 管理资产 )
+../../../webviewer/82.jpg
+../../../looseends/role467c035b02a1.htm
+
+
+
+)

@@ -1,0 +1,148 @@
+Main
+../../../webviewer/26.jpg
+dgm471f67970167.htm
+
+
+
+(
+)
+<<Actor>> user_勘察员
+../../../webviewer/41.jpg
+class47164c9f00fa.htm
+
+
+
+(
+thesu_录入勘察单 ( su_录入勘察单 )
+../../../webviewer/82.jpg
+../../../looseends/role47164caa01a7.htm
+
+
+
+thesu_打印勘察单 ( su_打印勘察单 )
+../../../webviewer/82.jpg
+../../../looseends/role47164cae006f.htm
+
+
+
+)
+<<Actor>> user_配电专员
+../../../webviewer/41.jpg
+class47164d460186.htm
+
+
+
+(
+thesu_配电审批 ( su_配电审批 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d51011b.htm
+
+
+
+)
+<<Actor>> user_施工班
+../../../webviewer/41.jpg
+class47164d80032c.htm
+
+
+
+(
+thesu_扫描电气资料图 ( su_扫描电气资料图 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d8d01e6.htm
+
+
+
+)
+<<Actor>> user_业务班长
+../../../webviewer/41.jpg
+class47164c87033c.htm
+
+
+
+(
+thesu_查询勘察员 ( su_查询勘察员 )
+../../../webviewer/82.jpg
+../../../looseends/role47164c950021.htm
+
+
+
+thesu_录入勘察单 ( su_录入勘察单 )
+../../../webviewer/82.jpg
+../../../looseends/role47164c9800fc.htm
+
+
+
+thesu_用电审批 ( su_用电审批 )
+../../../webviewer/82.jpg
+../../../looseends/role47164cc103ab.htm
+
+
+
+thesu_分配勘察 ( su_分配勘察 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d60033e.htm
+
+
+
+)
+<<Actor>> user_业务收费员
+../../../webviewer/41.jpg
+class47164d6c0213.htm
+
+
+
+(
+thesu_计算业务费用 ( su_计算业务费用 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d75033e.htm
+
+
+
+thesu_收取业务费 ( su_收取业务费 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d7b008d.htm
+
+
+
+)
+<<Actor>> user_业务员
+../../../webviewer/41.jpg
+class47164c71033c.htm
+
+
+
+(
+thesu_申请登记 ( su_申请登记 )
+../../../webviewer/82.jpg
+../../../looseends/role47164c8000dc.htm
+
+
+
+thesu_终止业务流程 ( su_终止业务流程 )
+../../../webviewer/82.jpg
+../../../looseends/role47164c82012a.htm
+
+
+
+)
+<<Actor>> user_装表员
+../../../webviewer/41.jpg
+class47164d9101d4.htm
+
+
+
+(
+thesu_抄录表底数 ( su_抄录表底数 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d9a0244.htm
+
+
+
+thesu_提交资产出库单 ( su_提交资产出库单 )
+../../../webviewer/82.jpg
+../../../looseends/role47164d9e00ad.htm
+
+
+
+)

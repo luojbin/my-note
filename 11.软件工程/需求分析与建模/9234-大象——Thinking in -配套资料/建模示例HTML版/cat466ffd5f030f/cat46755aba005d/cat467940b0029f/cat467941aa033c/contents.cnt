@@ -1,0 +1,104 @@
+业务概要视图
+../../../../webviewer/26.jpg
+dgm4679498a00ab.htm
+
+
+
+(
+)
+<<business use case>> 录入用电检查结果
+../../../../webviewer/105.jpg
+uc467c0445032c.htm
+
+
+
+(
+the检查内勤 ( 检查内勤 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c04640222.htm
+
+
+
+)
+(
+)
+<<business use case>> 制定用电普查计划
+../../../../webviewer/105.jpg
+uc467c046a0119.htm
+
+
+
+(
+the检查班长 ( 检查班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c04bd00fa.htm
+
+
+
+)
+(
+)
+<<business use case>> 制定专项检查计划
+../../../../webviewer/105.jpg
+uc467c047f034b.htm
+
+
+
+(
+the检查班长 ( 检查班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c04bf01f4.htm
+
+
+
+)
+(
+)
+<<business use case>> 录入违章窃电记录
+../../../../webviewer/105.jpg
+uc467c04930222.htm
+
+
+
+(
+the检查内勤 ( 检查内勤 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c04ab0000.htm
+
+
+
+)
+(
+)
+<<business use case>> 管理电气资料档案
+../../../../webviewer/105.jpg
+uc467c0518006d.htm
+
+
+
+(
+the专职检查员 ( 专职检查员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c05260213.htm
+
+
+
+)
+(
+)
+<<business use case>> 维护专户检查记录
+../../../../webviewer/105.jpg
+uc467c052b006d.htm
+
+
+
+(
+the专职检查员 ( 专职检查员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c053d01a5.htm
+
+
+
+)
+(
+)

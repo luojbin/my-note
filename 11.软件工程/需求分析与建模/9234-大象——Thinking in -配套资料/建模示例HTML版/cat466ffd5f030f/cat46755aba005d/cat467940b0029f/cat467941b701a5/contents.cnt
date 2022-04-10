@@ -1,0 +1,200 @@
+业务概要视图
+../../../../webviewer/26.jpg
+dgm4679497d00fa.htm
+
+
+
+(
+)
+<<business use case>> 制作营业报表
+../../../../webviewer/105.jpg
+uc467c00380399.htm
+
+
+
+(
+the营业会计 ( 营业会计 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c020d002e.htm
+
+
+
+)
+(
+)
+<<business use case>> 统计欠费明细
+../../../../webviewer/105.jpg
+uc467c0154033c.htm
+
+
+
+(
+the营业会计 ( 营业会计 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c023600ea.htm
+
+
+
+)
+(
+)
+<<business use case>> 制作收费明细
+../../../../webviewer/105.jpg
+uc467c017c01a5.htm
+
+
+
+(
+the营业会计 ( 营业会计 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c0238030d.htm
+
+
+
+)
+(
+)
+<<business use case>> 收取电费
+../../../../webviewer/105.jpg
+uc467c018f0280.htm
+
+
+
+(
+the电费收费员 ( 电费收费员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c022901f4.htm
+
+
+
+)
+(
+)
+<<business use case>> 制作日记帐
+../../../../webviewer/105.jpg
+uc467c01b2008c.htm
+
+
+
+(
+the营业出纳 ( 营业出纳 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c022e01f4.htm
+
+
+
+)
+(
+)
+<<business use case>> 管理对帐单
+../../../../webviewer/105.jpg
+uc467c01e203c8.htm
+
+
+
+(
+the营业出纳 ( 营业出纳 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c02310000.htm
+
+
+
+)
+(
+)
+<<business use case>> 调节平衡报表
+../../../../webviewer/105.jpg
+uc467c01f80251.htm
+
+
+
+(
+the营业出纳 ( 营业出纳 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c023302af.htm
+
+
+
+)
+(
+)
+<<business use case>> 计算电费
+../../../../webviewer/105.jpg
+uc467c024c0119.htm
+
+
+
+(
+the电费发行员 ( 电费发行员 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c02660251.htm
+
+
+
+)
+(
+)
+<<business use case>> 录入本月抄表示数
+../../../../webviewer/105.jpg
+uc467c026b02bf.htm
+
+
+
+(
+the抄表内勤 ( 抄表内勤 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c02900119.htm
+
+
+
+)
+(
+)
+<<business use case>> 导出上月表示数
+../../../../webviewer/105.jpg
+uc467c027d001f.htm
+
+
+
+(
+the抄表内勤 ( 抄表内勤 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c028d02ee.htm
+
+
+
+)
+(
+)
+<<business use case>> 分配抄表任务
+../../../../webviewer/105.jpg
+uc467c0295035b.htm
+
+
+
+(
+the抄表班长 ( 抄表班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c029e01d4.htm
+
+
+
+)
+(
+)
+<<business use case>> 审批特殊计算
+../../../../webviewer/105.jpg
+uc467c02a20177.htm
+
+
+
+(
+the电费班长 ( 电费班长 )
+../../../../webviewer/82.jpg
+../../../../looseends/role467c02a7006d.htm
+
+
+
+)
+(
+)

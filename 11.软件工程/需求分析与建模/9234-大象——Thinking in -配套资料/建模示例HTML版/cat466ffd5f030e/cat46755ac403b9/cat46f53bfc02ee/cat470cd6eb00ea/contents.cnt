@@ -1,0 +1,312 @@
+基本资料
+../../../../webviewer/18.jpg
+dgm470cd6f702bf.htm
+
+
+
+(
+)
+用户档案
+../../../../webviewer/18.jpg
+dgm470cdf940119.htm
+
+
+
+(
+)
+编排抄表计划
+../../../../webviewer/22.jpg
+dgm470cebb20213.htm
+
+
+
+(
+)
+<<business entity>> 基本资料
+../../../../webviewer/113.jpg
+class470cd71d02af.htm
+
+
+
+(
+用户编号
+../../../../webviewer/31.jpg
+att470cea370290.htm
+
+
+
+(
+)
+the检查帐户 ( 检查帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce2ab0280.htm
+
+
+
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce2df0167.htm
+
+
+
+the申请资料 ( 申请资料 )
+../../../../webviewer/82.jpg
+../../../../looseends/role47d3b154037c.htm
+
+
+
+the用户信息 ( 用户信息 )
+../../../../webviewer/82.jpg
+../../../../looseends/role47d3b157031e.htm
+
+
+
+)
+<<business entity>> 资产帐户
+../../../../webviewer/113.jpg
+class470cdfd20177.htm
+
+
+
+(
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce32a00cb.htm
+
+
+
+the计费帐户 ( 计费帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce3f702e0.htm
+
+
+
+the电源帐户 ( 电源帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce477000f.htm
+
+
+
+)
+<<business entity>> 检查帐户
+../../../../webviewer/113.jpg
+class470cdfde0280.htm
+
+
+
+(
+the基本资料 ( 基本资料 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce2ab0290.htm
+
+
+
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce31c031c.htm
+
+
+
+)
+<<business entity>> 计费帐户
+../../../../webviewer/113.jpg
+class470cdfef0242.htm
+
+
+
+(
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce350030f.htm
+
+
+
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce3570167.htm
+
+
+
+the资产帐户 ( 资产帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce3f702de.htm
+
+
+
+the抄表帐户 ( 抄表帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce42e02fd.htm
+
+
+
+)
+<<business entity>> 抄表帐户
+../../../../webviewer/113.jpg
+class470cdff703a9.htm
+
+
+
+(
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce3b501a5.htm
+
+
+
+the电费台帐 ( 电费台帐 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce418011b.htm
+
+
+
+the计费帐户 ( 计费帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce42e02ee.htm
+
+
+
+)
+<<business entity>> 电源帐户
+../../../../webviewer/113.jpg
+class470ce042031c.htm
+
+
+
+(
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce44c02af.htm
+
+
+
+the用户档案 ( 用户档案 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce45300fa.htm
+
+
+
+the资产帐户 ( 资产帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce4770011.htm
+
+
+
+)
+<<business entity>> 电费台帐
+../../../../webviewer/113.jpg
+class470ce051036b.htm
+
+
+
+(
+the抄表帐户 ( 抄表帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce4180119.htm
+
+
+
+the收费台帐 ( 收费台帐 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce48c02d0.htm
+
+
+
+)
+<<business entity>> 收费台帐
+../../../../webviewer/113.jpg
+class470ce0590290.htm
+
+
+
+(
+the电费台帐 ( 电费台帐 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce48c02ce.htm
+
+
+
+)
+<<business entity>> 申请资料
+../../../../webviewer/113.jpg
+class47d3b0f3002e.htm
+
+
+
+(
+the基本资料 ( 基本资料 )
+../../../../webviewer/82.jpg
+../../../../looseends/role47d3b154037a.htm
+
+
+
+)
+<<business entity>> 用户信息
+../../../../webviewer/113.jpg
+class47d3b10f0157.htm
+
+
+
+(
+the基本资料 ( 基本资料 )
+../../../../webviewer/82.jpg
+../../../../looseends/role47d3b157031c.htm
+
+
+
+)
+<<business entity>> 用户档案
+../../../../webviewer/113.jpg
+class470cd69a0280.htm
+
+
+
+(
+the基本资料 ( 基本资料 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce2df0177.htm
+
+
+
+the检查帐户 ( 检查帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce31c031e.htm
+
+
+
+the资产帐户 ( 资产帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce32a00cd.htm
+
+
+
+the计费帐户 ( 计费帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce350030d.htm
+
+
+
+the计费帐户 ( 计费帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce3570169.htm
+
+
+
+the抄表帐户 ( 抄表帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce3b501a7.htm
+
+
+
+the电源帐户 ( 电源帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce44c029f.htm
+
+
+
+the电源帐户 ( 电源帐户 )
+../../../../webviewer/82.jpg
+../../../../looseends/role470ce45300fc.htm
+
+
+
+)

@@ -984,7 +984,6 @@ try{
 	- n < 0, 保存在内存, 默认值, 关闭浏览器清除
 
 	> cookie.setMaxAge(n)
-	
 ### 3.3. 有效路径
 - Cookie 的默认路径, 等于生成这个 Cookie 的 web 组件路径
 - 即 Cookie 只对生成它的页面, 以及平级或下级页面有效
@@ -1140,12 +1139,13 @@ session.invalidate();
 	    <filter-name>过滤器名</filter-name>
 	    <url-pattern>filter要处理的请求</url-pattern>
 	</filter-mapping>
+	
 	```
 
 ### 2.2. 工作原理
 ![](08_Servlet.assets/serv09_3.png)
 
-## 3. 案例 : NetCT OSS 登录检查
+## 3. 案例 : 登录检查
 ![](08_Servlet.assets/serv09_4.png)
 
 ## 5.参数说明
@@ -1772,8 +1772,8 @@ Apache 组织基于 JSP 标签定义的标签库, 后重新转回 Sun 公司, �
   `<%@ taglib uri="JSP标签的命名空间" prefix="命名空间前缀" %>`
 
   	前缀: <short-name>c</short-name>
-
-    	uri: <uri>http://java.sun.com/jsp/jstl/core</uri>
+  	
+  		uri: <uri>http://java.sun.com/jsp/jstl/core</uri>
 
 ## 2. 使用 JSTL 核心标签
 
