@@ -1,20 +1,28 @@
 #### 1. AMQP协议
 **1.简介**
+
 AMQP（Advanced Message Queuing Protocol，高级消息队列协议）是一个进程间传递异步消息的l网络协议
 
 **2.AMQP模型**
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190411002317206.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyMjI4OQ==,size_16,color_FFFFFF,t_70)
+
 **3.工作流程**
+
 消息发布者发布消息给交换机，交换机根据传递过来的路由键按照路由规则将接收到的消息分发给和交换机绑定的相应的队列，最后交给消息消费者
 
 
 #### 2. RabbitMQ
 **1.简介**
+
 RabbitMQ是实现AMQP（高级消息队列协议）的消息中间件的一种
 
 **2.工作流程**
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190411001941123.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyMjI4OQ==,size_16,color_FFFFFF,t_70)
+
 **相关概念**
+
 * 虚拟主机：
 	一个虚拟主机持有医嘱交换机，队列和绑定，rabbitMQ中一般建议有多个虚拟主机，为什么需要多个虚拟主机呢？很简单，rabbitMQ中，用户只能在虚拟主机的粒度进行权限控制，因此，如果需要禁止A组访问B组的交换机/队列/绑定，必须为A组合B租分别创建一个虚拟主机，默认虚拟主机“/“。
 * 交换机：
@@ -24,8 +32,8 @@ RabbitMQ是实现AMQP（高级消息队列协议）的消息中间件的一种
 * 绑定：
 	交换机和队列相绑定，一个交换机可绑定多个队列
 
-
 **生产消费模型**
+
 direct----匹配规则为：如果路由键匹配，消息就被投送到相关的队列
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019041100352220.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyMjI4OQ==,size_16,color_FFFFFF,t_70)
@@ -39,6 +47,7 @@ topic----交换器你采用模糊匹配路由键的原则进行转发消息到�
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190411003541136.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyMjI4OQ==,size_16,color_FFFFFF,t_70)
 
 **3.使用场景**
+
 RabbitMQ 即一个消息队列，主要是用来实现应用程序的异步和解耦，同时也能起到消息缓冲，消息分发的作用。
 
 #### 3.springboot 整合RabbitMQ
@@ -155,7 +164,7 @@ spring.rabbitmq.cache.connection.mode=channel
 #### 4.rabbitMQ消息确认机制
 
 * **为什么要进行消息确认？**
-    
+  
     发送者在发送消息后，无法确认消息是否真正发送到相应交换机中
     ，如果消费者将消息发送到正确的交换机上，但是路由不到正确的队列，而消费者也无法保证能正确从队列中获取到相应的消息
     ，rabbitMQ默认是没有反馈的，所以我们需要确认消息是否真正到达
@@ -195,16 +204,17 @@ spring.rabbitmq.cache.connection.mode=channel
     
         提供一个回调方法来实现消息确认confirmListener()
     
-        
+    
+    ​    
 
 **1.消息发送确认 与 消息接收确认（ACK）**
 * **消息发送确认：**
-   
+  
    当消息可能因为路由键不匹配或者发送不到指定交换机而导致无法发送到相应队列时
    确认消息发送失败，相反，确认消息发送成功
 
 * **消息接收确认：**
-    
+  
     1.消息通过 ACK 确认是否被正确接收，每个 Message 都要被确认（acknowledged），可以手动去 ACK 或自动 ACK
     
     2.自动确认会在消息发送给消费者后立即确认，但存在丢失消息的可能，如果消费端消费逻辑抛出异常，也就是消费端没有处理成功这条消息，那么就相当于丢失了消息
@@ -222,7 +232,8 @@ spring.rabbitmq.cache.connection.mode=channel
       AcknowledgeMode.NONE：自动确认
       AcknowledgeMode.AUTO：根据情况确认
       AcknowledgeMode.MANUAL：手动确认
-      
+    
+
 **2.两个接口**
 
 **ConfirmCallback**
@@ -308,13 +319,13 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
 
  被@PostConstruct修饰的方法会在服务器加载Servlet的时候运行，并且只会被服务器调用一次，类似于Serclet的inti()方法。
  被@PostConstruct修饰的方法会在构造函数之后，init()方法之前运行。
- 
+
  @PreConstruct
- 
+
  被@PreDestroy修饰的方法会在服务器卸载Servlet的时候运行，并且只会被服务器调用一次，类似于Servlet的destroy()方法。被@PreDestroy修饰的方法会在destroy()方法之后运行，在Servlet被彻底卸载之前。
- 
+
  #### 5.rabbitMQ消息持久化机制
- 
+
 为了保证消息的可靠性，需要对消息进行持久化。解决rabbitMQ服务器异常导致数据丢失
 
 为了保证RabbitMQ在重启、奔溃等异常情况下数据没有丢失，除了对消息本身持久化为，还需要将消息传输经过的队列(queue)，交互机进行持久化(exchange)，持久化以上元素后，消息才算真正RabbitMQ重启不会丢失。
@@ -323,13 +334,13 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
 >详细参数：
 
 >durable :是否持久化，如果true，则此种队列叫持久化队列（Durable queues）。此队列会被存储在磁盘上，当消息代理（broker）重启的时候，它依旧存在。没有被持久化的队列称作暂存队列（Transient queues）。 
- 
+
 >execulusive :表示此对应只能被当前创建的连接使用，而且当连接关闭后队列即被删除。此参考优先级高于durable 
 
 >autoDelete: 
  当没有生成者/消费者使用此队列时，此队列会被自动删除。 
  (即当最后一个消费者退订后即被删除)
- 
+
  eg:
  ```java
   /**
@@ -354,55 +365,55 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
         public TopicExchange durableTopicExchange(){
             return new TopicExchange(TopicKeyInterface.TOPIC_DURABLE_QUEUE_NAME,true,false);
         }
-```
+ ```
 
  #### 6.rabbitMQ消费者消息手动ACK确认
- 
+
  ##### 1.ACK机制：消息确认机制
  **1.作用：** 
- 
+
  * 确认消息是否被消费者消费，消息通过ACK机制确认是否被正确接收，每个消息都要被确认。
- 
+
  * 默认情况下，一个消息被消费者正确消费就会从队列中移除
- 
+
  **2.ACK确认模式**
- 
+
  * **AcknowledgeMode.NONE ：不确认**
- 
+
  	**1**. 默认所有消息消费成功，会不断的向消费者推送消息
  		
  	**2**. 因为rabbitMq认为所有消息都被消费成功，所以队列中不在存有消息，消息存在丢失的危险
- 
+
  * **AcknowledgeMode.AUTO：自动确认**
- 		
+
  	**1**. 由spring-rabbit依据消息处理逻辑是否抛出异常自动发送ack（无异常）或nack（异常）到server端。				      存在丢失消息的可能，如果消费端消费逻辑抛出异常，也就是消费端没有处理成功这条消息，那么就相当于丢失了消息
  如果消息已经被处理，但后续代码抛出异常，使用 Spring 进行管理的话消费端业务逻辑会进行回滚，这也同样造成了实际意义的消息丢失
  		
  	**2**. 使用自动确认模式时，需要考虑的另一件事是消费者过载
- 
+
  * **AcknowledgeMode.MANUAL：手动确认**
- 		
+
  	**1**. 手动确认则当消费者调用 ack、nack、reject 几种方法进行确认，手动确认可以在业务失败后进行一些操作，如果消息未被 ACK 则会发送到下一个消费者
  		
  	**2**. 手动确认模式可以使用 prefetch，限制通道上未完成的（“正在进行中的”）发送的数量
- 
+
  **3. 忘记ACK确认**
- 
+
  忘记通过basicAck返回确认信息是常见的错误。这个错误非常严重，将导致消费者客户端退出或者关闭后，消息会被退回RabbitMQ服务器，这会使RabbitMQ服务器内存爆满，而且RabbitMQ也不会主动删除这些被退回的消息。只要程序还在运行，没确认的消息就一直是 Unacked 状态，无法被 RabbitMQ 重新投递。更厉害的是，RabbitMQ 消息消费并没有超时机制，也就是说，程序不重启，消息就永远是 Unacked 状态。处理运维事件时不要忘了这些 Unacked 状态的消息。当程序关闭时（实际只要 消费者 关闭就行），消息会恢复为 Ready 状态。
- 
+
  ##### 2.局部消息确认
- 
+
  **开启手动ack确认**
- 
+
  ```application
  #消息确认机制 --- 是否开启手ack动确认模式
  spring.rabbitmq.listener.direct.acknowledge-mode=manual
  #消息确认机制 --- 是否开启手ack动确认模式
  spring.rabbitmq.listener.simple.acknowledge-mode=manual
  ```
- 
+
  **配置消费者**
- 
+
  ```java
  @RabbitHandler
      @RabbitListener(queues = DirectKeyInterface.DIRECT_QUEUE_NAME)
@@ -457,7 +468,7 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
      }
  ```
  ##### 3.全局消息确认
- 
+
 发现一个问题，如果全局配置消费者消息ACk确认，会出现一个问题，就是有部分消息在没有被监听到的情况下可能会因为被消费掉而从队列中
  移除，从而没有执行到业务代码，所以暂时还是局部在消费者配置
  ```java
@@ -530,54 +541,54 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
 
 
  #### 7.RabbitMQ延时消费
- 
+
  ##### 应用场景
  - **延迟消费**:
- 
+
  比如： 用户生成订单之后，需要过一段时间校验订单的支付状态，如果订单仍未支付则需要及时地关闭订单。
- 
+
  用户注册成功之后，需要过一段时间比如一周后校验用户的使用情况，如果发现用户活跃度较低，则发送邮件或者短信来提醒用户使用。
- 
+
  - **延迟重试**：
- 
+
  比如消费者从队列里消费消息时失败了，但是想要延迟一段时间后自动重试。
- 
+
  如果不使用延迟队列，那么我们只能通过一个轮询扫描程序去完成。这种方案既不优雅，也不方便做成统一的服务便于开发人员使用。但是使用延迟队列的话，我们就可以轻而易举地完成。
- 
+
  ### 二，springboot实现rabbitMQ延时队列
  #### 实现思路
  ###### RabbitMQ两大特性
- 
+
  **RabbitMQ消息的死亡方式：**
- 
+
  - 消息被拒绝，通过调用basic.reject或者basic.nack并且设置的requeue参数为false。
  - 消息设置了存活时间
  - 消息进入了一条已经达到最大长度的队列
- 
+
  **Time-To-Live Extensions**
- 
+
  rabbitmq允许我们为消息或者队列设置过期时间，也就是TTL，TTL的意思是一条消息在队列中最大的存活时间，单位是毫秒，当某条消息被设置了TTL或者当某条消息进入了设置了TTL的队列时，这条消息会在经过TTL秒后“死亡”，成为Dead Letter。如果既配置了消息的TTL，又配置了队列的TTL，那么较小的那个值会被取用。
- 
- 
+
+
  **Dead Letter Exchange**
- 
+
  如果队列设置了Dead Letter Exchange（DLX），那么这些Dead Letter就会被重新publish到Dead Letter Exchange，通过Dead Letter Exchange路由到其他队列
- 
+
  ##### 实现流程
  * **延迟消费**
- 
+
  生产者产生的消息首先会进入缓冲队列（图中红色队列）。通过RabbitMQ提供的TTL扩展，这些消息会被设置过期时间，也就是延迟消费的时间。等消息过期之后，这些消息会通过配置好的DLX转发到实际消费队列（图中蓝色队列），以此达到延迟消费的效果。
- 
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190419213745548.png)
- 
+
  * **延迟重试**
- 
+
  消费者发现该消息处理出现了异常，比如是因为网络波动引起的异常。那么如果不等待一段时间，直接就重试的话，很可能会导致在这期间内一直无法成功，造成一定的资源浪费。那么我们可以将其先放在缓冲队列中（图中红色队列），等消息经过一段的延迟时间后再次进入实际消费队列中（图中蓝色队列），此时由于已经过了“较长”的时间了，异常的一些波动通常已经恢复，这些消息可以被正常地消费。
- 
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190419213834279.png)
- 
+
  ##### springboot实现rabbitMQ延迟消费
- 
+
  延迟消费相关配置
  ```java
  @Configuration
@@ -624,7 +635,7 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
  }
  
  ```
- 
+
  发送消息
  ```java
      /**
@@ -660,9 +671,9 @@ public class RabbitReturnCallback implements RabbitTemplate.ReturnCallback {
      }
  ```
  结果：
- 
+
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190420011059332.png)
- 
+
  
 
 

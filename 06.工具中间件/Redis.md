@@ -183,7 +183,7 @@ Redis hash 是一个键值对 KEY-VALUE 集合, 其中的 key 和 value 都是 s
 
 与 Java HashMap 类似, 是数组+链表结构
 
-![img](Redis.assets/1647e419af9e3a87)
+![img](Redis.assets/1647e419af9e3a87.jpg)
 
 每个 hash 可以存储**2^32^ -1 键值对（4294967295, 每个列表可存储40多亿）**。 
 
