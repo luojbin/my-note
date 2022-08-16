@@ -77,6 +77,22 @@ ElasticSearch 通过 Restful API 对外提供访问接口, 可以通过任意 ht
 
 # 四. 工作原理
 
+## 索引创建流程
+
+https://blog.csdn.net/dkjhl/article/details/124584412
+
+![https://img-blog.csdnimg.cn/f9f4ba4c7ca94ca999d1efb6a15acf5d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZGtqaGw=,size_20,color_FFFFFF,t_70,g_se,x_16](ElasticSearch.assets/f9f4ba4c7ca94ca999d1efb6a15acf5d.png)
+
+
+
+![image-20220817013616519](ElasticSearch.assets/image-20220817013616519.png)
+
+
+
+没找到关于 shard-started 聚合相关的代码, 
+
+但是在那个提交 clusteState 更新任务的地方, 我打断点之后发现 shard-started 的任务出现的次数, 跟主分片/复分片的数量有关, 如果索引创建时要求的多, 就会多几个 shard-started 的任务
+
 
 
 
