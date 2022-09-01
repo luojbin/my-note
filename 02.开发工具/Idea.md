@@ -50,7 +50,7 @@
 
 或者在项目结构树中选中两个文件, `CTRL+D`, 直接打开对比框
 
-# 一. 编辑器功能
+# 二. 编辑器功能
 
 ## 文件编码
 
@@ -940,7 +940,7 @@ idea 自动清理无用的 import, 快捷键 `ctrl+alt+o`. 可以为文件/包/�
 
 ![1568963715208](Idea.assets/1568963715208.png)
 
-# 二. 项目管理与版本控制
+# 三. 项目管理与版本控制
 
 ## 管理SDK
 
@@ -1101,7 +1101,7 @@ tool-task & context-open task, 可以进行task 和上下文的切换. 开启一
 
 
 
-# 三. 运行/调试
+# 四. 运行/调试
 
 ## 运行配置
 
@@ -1418,7 +1418,7 @@ jdk 默认的热部署, 只能修改方法体, 而对于修改方法签名/增�
 
 将应用部署到应用服务器, 如 tomcat 中时, 可以通过 update 操作, 更新应用.
 
-# 四. 属性配置
+# 五. 属性配置
 
 ## smart Key
 
@@ -1478,7 +1478,7 @@ maven 默认在每次启动时会检查依赖, 如果需要, 可以将maven 设�
 
 ![1568274787943](Idea.assets/1568274787943.png)
 
-# 二. 快捷键
+# 六. 快捷键
 
 可以安装 `Key Promoter X` 插件, 在通过鼠标实现某项操作时, 给出对应的快捷键提示
 
@@ -1736,3 +1736,23 @@ maven 默认在每次启动时会检查依赖, 如果需要, 可以将maven 设�
 | **CTRL+T**       | 拉取更新代码 | pull/update |
 | **CTRL+K**       | 提交代码     | commit      |
 | **CTRL+SHIFT+K** | 推送到远程库 | push        |
+
+# 七. 扩展插件
+
+| 插件名称                           | 说明                        |
+| ---------------------------------- | --------------------------- |
+| Adapter for Eclipse Code Formatter |                             |
+| Alibaba Java Coding Guidelines     | 代码规范检查                |
+| CheckStyle-IDEA                    | 代码格式检查                |
+| GenerateAllSetter                  | 一键调用所有setter          |
+| Grep Console                       | 控制台增强, 颜色高亮/过滤   |
+| GsonFormatPlus                     | json 转 pojo                |
+| Guice                              |                             |
+| JBoss jBPM                         |                             |
+| Maven Helper                       | Maven 增强, 依赖树分析      |
+| MybatisCodeHelperPro               | MyBatis 支持                |
+| Paste Images Into Markdown         | markdown 增强               |
+| String Manipulatin                 | 字符串格式转换(驼峰/帕斯卡) |
+| Translation                        | 翻译插件                    |
+| Vue.js                             | 前端 vue 框架支持           |
+
