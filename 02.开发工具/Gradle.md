@@ -63,6 +63,46 @@ maven 相关功能的替代实现
 
 ### 2.1. 远程仓库
 
+在 `~/.gradle` 目录中添加 `init.gradle` 配置文件, 添加以下内容, 指定远程仓库使用阿里云镜像服务
+
+```groovy
+settingsEvaluated { settings ->
+  settings.dependencyResolutionManagement {
+    repositories {
+      maven {
+        url "https://maven.aliyun.com/repository/public"
+      }
+      google {
+        url "https://maven.aliyun.com/repository/google"
+      }
+    }
+  }
+}
+allprojects {
+  repositories {
+    maven {
+      url "https://maven.aliyun.com/repository/public"
+    }
+    google {
+      url "https://maven.aliyun.com/repository/google"
+    }
+  }
+
+  buildscript {
+    repositories {
+      maven {
+        url "https://maven.aliyun.com/repository/public"
+      }
+      google {
+        url "https://maven.aliyun.com/repository/google"
+      }
+    }
+  }
+}
+```
+
+
+
 ### 2.2. 本地仓库
 
 ### 2.3. 编码及编译版本
