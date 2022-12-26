@@ -63,21 +63,11 @@ maven 相关功能的替代实现
 
 ### 2.1. 远程仓库
 
+gradle 支持多种仓库类型, 包括 Maven, Ivy, 
+
 在 `~/.gradle` 目录中添加 `init.gradle` 配置文件, 添加以下内容, 指定远程仓库使用阿里云镜像服务
 
 ```groovy
-settingsEvaluated { settings ->
-  settings.dependencyResolutionManagement {
-    repositories {
-      maven {
-        url "https://maven.aliyun.com/repository/public"
-      }
-      google {
-        url "https://maven.aliyun.com/repository/google"
-      }
-    }
-  }
-}
 allprojects {
   repositories {
     maven {
@@ -200,6 +190,61 @@ $ gradle wrapper --gradle-version 6.5 --distribution-type all
 
    1. 使用 HTTPS+用户验证, 从指定服务器下载 gradle
    2. 验证 gradle wrapper 完整与安全
+
+## 4. 文件目录
+
+Gradle 使用两个关键的目录来管理项目构建工作:
+
+### 用户目录
+
+用户目录用来存储 gradle 的全局配置和初始化脚本, 也会存放缓存和日志文件, 大概结构如下
+
+```
+~/.gradle
+├── caches 				// 全局缓存目录,未在项目脚本中指定的都在这里
+│   ├── 4.8 				// 特定版本的缓存, 为了支持增量构建
+│   ├── 4.9 		
+│   ├── ⋮
+│   ├── jars-3 			// 共享缓存, 用来存放依赖
+│   └── modules-2 	// 共享缓存, 用来存放依赖
+├── daemon 				// daemon 守护进程的注册表和日志
+│   ├── ⋮
+│   ├── 4.8
+│   └── 4.9
+├── init.d 				// 全局适用的初始化脚本
+│   └── my-setup.gradle
+├── wrapper				// wrapper 下载的不同版本 gradle
+│   └── dists 	
+│       ├── ⋮
+│       ├── gradle-4.8-bin
+│       ├── gradle-4.9-all
+│       └── gradle-4.9-bin
+└── gradle.properties // 全局的配置参数
+```
+
+在 gradle 4.10 以上的版本, gradle 会自动清理用户目录中的内容, 当守护线程停止或结束时, 会在后台执行清理操作. 如果使用了 `--no-daemon` 参数, 则会在构建工作完成之后前台执行, 并提供一个进度指示器.
+
+### 项目目录
+
+项目目录用来存储项目构建相关的内容, 结构如下
+
+```
+项目根目录
+├── .gradle 			// 项目级的 gradle 目录
+│   ├── 4.8 			// 项目级的缓存目录
+│   ├── 4.9
+│   └── ⋮
+├── build 				// 存放构建产物的目录
+├── gradle				// 项目的构建目录, gradle 在这里生成所有构建产物
+│   └── wrapper   // 包含 wapper 相关的配置和 jar
+├── build.gradle or build.gradle.kts 				// 项目构建脚本
+├── gradle.properties 											// 项目级的 gradle 配置参数
+├── gradlew 																// 使用 gradle wrapper 的构建脚本, shell版
+├── gradlew.bat 														// 使用 gradle wrapper 的构建脚本, 批处理版
+└── settings.gradle or settings.gradle.kts 	// 项目设置文件
+```
+
+
 
 # 二. 依赖相关
 
