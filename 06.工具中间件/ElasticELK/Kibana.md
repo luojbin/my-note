@@ -119,17 +119,17 @@ index pattern 支持通配符, 可以关联到多个索引
 | Markdown       | 信息框, 通过 markdown 语法, 编写提示信息, 可以用作 dashboard 概述 |
 | Data Table     | 数据表, 直接展示相关数据                                     |
 | Line           | 折线图                                                       |
-| Horizontal Bar | 柱状图, 水平放置                                             |
-| Vertical Bar   | 柱状图, 垂直放置                                             |
+| Horizontal Bar | 水平条形图                                                   |
+| Vertical Bar   | 垂直条形图                                                   |
 | Area           | 面积图                                                       |
 | Pie            | 饼图, 显示数据来源比例                                       |
-| Gauge          | 油量表, 记录统计数据占预设数字的比例                         |
-| Goal           | 目标进度, 记录统计数据距离目标还有多少                       |
+| Gauge          | 仪表盘图, 记录统计数据占预设数字的比例                       |
+| Goal           | 目标图, 记录统计数据距离目标还有多少                         |
 | Heat Map       | 热力图, 以矩阵形式显示数据分布                               |
 | Tag Cloud      | 词云, 根据某个字段的相关指标生成词云                         |
 | Maps           | 地图, 如果数据与地理位置相关, 可以结合地图展示               |
 | Metric         | 指标, 根据数据得到一个指标                                   |
-| Controls       | 控制面板, 添加常用的筛选条件, 在 Dashboard 更新所有可视化面板 |
+| Controls       | 控件, 添加常用的筛选条件, 在 Dashboard 更新所有可视化面板    |
 | Lens           | 向导工具                                                     |
 | TSVB           | time-serial visual builder, 时间序列可视化的构造器, 根据时间维度, 创建可视化, 可以生成多种展示 |
 | Timelion       |                                                              |
@@ -145,9 +145,16 @@ CSS 的 kibana 经过删减, 未提供 lens 工具, 但是提供了??
 
 ## 图像配置
 
-### 数据配置
+### 数据
 
-### 指标与坐标值配置
+- Metrics
+  - Y轴数据, 选择一个聚合指标, 作为 y 轴的数据
+  - Dot size, 点大小
+
+### 指标与坐标轴配置
 
 ### 面板设置
 
+# 基础图形
+
+折线图, 面积图, 条形图

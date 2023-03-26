@@ -42,7 +42,7 @@
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&quot;index&quot;:{&quot;_index&quot;:&quot;es_write_pref_${__Random(1,10,)}&quot;,&quot;_type&quot;:&quot;_doc&quot;}}&#xd;
-{&quot;remote_addr&quot;: &quot;40.77.167.${__Random(1,100,)}&quot;,&quot;cpu_percent&quot;: ${__Random(30,60,)},&quot;mem_usage_percent&quot;: ${__Random(50,60,)},&quot;request&quot;: &quot;GET /image/578/article/100x100 HTTP/1.1&quot;,&quot;http_referer&quot;: [&quot;-&quot;],&quot;body_bytes_sent&quot;: 9831,&quot;time_local&quot;: &quot;2022-12-${__Random(10,25,)} ${__Random(0,23,)}:${__Random(0,59,)}:${__Random(0,59,)}&quot;,&quot;status&quot;: 200,&quot;http_user_agent&quot;: &quot;Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)&quot;}&#xd;
+{&quot;remote_addr&quot;: &quot;40.77.167.${__Random(1,100,)}&quot;,&quot;cpu_percent&quot;: ${__Random(30,60,)},&quot;mem_usage_percent&quot;: ${__Random(50,60,)},&quot;mem_usage_bytes&quot;: ${__Random(5000000000,10000000000,)},&quot;request&quot;: &quot;GET /image/578/article/100x100 HTTP/1.1&quot;,&quot;http_referer&quot;: [&quot;-&quot;],&quot;body_bytes_sent&quot;: 9831,&quot;time_local&quot;: &quot;2022-12-${__Random(10,25,)} ${__Random(0,23,)}:${__Random(0,59,)}:${__Random(0,59,)}&quot;,&quot;status&quot;: 200,&quot;http_user_agent&quot;: &quot;Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)&quot;}&#xd;
 </stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
