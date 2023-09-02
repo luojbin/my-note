@@ -4,8 +4,6 @@
 
 https://www.bilibili.com/video/BV1Qe4y1c7Eb/?spm_id_from=333.999.0.0&vd_source=a5116378ed55a7a52afc94f577036c38
 
-
-
 ![image-20230325004909182](ai绘图.assets/image-20230325004909182.png)
 
 ```
@@ -40,3 +38,48 @@ looking at viewer, posing, (laughing:1.1), (open mouth),  standing,
 https://www.bilibili.com/video/BV1Z84y1H7vL/?spm_id_from=333.999.0.0&vd_source=a5116378ed55a7a52afc94f577036c38
 
 ![image-20230325004236320](ai绘图.assets/image-20230325004236320.png)
+
+
+
+# lora 训练
+
+整体流程
+
+1. 准备要训练的照片
+2. 通过训练包中的 tagger 自动分析照片并打tag
+3. 构造 `./train/<模型名>/<训练次数>_<概念>` 目录, 将 打 tag 后的照片和tag.txt 放进去
+4. 设置底模路径, 指定一个大模型
+5. 设置训练集路径, 即步骤3中的目录
+
+## controlnet
+
+需要 预处理+对应模型 共同协作才能生成图片
+
+## 需要的插件
+
+controlnet, 预处理器+模型
+
+network, lora 对比预览
+
+脚本-xyz 图表
+
+
+
+![image-20230722152929427](ai绘图.assets/image-20230722152929427.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
